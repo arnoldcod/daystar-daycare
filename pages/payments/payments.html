@@ -22,103 +22,109 @@
                <div w3-include-html="/includes-navbar/navbar.html"></div> 
             </div>
          </div>
-     
-         <div id="row1">
-            <div id="row1-left clearfix">
-                <a class="btn btn-primary text-bg-success p-2 " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                    click Here to open canvas
-                  </a>  
-                       
-                  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                    <div class="offcanvas-header">
-                      <h2 class="offcanvas-title" id="offcanvasExampleLabel">Administration</h2>
-                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body text-bg-success p-3 ">
-                      <div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="/images/lady-teacher.jpeg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Head Teacher</h5>
-                              <p class="card-text">Ms. Ahumuza Diana</p>
-                             
-                            </div>
-                          </div>
-                      </div>
-
-                      <div class="dropdown mt-3">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                          Manage Babies
-                        </button>
-                        <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-success " href="/pages/babies/babies.html">Register new baby</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">view all babies</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Update baby details </a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Record baby departure.</a></li>
-                        </ul>
-                      </div>
-                      <div class="dropdown mt-3">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                          Manage Sitters
-                        </button>
-                        <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-success " href="/pages/sitters/sitters.html">View all sitters</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Add new sitter</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Edit sitter details</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Remove sitter details</a></li>
-                        </ul>
-                      </div>
-                      <div class="dropdown mt-3">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                          Manage Payments
-                        </button>
-                        <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-success " href="/pages/payments/payments.html">View payment history</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Make payment</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Generate monthly invoices</a></li>
-                         
-                        </ul>
-                      </div>
-                      <div class="dropdown mt-3">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                          Manage Procurement
-                        </button>
-                        <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-success " href="/pages/procurement/procurement.html">view procurement itemss</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Add new procurement item</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Update procurement item</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Remove procurement item</a></li>
-                        </ul>
-                      </div>
-                      <div class="dropdown mt-3">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            Reports & Analytics
-                        </button>
-                        <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-success " href="/pages/reports-analytics/reports-analytics.html">Generate daily report</a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Generate monthly report </a></li>
-                          <li><a class="dropdown-item text-bg-success " href="#">Generate custom reports</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div> 
-            </div>
 
             <div id="row1-right">
-                <div id="row1-right-logo">
-                    <div class="container"></div>
-                    <div class="container"></div>
-                    <div class="container"></div>
-                    <div class="container"></div>
-                    <div class="container"></div>
-                    <div class="container"></div>
-                    <div class="container"></div>
-                    <div class="container">hello</div>        
+                <div id="row1-right-logo"> 
+                  <button id="openModalBtn" class="text-bg-light openForm">Open Payment Form</button>     
                 </div>
 
                 <div id="row1-right-bottom">
                     
                     <!--content-->
+                    <div id="paymentModal" class="modal">
+                      <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h1>Payment Form</h1>
+                       <form id="paymentForm">
+                  
+                        <!-- Additional information -->
+                        <div class="form-group">
+                          <label for="childName">Name of Child</label>
+                          <input type="text" id="childName" name="childName">
+                        </div>
+                        <div class="form-group">
+                          <label for="childAge">Age of Child</label>
+                          <input type="number" id="childAge" name="childAge" min="0">
+                        </div>
+                        <div class="form-group">
+                          <label for="periodOfStay">Period of Stay (Hours)</label>
+                          <input type="number" id="periodOfStay" name="periodOfStay" min="0">
+                        </div>
+                        <div class="form-group">
+                          <label for="childId">ID of Child</label>
+                          <input type="text" id="childId" name="childId">
+                        </div>
+                        <div class="form-group">
+                          <label for="contact">Contact</label>
+                          <input type="tel" id="contact" name="contact">
+                        </div>
+                        <div class="form-group">
+                          <label for="address">Address</label>
+                          <input type="text" id="address" name="address">
+                        </div>
+                  
+                        <!-- Additional fields -->
+                        <div class="form-group">
+                          <label for="payerName">Name of Person Paying</label>
+                          <input type="text" id="payerName" name="payerName">
+                        </div>
+                        <div class="form-group">
+                          <label for="paymentDate">Date</label>
+                          <input type="date" id="paymentDate" name="paymentDate">
+                        </div>
+                        <div class="form-group">
+                          <label for="paymentTime">Time</label>
+                          <input type="time" id="paymentTime" name="paymentTime">
+                        </div>
+                        <div class="form-group">
+                          <label for="sitterId">ID of Sitter</label>
+                          <input type="text" id="sitterId" name="sitterId">
+                        </div>
+                        <div class="form-group">
+                          <label for="sitterPayment">Payment for Sitters (UGX)</label>
+                          <input type="number" id="sitterPayment" name="sitterPayment" min="0">
+                        </div>
+                        <div class="form-group">
+                          <label for="babyHalfDay">Half Day Babysitting (UGX)</label>
+                          <input type="number" id="babyHalfDay" name="babyHalfDay" min="0">
+                        </div>
+                        <div class="form-group">
+                          <label for="babyFullDay">Full Day Babysitting (UGX)</label>
+                          <input type="number" id="babyFullDay" name="babyFullDay" min="0">
+                        </div>
+                  
+                        <button type="submit">Make Payment</button>
+                      </form>
+                    </div>
+                  </div>
+                  
+                      <!-- Payment History -->
+                      <div id="paymentHistory" class="text-bg-success">
+                        <h2 class="paymenth2">Payment History</h2>
+                        <table id="paymentTable">
+                          <thead class="text-dark">
+                            <tr>
+                              <th>Name of Child</th>
+                              <th>Age of Child</th>
+                              <th>Period of Stay (Days)</th>
+                              <th>ID of Child</th>
+                              <th>Contact</th>
+                              <th>Address</th>
+                              <th>ID of Sitter</th>
+                              <th>Sitter Payment (UGX)</th>
+                              <th>Half-Day Babysitting Payment (UGX)</th>
+                               <th>Full-Day Babysitting Payment (UGX)</th>
+                              <th>Total Payment (UGX)</th>
+                              <th>Name of Payer</th>
+                              <th>Date</th>
+                              <th>Time</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody id="paymentList"></tbody>
+                        </table>
+                      </div>
+                    </div>
                 
                 </div>
 
@@ -152,8 +158,9 @@
 
            
 
-    </main>
 
+
+    </main>
 
      <!-- cdn bootstrap js -->
 

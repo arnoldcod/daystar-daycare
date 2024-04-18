@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0px;
     padding: 0px;
@@ -13,18 +14,21 @@ body{
 #main-div{
     display: flex;
     flex-direction: column;
-    background-color: orange;
     width: 100%;
     min-height: 100px;
     margin: auto;
+    background-image: url();
+    opacity: 2;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+   background-size: cover;
 }
 
 #logo-nav-parent{
     display: flex;
-    flex-direction: row;
     width: 100%;
     min-height: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 #welcome{
@@ -51,7 +55,7 @@ body{
 #row1 {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 92%;
     min-height: 850px;   
     justify-content: space-between;
 }
@@ -59,14 +63,15 @@ body{
 #row1-left{
     display: flex;
     flex-direction: row;
-    flex-basis: 5%;
+    flex-basis: 2%;
 }
 
 #row1-right{
     display: flex;
     flex-direction: column;
-    flex-basis: 90%;
-    background-color: purple;
+    flex-basis: 100%;
+    margin: auto;
+  
 }
 
 #row1-right-logo {
@@ -75,7 +80,7 @@ body{
     width: 100%;
     min-height: 50px;
     justify-content: space-between;
-    align-items: center;
+    align-items: right;
 }
 
 #row1-right-bottom {
@@ -166,4 +171,145 @@ footer h3 {
     justify-content: center;
     color: white;
   }
+
+/**
+*! Payment Css
+**/
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.openForm{
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Payment Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Payment History Styles */
+#paymentHistory {
+  margin-top: 20px;
+}
+
+.paymenth2{
+  margin-left: 44%;
+}
+
+#paymentTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#paymentTable th,
+#paymentTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#paymentTable th {
+  background-color: #f2f2f2;
+}
+
+#paymentTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#paymentTable tbody tr:hover {
+  background-color: #ddd;
+}
+
+.delete-btn{
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+
 
