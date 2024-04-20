@@ -69,7 +69,7 @@ body{
 #row1-right{
     display: flex;
     flex-direction: column;
-    flex-basis: 90%;
+    flex-basis: 80%;
   
 }
 
@@ -100,8 +100,6 @@ body{
 
 
 
-
-
 #footer{
     display: flex;
     flex-direction: row;
@@ -118,47 +116,11 @@ body{
 footer h3 {
     color: #fff;
   }
-  .titlepage h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  .con_bg {
-    background-color: #f8f9fa;
-    padding: 50px 0;
-  }
+ 
   .main_form {
     margin-top: 30px;
   }
-  .send_btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  .location_form {
-    list-style: none;
-    padding: 0;
-  }
-  .location_form li {
-    margin-bottom: 10px;
-  }
-  .location_form a {
-    color: #fff;
-  }
-  .social_icon {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  .social_icon li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  .social_icon a {
-    color: #fff;
-    font-size: 24px;
-  }
+ 
   .copyright p {
     margin: 0;
   }
@@ -185,12 +147,16 @@ footer h3 {
  
 
   .container {
-  max-width: 600px;
+  max-width: 300px;
   margin: 50px auto;
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .registrationForm {
+    max-width: 300px;
   }
   
   h1 {

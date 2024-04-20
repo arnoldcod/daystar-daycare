@@ -64,6 +64,20 @@ body{
     margin-bottom: 350px;
 }
 
+
+@media (max-width: 1000px){
+  .row-login{
+      grid-template-columns: repeat(1, 300px);
+  }
+}
+
+/* @media (max-width: 1000px){
+  .shop{
+      grid-template-columns: repeat(1, 350px);
+  }
+} */
+
+
 #col{
     display: flex;
     flex-direction: row;
@@ -176,22 +190,7 @@ footer h3 {
   .location_form li {
     margin-bottom: 10px;
   }
-  .location_form a {
-    color: #fff;
-  }
-  .social_icon {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  .social_icon li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  .social_icon a {
-    color: #fff;
-    font-size: 24px;
-  }
+ 
   .copyright p {
     margin: 0;
   }
