@@ -1,0 +1,179 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title main-dashboard
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css')
+  // cdn bootstrap css
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/css/maindashboard.css')
+main#main-div.main-div.content
+  #logo-nav-parent.text-bg-success.p-3
+    #logo-div.text-color
+    #welcome.welcome.text-color.text-bg-success.p-3
+      h4 DayStar day care Kindergarten 
+    #navbar
+      div(w3-include-html='/includes-navbar/navbar.html')
+  #row1
+    div(id='row1-left clearfix')
+      a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+        | click Here to open canvas
+      #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+        .offcanvas-header
+          h2#offcanvasExampleLabel.offcanvas-title Administration
+          button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+        .offcanvas-body.text-bg-success.p-3
+          div
+            .card(style='width: 18rem;')
+              img.card-img-top(src='/images/lady-teacher.jpeg' alt='...')
+              .card-body
+                h5.card-title Head Teacher
+                p.card-text Ms. Ahumuza Diana
+          .dropdown.mt-3
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+              | Manage Babies
+            ul.dropdown-menu
+              li
+                a.dropdown-item.text-bg-success(href='/babiesRegister') Register new baby
+              li
+                a.dropdown-item.text-bg-success(href='#') view all babies
+              li
+                a.dropdown-item.text-bg-success(href='#') Update baby details 
+              li
+                a.dropdown-item.text-bg-success(href='#') Record baby departure.
+          .dropdown.mt-3
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+              | Manage Sitters
+            ul.dropdown-menu
+              li
+                a.dropdown-item.text-bg-success(href='/sittersRegister') View all sitters
+              li
+                a.dropdown-item.text-bg-success(href='#') Add new sitter
+              li
+                a.dropdown-item.text-bg-success(href='#') Edit sitter details
+              li
+                a.dropdown-item.text-bg-success(href='#') Remove sitter details
+          .dropdown.mt-3
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+              | Manage Payments
+            ul.dropdown-menu
+              li
+                a.dropdown-item.text-bg-success(href='/pay') View payment history
+              li
+                a.dropdown-item.text-bg-success(href='#') Make payment
+              li
+                a.dropdown-item.text-bg-success(href='#') Generate monthly invoices
+          .dropdown.mt-3
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+              | Manage Procurement
+            ul.dropdown-menu
+              li
+                a.dropdown-item.text-bg-success(href='/pages/procurement/procurement.html') view procurement itemss
+              li
+                a.dropdown-item.text-bg-success(href='#') Add new procurement item
+              li
+                a.dropdown-item.text-bg-success(href='#') Update procurement item
+              li
+                a.dropdown-item.text-bg-success(href='#') Remove procurement item
+          .dropdown.mt-3
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+              | Reports &amp; Analytics
+            ul.dropdown-menu
+              li
+                a.dropdown-item.text-bg-success(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
+              li
+                a.dropdown-item.text-bg-success(href='#') Generate monthly report 
+              li
+                a.dropdown-item.text-bg-success(href='#') Generate custom reports
+    #row1-right
+      #row1-right-logo
+        .container
+        .container
+        .container
+        .container
+        .container
+        .container
+        .container
+        .container hello
+      #row1-right-bottom
+        // Main wrapper for the calendar application
+        .wrapper
+          .container-calendar
+            #left
+              h1 DayStar Calendar
+              #event-section
+                h3 Add Event
+                input#eventDate(type='date')
+                input#eventTitle(type='text' placeholder='Event Title')
+                input#eventDescription(type='text' placeholder='Event Description')
+                button#addEvent(onclick='addEvent()')
+                  | Add
+              #reminder-section
+                h3 Reminders
+                // List to display reminders
+                ul#reminderList
+                  li(data-event-id='1')
+                    strong Event Title
+                    |                             - Event Description on Event Date
+                    button.delete-event(onclick='deleteEvent(1)')
+                      | Delete
+            #right
+              h3#monthAndYear
+              .button-container-calendar
+                button#previous(onclick='previous()')
+                  | &lsaquo;
+                button#next(onclick='next()')
+                  | &rsaquo;
+              table#calendar.table-calendar(data-lang='en')
+                thead#thead-month
+                // Table body for displaying the calendar
+                tbody#calendar-body
+              .footer-container-calendar
+                label(for='month') Jump To: 
+                // Dropdowns to select a specific month and year
+                select#month(onchange='jump()')
+                  option(value='0') Jan
+                  option(value='1') Feb
+                  option(value='2') Mar
+                  option(value='3') Apr
+                  option(value='4') May
+                  option(value='5') Jun
+                  option(value='6') Jul
+                  option(value='7') Aug
+                  option(value='8') Sep
+                  option(value='9') Oct
+                  option(value='10') Nov
+                  option(value='11') Dec
+                // Dropdown to select a specific year
+                select#year(onchange='jump()')
+  #footer
+    .fid_box1
+      h3 Find us
+      ul.location_icon
+        li
+          a(href='#')
+            i.fa.fa-map-marker(aria-hidden='true')
+          br
+          |  kabalagala
+        li
+          a(href='#')
+            i.fa.fa-phone(aria-hidden='true')
+          br
+          |                      (+71) 1234567890
+          br
+          |  (+71) 1234567890
+        li
+          a(href='#')
+            i.fa.fa-envelope(aria-hidden='true')
+          br
+          |  demo@gmail.com
+    .copyright
+      .container
+        .row
+          .col-md-6
+            p &copy; 2024 All Rights Reserved. DayStar Daycare &amp; kindergarten 
+// cdn bootstrap js
+script(src='https://kit.fontawesome.com/01943d9418.js' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
+script(src='/includes-navbar/navbar.js')
+script(src='/js/maindashboard.js')

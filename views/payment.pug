@@ -1,0 +1,120 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Payments
+  // cdn bootstrap css
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/css/payment.css')
+main#main-div.main-div
+  #logo-nav-parent.text-bg-success
+    #logo-div.text-color
+    #welcome.welcome.text-color.text-bg-success
+      h4   DayStar day care Kindergarten 
+    #navbar
+      div(w3-include-html='/includes-navbar/navbar.html')
+  #row1-right
+    #row1-right-logo
+      button#openModalBtn.text-bg-light.openForm Open Payment Form
+    #row1-right-bottom
+      // content
+      #paymentModal.modal
+        .modal-content
+          span.close &times;
+          h1 Payment Form
+          form#paymentForm
+            // Additional information
+            .form-group
+              label(for='childName') Name of Child
+              input#childName(type='text' name='childName')
+            .form-group
+              label(for='childAge') Age of Child
+              input#childAge(type='number' name='childAge' min='0')
+            .form-group
+              label(for='periodOfStay') Period of Stay (Hours)
+              input#periodOfStay(type='number' name='periodOfStay' min='0')
+            .form-group
+              label(for='childId') ID of Child
+              input#childId(type='text' name='childId')
+            .form-group
+              label(for='contact') Contact
+              input#contact(type='tel' name='contact')
+            .form-group
+              label(for='address') Address
+              input#address(type='text' name='address')
+            // Additional fields
+            .form-group
+              label(for='payerName') Name of Person Paying
+              input#payerName(type='text' name='payerName')
+            .form-group
+              label(for='paymentDate') Date
+              input#paymentDate(type='date' name='paymentDate')
+            .form-group
+              label(for='paymentTime') Time
+              input#paymentTime(type='time' name='paymentTime')
+            .form-group
+              label(for='sitterId') ID of Sitter
+              input#sitterId(type='text' name='sitterId')
+            .form-group
+              label(for='sitterPayment') Payment for Sitters (UGX)
+              input#sitterPayment(type='number' name='sitterPayment' min='0')
+            .form-group
+              label(for='babyHalfDay') Half Day Babysitting (UGX)
+              input#babyHalfDay(type='number' name='babyHalfDay' min='0')
+            .form-group
+              label(for='babyFullDay') Full Day Babysitting (UGX)
+              input#babyFullDay(type='number' name='babyFullDay' min='0')
+            button(type='submit') Make Payment
+      // Payment History
+      #paymentHistory.text-bg-success
+        h2.paymenth2 Payment History
+        table#paymentTable
+          thead.text-dark
+            tr
+              th Name of Child
+              th Age of Child
+              th Period of Stay (Days)
+              th ID of Child
+              th Contact
+              th Address
+              th ID of Sitter
+              th Sitter Payment (UGX)
+              th Half-Day Babysitting Payment (UGX)
+              th Full-Day Babysitting Payment (UGX)
+              th Total Payment (UGX)
+              th Name of Payer
+              th Date
+              th Time
+              th Actions
+          tbody#paymentList
+  #footer
+    .fid_box1
+      h3 Find us
+      ul.location_icon
+        li
+          a(href='#')
+            i.fa.fa-map-marker(aria-hidden='true')
+          br
+          |  kabalagala
+        li
+          a(href='#')
+            i.fa.fa-phone(aria-hidden='true')
+          br
+          |                      (+71) 1234567890
+          br
+          |  (+71) 1234567890
+        li
+          a(href='#')
+            i.fa.fa-envelope(aria-hidden='true')
+          br
+          |  demo@gmail.com
+    .copyright
+      .container
+        .row
+          .col-md-6
+            p &copy; 2024 All Rights Reserved. DayStar Daycare &amp; kindergarten 
+// cdn bootstrap js
+script(src='https://kit.fontawesome.com/01943d9418.js' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
+script(src='/includes-navbar/navbar.js')
+script(src='/js/payment.js')

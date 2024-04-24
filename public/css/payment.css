@@ -1,0 +1,315 @@
+/* Global Styles */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /* very important*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#main-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100px;
+    margin: auto;
+    background-image: url();
+    opacity: 2;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+   background-size: cover;
+}
+
+#logo-nav-parent{
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 10px;
+}
+
+#welcome{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 40%;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-color{
+    color: white;
+}
+#navbar{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 60%;
+    align-items: center;
+    justify-content: right;
+    padding-right: 80px;
+}
+
+
+#row1 {
+    display: flex;
+    flex-direction: row;
+    width: 92%;
+    min-height: 850px;   
+    justify-content: space-between;
+}
+
+#row1-left{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 2%;
+}
+
+#row1-right{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    margin: auto;
+  
+}
+
+#row1-right-logo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 50px;
+    justify-content: space-between;
+    align-items: right;
+}
+
+#row1-right-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 850px;
+}
+
+
+
+#footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 230px;
+    background-color:  rgb(42, 41, 41);
+    opacity: 0.8;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+/* footer*/
+footer h3 {
+    color: #fff;
+  }
+  .titlepage h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .con_bg {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+  }
+  .main_form {
+    margin-top: 30px;
+  }
+  .send_btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .location_form {
+    list-style: none;
+    padding: 0;
+  }
+  .location_form li {
+    margin-bottom: 10px;
+  }
+  .location_form a {
+    color: #fff;
+  }
+  .social_icon {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .social_icon li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .social_icon a {
+    color: #fff;
+    font-size: 24px;
+  }
+  .copyright p {
+    margin: 0;
+  }
+
+.fid_box1{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+  
+  
+  .copyright{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: right;
+    justify-content: center;
+    color: white;
+  }
+
+/**
+*! Payment Css
+**/
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.openForm{
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Payment Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Payment History Styles */
+#paymentHistory {
+  margin-top: 20px;
+}
+
+.paymenth2{
+  margin-left: 44%;
+}
+
+#paymentTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#paymentTable th,
+#paymentTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#paymentTable th {
+  background-color: #f2f2f2;
+}
+
+#paymentTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#paymentTable tbody tr:hover {
+  background-color: #ddd;
+}
+
+.delete-btn{
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+
+

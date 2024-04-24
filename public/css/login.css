@@ -1,0 +1,230 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /* very important*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#main-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100px;
+    margin: auto;
+}
+
+.main-div{
+    background-image: url(https://www.surfacesreporter.com/myuploads/WATER%20THEME-01.JPG);
+    opacity: 2;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+   background-size: cover;
+}
+
+#logo-nav-parent{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 250px;
+}
+
+#welcome{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-color{
+    color: white;
+}
+#navbar{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 70%;
+    align-items: center;
+    justify-content: right;
+    padding-right: 80px;
+}
+
+
+.row-login{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 400px;
+    justify-content: space-between;
+    margin-bottom: 350px;
+}
+
+
+@media (max-width: 1000px){
+  .row-login{
+      grid-template-columns: repeat(1, 300px);
+  }
+}
+
+/* @media (max-width: 1000px){
+  .shop{
+      grid-template-columns: repeat(1, 350px);
+  }
+} */
+
+
+#col{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 30%;
+}
+
+
+ 
+.col2{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 400px;
+}
+
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 500px;
+    text-align: center;
+}
+ 
+h1 {
+    color: #4CAF50;
+}
+ 
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+ 
+ 
+input {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+ 
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #4CAF50;
+    width: 100%;
+    font-size: 16px;
+}
+ 
+.wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 220px;
+    background-color:  rgb(42, 41, 41);
+    opacity: 0.8;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+/* footer*/
+footer h3 {
+    color: #fff;
+  }
+  .titlepage h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .con_bg {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+  }
+  .main_form {
+    margin-top: 30px;
+  }
+  .send_btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .location_form {
+    list-style: none;
+    padding: 0;
+  }
+  .location_form li {
+    margin-bottom: 10px;
+  }
+  .location_form a {
+    color: #fff;
+  }
+  .social_icon {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .social_icon li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .social_icon a {
+    color: #fff;
+    font-size: 24px;
+  }
+  .copyright p {
+    margin: 0;
+  }
+
+.fid_box1{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+  
+  
+  .copyright{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: right;
+    justify-content: center;
+    color: white;
+  }

@@ -1,0 +1,24 @@
+html,
+body {
+  height: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 130px;
+    background-color:  #495057;
+    opacity: 0.8;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fid_box1{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
