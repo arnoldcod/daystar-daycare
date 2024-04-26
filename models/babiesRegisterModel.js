@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require('moment');
 
 const babiesRegisterSchema = new mongoose.Schema({
     name:{
@@ -50,6 +51,14 @@ const babiesRegisterSchema = new mongoose.Schema({
         trim: true
     },
     departureTime:{
+        type: String, 
+        trim: true
+    },
+    comment:{
+        type: String, 
+        trim: true
+    },
+    status:{
         type: String, 
         trim: true
     },

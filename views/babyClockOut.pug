@@ -18,7 +18,7 @@ main#main-div.main-div
   #row1
     div(id='row1-left clearfix')
       a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
-        | click Here to open dashboard
+        | click Here to open canvas
       #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
         .offcanvas-header
           h2#offcanvasExampleLabel.offcanvas-title Administration
@@ -26,28 +26,28 @@ main#main-div.main-div
         .offcanvas-body.text-bg-success.p-3
           div
             .card(style='width: 18rem;')
-              img.card-img-top(src='/images/lady-teacher.jpeg' alt='...')
+              img.card-img-top(src='/z-project/images/lady-teacher.jpeg' alt='...')
               .card-body
                 h5.card-title Head Teacher
                 p.card-text Ms. Ahumuza Diana
-          .dropdown.mt-3
-            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          .dropdown.mt-3 
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Babies
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/babiesRegistry') Register new baby
+                a.dropdown-item.text-bg-success(href='/pages/babies/babies.html') Register new baby
               li
                 a.dropdown-item.text-bg-success(href='#') view all babies
               li
                 a.dropdown-item.text-bg-success(href='#') Update baby details 
               li
                 a.dropdown-item.text-bg-success(href='#') Record baby departure.
-          .dropdown.mt-3
-            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          .dropdown.mt-3 
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Sitters
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/sitters') View all sitters
+                a.dropdown-item.text-bg-success(href='/pages/sitters/sitters.html') View all sitters
               li
                 a.dropdown-item.text-bg-success(href='#') Add new sitter
               li
@@ -55,21 +55,21 @@ main#main-div.main-div
               li
                 a.dropdown-item.text-bg-success(href='#') Remove sitter details
           .dropdown.mt-3
-            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Payments
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/pages/payments/payments.html') View payment history
+                a.dropdown-item.text-bg-success(href='/pages/payments/payments.html') View payment history
               li
                 a.dropdown-item.text-bg-success(href='#') Make payment
               li
                 a.dropdown-item.text-bg-success(href='#') Generate monthly invoices
           .dropdown.mt-3
-            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Procurement
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/pages/procurement/procurement.html') view procurement itemss
+                a.dropdown-item.text-bg-success(href='/pages/procurement/procurement.html') view procurement itemss
               li
                 a.dropdown-item.text-bg-success(href='#') Add new procurement item
               li
@@ -77,11 +77,11 @@ main#main-div.main-div
               li
                 a.dropdown-item.text-bg-success(href='#') Remove procurement item
           .dropdown.mt-3
-            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Reports &amp; Analytics
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
+                a.dropdown-item.text-bg-success(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
               li
                 a.dropdown-item.text-bg-success(href='#') Generate monthly report 
               li
@@ -91,39 +91,32 @@ main#main-div.main-div
         // content
         .container
           h1 Child Registry
-          form#registrationForm(action='/babiesRegister' method='POST')
+          form#registrationForm(action= '/babyClockOut?id='+baby._id  method='POST')
             .form-group
-              label(for='name') Name:
-              input#name(type='text' name='name')
+              label(for='name')  Name:
+              input#name(type='text' name='name' id= name value=baby.name)
             .form-group
-              label(for='dob') Date of Birth:
-              input#dob(type='date' name='dob')
+              label(for='sitter') Sitter:
+              input#sitter(type='text' name='sitter' id= sitter value=baby.sitter)
             .form-group
-              label(for='age') Age:
-              input#age(type='number' name='age')
+              label(for='paidFee')  Paid Fee(UGX):
+              input#paidFee(type='text' name='paidFee' id= paidFee value=baby.paidFee)
             .form-group
-              label(for='gender') Gender:
-              select#gender(name='gender')
-                option(value='') Select Gender
-                option(value='male') Male
-                option(value='female') Female
-                option(value='other') Other
+              label(for='comment')  Comment:
+              input#comment(type='text' name='comment' id= comment value=baby.comment)
             .form-group
-              label(for='parentNames') Parent Names:
-              input#parentNames(type='text' name='parentNames')
+              label(for='status') Status:
+              input#comment(type='text' name='status' id=status value=baby.status)
             .form-group
-              label(for='contact') Contact:
-              input#contact(type='text' name='contact')
+              label(for='childPickedBy') Child Picked by:
+              input#childPickedBy(type='text' name='childPickedBy' id = childPickedBy value=baby.childPickedBy)
             .form-group
-              label(for='address') Address:
-              input#address(type='text' name='address')
-              .form-group
-                label(for='paidFee')  Paid Fee(UGX):
-                input#paidFee(type='text' name='paidFee')
-              .form-group
-                label(for='childNumber') Child Number:
-                input#childNumber(type='text' name='childNumber')
-              input.text-bg-success(type='submit' value='Register')
+              label(for='departureTime') Departure Time:
+              input#departureTime(type='time' name='departureTime' id= departureTime value=baby.departureTime)
+            .form-group
+              label(for='childNumber') Child Number:
+              input#childNumber(type='text' name='childNumber' id = childNumber value=baby.childNumber)
+            input.text-bg-success(type='submit' value='Clock-Out')
   #footer
     .fid_box1
       h3 Find us

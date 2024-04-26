@@ -1,0 +1,58 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Shopping Cart
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet')
+  style.
+    /* Additional custom styles can be added here */
+.container.mt-5
+  h2.mb-4 Doll Store
+  .row(action='/shop' method='POST')
+    // Item 1
+    .col-md-3.mb-4
+      .card
+        <input type="file" class="form-control" id="item1-image-input">
+        img.card-img-top#item1-image-input.form-control(type='file' src='/images/dolls-images/img8.jpeg')
+        .card-body
+          h5.card-title Item 1
+          p.card-text 4 items available
+          p.card-text 1000
+          input.text-bg-success(type='submit' value='Register')
+    // Item 2
+    .col-md-3.mb-4
+      .card
+        <input type="file" class="form-control" id="item1-image-input">
+         img.card-img-top(src='/images/dolls-images/img11.jpeg' alt='Item 3')
+        .card-body
+          h5.card-title 5 items 
+          p.card-text available
+          p.card-text 1000
+          input.text-bg-success(type='submit' value='Register')
+    // Item 3
+    .col-md-3.mb-4
+      .card
+        <input type="file" class="form-control" id="item1-image-input">
+         img.card-img-top(src='/images/dolls-images/img10.jpeg' alt='Item 3')
+        .card-body
+          h5.card-title 3 items 
+          p.card-text available
+          p.card-text 1000
+          input.text-bg-success(type='submit' value='select')
+    // Item 4
+    .col-md-3.mb-4
+      .card
+        <input type="file" class="form-control" id="item1-image-input">
+         img.card-img-top(src='/images/dolls-images/img9.jpeg' alt='Item 3')
+        .card-body
+          h5.card-title 7 items 
+          p.card-text available
+          p.card-text 1000
+          input.text-bg-success(type='submit' value='Register')
+// Bootstrap JS
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js')
+// jQuery
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src= 'js/shop.js')
+  

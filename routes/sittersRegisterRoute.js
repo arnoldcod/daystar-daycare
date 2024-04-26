@@ -3,22 +3,23 @@ const router = express.Router(); /////accessing router function in express
 
 
 
-const SittersSchema = require("../models/sittersRegisterModel") ////import name of schema in model file
+const SittersModel = require("../models/sittersRegisterModel") 
 
 
-////creating routes
-router.get("/sitters", (req, res)=> { //// the file that is displayed when user asks for form on localhost to display (newly introduced)
+//creating routes
+router.get("/sittersRegister", (req, res)=> { 
     res.render("sittersRegister");  ////file name that you want to render such as sittersRegiste.pug
  });
 
 
+
 //post route for form to database
- router.post("/sitters", async(req, res)=> { ////same file name as user requests on localhost
+ router.post("/sittersRegister", async(req, res)=> { 
    try {  
-      const child = new SittersSchema(req.body); ////schema requests body
-      console.log(child);
-      await child.save();
-      ////console.log(req.body)
+      const sitter = new SittersModel(req.body); 
+      console.log(sitter);
+      await sitter.save();
+      
       res.send('success registering a sitter!');
        //to display on same page////res.redirect("/sitters")
 

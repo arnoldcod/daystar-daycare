@@ -45,11 +45,7 @@ const paymentRegisterSchema = new mongoose.Schema({
         type: Number, 
         trim: true
     },
-    babyHalfDay:{
-        type: Number, 
-        trim: true
-    },
-    babyFullDay:{
+    periodPay:{
         type: Number, 
         trim: true
     }

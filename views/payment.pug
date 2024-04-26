@@ -59,11 +59,12 @@ main#main-div.main-div
               label(for='sitterPayment') Payment for Sitters (UGX)
               input#sitterPayment(type='number' name='sitterPayment' min='0')
             .form-group
-              label(for='babyHalfDay') Half Day Babysitting (UGX)
-              input#babyHalfDay(type='number' name='babyHalfDay' min='0')
-            .form-group
-              label(for='babyFullDay') Full Day Babysitting (UGX)
-              input#babyFullDay(type='number' name='babyFullDay' min='0')
+              label(for='periodPay') Period Paid for:
+              select#gender(name='periodPay')
+                option(value='priodPay') Select Period
+                option(value='haldDay') Half Day Babysitting 
+                option(value='fullDay') Full Day Babysitting
+                option(value='other') Other
             button(type='submit') Make Payment
       // Payment History
       #paymentHistory.text-bg-success

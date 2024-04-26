@@ -13,48 +13,33 @@ html(lang='en')
         h4.text-bg-success DayStar day care Kindergarten 
       div(w3-include-html='/includes-navbar/navbar.html')
     .container-fluid
-      h1.text-center.my-6 List Of Children
+      h1.text-center.my-6 List Of Children Clocked-In
       table.table.table-striped
         thead
           tr
             th Name
-            th Date Of Birth
-            th Age
-            th Gender
-            th Parent Names
-            th Contact
-            th Address
+            th sitter
+            th Child Brought By
+            th Arrival Time
             th Paid Fee(UGX):
+            th Comment:
+            th Status
             th Child Number:
-            th Status:
-            th Clock-In:
-            th Clock-Out:
             th Update:
-            th Delete:
         tbody
           if babies.length 
             each baby in babies
               tr
                 td #{baby.name}
-                td #{baby.dob}
-                td #{baby.age}
-                td #{baby.gender}
-                td #{baby.parentNames}
-                td #{baby.contact}
-                td #{baby.address}
+                td #{baby.sitter}
+                td #{baby.childBroughtBy}
+                td #{baby.arrivalTime}
                 td #{baby.paidFee}
-                td #{baby.childNumber}
-                td #{baby.status} 
+                td #{baby.comment}
+                td #{baby.status}
+                td #{baby.childNumber}   
                 td 
-                  a.btn.btn-primary.btn-block.btn-secondary(href= "/babyClockIn/"+ baby._id) Clock-in
-                td 
-                  a.btn.btn-primary.btn-block.btn-secondary(href= "/babyClockOut/"+ baby._id) Clock-Out   
-                td 
-                  a.btn.btn-primary.btn-block.btn-success(href= "/babiesUpdate/"+ baby._id) Update
-                td 
-                  form(method="POST" action="/delete")
-                    input(type="hidden" name="id" value=baby._id)
-                    button.btn.btn-danger(type="submit") Delete
+                  a.btn.btn-primary.btn-block.btn-success(href= "/babyClockIn/"+ baby._id) clock-In
                     
     #footer.footer.text-center.text-light.p-3
       .fid_box1

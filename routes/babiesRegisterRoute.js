@@ -1,27 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const connectEnsureLogin = require("connect-ensure-login");
+const moment = require('moment');
 
 
+const SittersModel = require("../models/sittersRegisterModel")
 
 const BabiesRegisterModel = require("../models/babiesRegisterModel") //import model
 
-router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> { //to run on the browser and display form on server file
+router.get("/babiesRegister",  (req, res)=> { //to run on the browser and display form on server file
     res.render("babiesRegister");  //from babiesRegister.pug
  });
 
 
 //post route for form to database
- router.post("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), async(req, res)=> {
+ router.post("/babiesRegister", async(req, res)=> {
    try {  
       const child = new BabiesRegisterModel(req.body);
       console.log(child);
-      await babiesRegisterModel.register(child, req.body.password,(err)=>{
-         if(error){
-            throw err
-         }
-         res.redirect("/babiesRegister")
-      })
+      await child.save();
+         res.send('success registering a baby!');
+
       // await child.save();
       // // res.redirect("/babiesRegister");
       // res.send('success registering a baby!');
@@ -45,9 +43,20 @@ router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> 
       res.status(400).send("unable to find babies from database!");
       console.log("unable to find babies from database!...", error );
    }
-
    })
 
+ //fetching list babies clocked in from database 
+ router.get("/babyClockedIn", async (req, res)=> {
+   try {
+     let babies = await BabiesRegisterModel.find({status: "ClockedIn"})
+     res.render("renderBabyClockIn", {babies:babies}) // to display babies from data base
+     console.log("display babies clocked in", babies);
+
+   } catch (error) {
+      res.status(400).send("unable to find babies from database!");
+      console.log("unable to find babies from database!...", error );
+   }
+   })
 
 //delete route for form in database
  router.post("/delete", async(req, res)=> {
@@ -88,5 +97,56 @@ router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> 
    }
  })
 
+ //clockin baby route for form in database
+ router.get("/babyClockIn/:id", async(req, res)=> { 
+   try{
+      const sitters  = await SittersModel.find()
+     const babyClockIn = await BabiesRegisterModel.findOne({_id: req.params.id});
+     res.render("babyClockIn", {
+      baby:babyClockIn,
+      sitters:sitters
+   });
+
+   } catch(error){
+      console.log("error finding a baby!", error);
+      res.status(400).send("unable to find baby from the db!");  
+   }
+ })
+
+ router.post("/babyClockIn", async(req, res)=> {
+   try {
+      await BabiesRegisterModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      res.redirect("/babyClockIn");
+
+   } catch (error) {
+      res.status(404).send("unable to update baby in the db!");  
+   }
+ })
+
+
+
+  //clockOut baby route for form in database
+  router.get("/babyClockOut/:id", async(req, res)=> { 
+   try{
+     const babyClockOut = await BabiesRegisterModel.findOne({_id: req.params.id});
+     res.render("babyClockOut", {baby:babyClockOut});
+
+   } catch(error){
+      console.log("error finding a baby!", error);
+      res.status(400).send("unable to find baby from the db!");  
+   }
+ })
+
+ router.post("/babyClockOut", async(req, res)=> {
+   try {
+      await BabiesRegisterModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      res.redirect("/babyClockOut");
+
+   } catch (error) {
+      res.status(404).send("unable to update baby in the db!");  
+   }
+ })
+
+ 
  
  module.exports = router;

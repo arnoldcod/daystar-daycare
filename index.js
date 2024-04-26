@@ -3,6 +3,7 @@ const express = require('express'); // for posting
 const mongoose = require('mongoose'); // for mongodb
 const path = require('path'); //for pug
 const passport = require('passport'); //for passport
+const moment = require('moment'); //for moment
 const expressSession = require('express-session')({ // for express-session
   secret:"secret",
   resave: false,
@@ -29,6 +30,8 @@ const landing = require("./routes/landingRoute")// importing routes
 const dashboard = require("./routes/maindashboardRoute")// importing routes
 const pay = require("./routes/paymentRoute")// importing routes
 
+const cartRoutes = require('./routes/cartRoute');
+
 
 //instantiation
 const app = express();
@@ -48,6 +51,9 @@ mongoose.connection
   .on("error", err => {
     console.error(`Connection error: ${err.message}`);
  });
+
+
+ app.locals.moment = moment;
 
  app.set("view engine", "pug"); // setting the view engine to pug
  app.set("views", path.join(__dirname, "views")); //specify the directory where the views are found
@@ -85,6 +91,7 @@ app.use("/", index);
 app.use("/", landing);
 app.use("/", dashboard);
 app.use("/", pay);
+app.use('/', cartRoutes);
 
 
 

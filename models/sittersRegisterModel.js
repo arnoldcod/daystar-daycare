@@ -60,6 +60,6 @@ const sittersRegisterSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("SittersSchema", sittersRegisterSchema) 
+module.exports = mongoose.model("SittersModel", sittersRegisterSchema) 
 
 ///// ("Name of schema (could any of preferance ..best use name of file),  then  new schema file")
