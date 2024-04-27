@@ -18,25 +18,23 @@ html(lang='en')
         thead
           tr
             th Name
-            th sitter
             th Paid Fee(UGX):
             th Comment:
             th Status
-            th child Picked By
             th departure time
-            th Child Number:
+            th Sitter Number:
         tbody
-          if babies.length 
-            each baby in babies
+          if sitters.length 
+            each sitter in sitters
               tr
-                td #{baby.name}
-                td #{baby.sitter}
-                td #{baby.paidFee}
-                td #{baby.comment}
-                td #{baby.status}
-                td #{baby.childBroughtBy}
-                td #{baby.departureTime}
-                td #{baby.childNumber}   
+                td #{sitter.name}
+                td #{sitter.sitter}
+                td #{sitter.paidFee}
+                td #{sitter.comment}
+                td #{sitter.status}
+                td #{sitter.childBroughtBy}
+                td #{sitter.departureTime}
+                td #{sitter.childNumber}   
               
                     
     #footer.footer.text-center.text-light.p-3

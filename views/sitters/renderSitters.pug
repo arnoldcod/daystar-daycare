@@ -54,7 +54,7 @@ html(lang='en')
                 td 
                   a.btn.btn-primary.btn-block.btn-success(href= "/sittersUpdate/"+ sitter._id) Update
                 td 
-                  form(method="POST" action="/delete")
+                  form(method="POST" action="/deleted")
                     input(type="hidden" name="id" value= sitter._id)
                     button.btn.btn-danger(type="submit") Delete
                     

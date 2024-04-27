@@ -69,7 +69,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
 
 
-//delete route for form in database
+// //delete route for form in database
  router.post("/delete", async(req, res)=> {
    try {  
       await BabiesRegisterModel.deleteOne({_id:req.body.id});

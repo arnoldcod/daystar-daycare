@@ -18,26 +18,18 @@ html(lang='en')
         thead
           tr
             th Name
-            th sitter
-            th Child Brought By
             th Arrival Time
-            th Paid Fee(UGX):
-            th Comment:
             th Status
-            th Child Number:
+            th Sitter Number:
             
         tbody
-          if babies.length 
-            each baby in babies
+          if sitters.length 
+            each sitter in sitters
               tr
-                td #{baby.name}
-                td #{baby.sitter}
-                td #{baby.childBroughtBy}
-                td #{baby.arrivalTime}
-                td #{baby.paidFee}
-                td #{baby.comment}
-                td #{baby.status}
-                td #{baby.childNumber}   
+                td #{sitter.name}
+                td #{sitter.arrivalTime}
+                td #{sitter.status}
+                td #{sitter.sitterNumber}   
                  
               
                     

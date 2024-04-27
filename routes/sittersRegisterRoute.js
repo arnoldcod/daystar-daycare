@@ -34,7 +34,7 @@ router.get("/sittersRegister", (req, res)=> {
    try {
      let sitters = await SittersModel.find()  //from line8
      res.render("./sitters/renderSitters", {sitters:sitters}) // to display sitters from data base
-     console.log("display babies", sitters);
+     console.log("display sitters", sitters);
 
    } catch (error) {
       res.status(400).send("unable to find babies from database!");
@@ -46,19 +46,15 @@ router.get("/sittersRegister", (req, res)=> {
 
 
    //delete route for each  sitter form in database
-
-router.post("/delete", async(req, res)=> {
+router.post("/deleted", async(req, res)=> {
    try {  
       await SittersModel.deleteOne({_id:req.body.id});
-      
       res.redirect("back");
      
-
    } catch (error) {
-      res.status(400).send("unable to delete baby from db!");
-      console.log("error deleting baby...", error );
+      res.status(400).send("unable to delete sitter from db!");
+      console.log("error deleting sitter...", error );
    }
-   
  });
 
 
