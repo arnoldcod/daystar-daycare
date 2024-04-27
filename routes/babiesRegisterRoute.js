@@ -75,8 +75,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
       await BabiesRegisterModel.deleteOne({_id:req.body.id});
       
       res.redirect("back");
-      // res.send('success registering a baby!');
-       //to display on same page//res.redirect("/childRegister")
+     
 
    } catch (error) {
       res.status(400).send("unable to delete baby from db!");

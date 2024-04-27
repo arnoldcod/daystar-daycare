@@ -89,46 +89,39 @@ main#main-div.main-divages/sitters
       #row1-right-bottom
         // content
         .container
-          h1 Sitter Registry
-          form#registrationForm(action= '/sitters' method='POST')
+          h1 Sitter Registry For Updating
+          form#registrationForm(action= '/sittersUpdate?id='+sitter._id  method='POST')
             .form-group
               label(for='name') Name:
-              input#name(type='text' name='name')
+              input#name(type='text' name='name' value= sitter.name)
             .form-group
-              label(for='age') Age:
-              input#age(type='number' name='age')
-            .form-group
-              label(for='gender') Gender:
-              select#gender(name='gender')
-                option(value='') Select Gender
-                option(value='male') Male
-                option(value='female') Female
-                option(value='other') Other
+              label(for='dob') Date Of Birth:
+              input#age(type='date' name='dob' value= sitter.dob)
             .form-group
               label(for='contact') Contact:
-              input#contact(type='text' name='contact' )
+              input#contact(type='text' name='contact' value= sitter.contact )
             .form-group
               label(for='paidFee')  Paid Fee(UGX):
-              input#paidFee(type='text' name='paidFee')
+              input#paidFee(type='text' name='paidFee' value= sitter.paidFee)
             .form-group
               label(for='address') Address:
-              input#address(type='text' name='address')
+              input#address(type='text' name='address' value= sitter.address)
             .form-group
               label(for='nin') NIN:
-              input#nin(type='text' name='nin')
+              input#nin(type='text' name='nin' value= sitter.nin)
             .form-group
               label(for='recommenderName') Recommender&apos;s Name:
-              input#recommenderName(type='text' name='recommenderName')
+              input#recommenderName(type='text' name='recommenderName' value= sitter.recommenderName)
             .form-group
               label(for='religion') Religion(Option):
-              input#religion(type='text' name='religion')
+              input#religion(type='text' name='religion' value= sitter.religion)
             .form-group
               label(for='levelOfEducation') Level of Education:
-              input#levelOfEducation(type='text' name='levelOfEducation')
+              input#levelOfEducation(type='text' name='levelOfEducation' value= sitter.levelOfEducation)
             .form-group
               label(for='sitterNumber') Sitter Number:
-              input#sitterNumber(type='text' name='sitterNumber')
-            input.text-bg-success(type='submit' value='Register')
+              input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber)
+            input.text-bg-success(type='submit' value='Update')
   #footer
     .fid_box1
       h3 Find us

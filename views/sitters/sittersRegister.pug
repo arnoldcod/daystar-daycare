@@ -89,7 +89,7 @@ main#main-div.main-divages/sitters
       #row1-right-bottom
         // content
         .container
-          h1 Sitter Registry
+          h1 Sitter General Registry
           form#registrationForm(action='/sittersRegister' method='POST')
             .form-group
               label(for='name') Name:
@@ -97,9 +97,6 @@ main#main-div.main-divages/sitters
             .form-group
               label(for='dob') Date of Birth:
               input#dob(type='date' name='dob')
-            .form-group
-              label(for='age') Age:
-              input#age(type='number' name='age')
             .form-group
               label(for='gender') Gender:
               select#gender(name='gender')
