@@ -3,40 +3,35 @@ const router = express.Router();
 const moment = require('moment');
 
 
-const SittersModel = require("../models/sittersRegisterModel")
+const SittersModel = require("../models/sittersRegisterModel")   //import model
 
 const BabiesRegisterModel = require("../models/babiesRegisterModel") //import model
 
 router.get("/babiesRegister",  (req, res)=> { //to run on the browser and display form on server file
-    res.render("babiesRegister");  //from babiesRegister.pug
+    res.render("./babies/babiesRegister");  //from babiesRegister.pug
  });
 
 
-//post route for form to database
+//post route for babiesregistered to database
  router.post("/babiesRegister", async(req, res)=> {
    try {  
       const child = new BabiesRegisterModel(req.body);
       console.log(child);
       await child.save();
-         res.send('success registering a baby!');
-
-      // await child.save();
-      // // res.redirect("/babiesRegister");
-      // res.send('success registering a baby!');
-       //to display on same page//res.redirect("/childRegister")
+      
+         res.redirect("/babies");
 
    } catch (error) {
       res.status(400).send("Sorry something wrong!");
       console.log("error registering baby...", error );
    }
-   
  });
 
- //fetching babies from database 
+ //fetching All babies from database 
  router.get("/babies", async (req, res)=> {
    try {
-     let babies = await BabiesRegisterModel.find()
-     res.render("renderBabies", {babies:babies}) // to display babies from data base
+     let babies = await BabiesRegisterModel.find()  //from line8
+     res.render("./babies/renderBabies", {babies:babies}) // to display babies from data base
      console.log("display babies", babies);
 
    } catch (error) {
@@ -45,11 +40,11 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
    }
    })
 
- //fetching list babies clocked in from database 
- router.get("/babyClockedIn", async (req, res)=> {
+ //fetching list all babies clocked in from database 
+ router.get("/babyClockIn", async (req, res)=> {
    try {
      let babies = await BabiesRegisterModel.find({status: "ClockedIn"})
-     res.render("renderBabyClockIn", {babies:babies}) // to display babies from data base
+     res.render("./babies/renderBabyClockIn", {babies:babies}) // to display babies from data base
      console.log("display babies clocked in", babies);
 
    } catch (error) {
@@ -57,6 +52,22 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
       console.log("unable to find babies from database!...", error );
    }
    })
+
+//fetching list babies clocked Out from database 
+ router.get("/clockingOutList", async (req, res)=> {
+   try {
+     let babies = await BabiesRegisterModel.find({status: "ClockedOut"})
+     res.render("./babies/renderBabyClockOut", {babies:babies}) // to display babies from data base
+     console.log("display babies clocked out", babies);
+
+   } catch (error) {
+      res.status(400).send("unable to find babies from database!");
+      console.log("unable to find babies from database!...", error );
+   }
+   })
+
+
+
 
 //delete route for form in database
  router.post("/delete", async(req, res)=> {
@@ -79,7 +90,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
  router.get("/babiesUpdate/:id", async(req, res)=> { //babiesUpdate can be any
    try{
      const babyUpdate = await BabiesRegisterModel.findOne({_id: req.params.id});
-     res.render("babiesUpdate", {baby:babyUpdate});
+     res.render("./babies/babiesUpdate", {baby:babyUpdate});
 
    } catch(error){
       console.log("error finding a baby!", error);
@@ -102,7 +113,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
    try{
       const sitters  = await SittersModel.find()
      const babyClockIn = await BabiesRegisterModel.findOne({_id: req.params.id});
-     res.render("babyClockIn", {
+     res.render("./babies/babyClockIn", {
       baby:babyClockIn,
       sitters:sitters
    });
@@ -125,22 +136,25 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
 
 
-  //clockOut baby route for form in database
-  router.get("/babyClockOut/:id", async(req, res)=> { 
-   try{
+//clockOut baby route for form in database
+  router.get("/ClockingOut/:id", async(req, res)=> { 
+   try{  
+    const sitters  = await SittersModel.find()
      const babyClockOut = await BabiesRegisterModel.findOne({_id: req.params.id});
-     res.render("babyClockOut", {baby:babyClockOut});
-
+     res.render("./babies/babyClockOut", {
+      baby:babyClockOut,
+      sitters:sitters
+   });
    } catch(error){
       console.log("error finding a baby!", error);
       res.status(400).send("unable to find baby from the db!");  
    }
  })
 
- router.post("/babyClockOut", async(req, res)=> {
+ router.post("/ClockingOut", async(req, res)=> {
    try {
       await BabiesRegisterModel.findOneAndUpdate({_id: req.query.id}, req.body);
-      res.redirect("/babyClockOut");
+      res.redirect("/clockingOutList");
 
    } catch (error) {
       res.status(404).send("unable to update baby in the db!");  

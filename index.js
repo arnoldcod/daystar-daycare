@@ -30,7 +30,7 @@ const landing = require("./routes/landingRoute")// importing routes
 const dashboard = require("./routes/maindashboardRoute")// importing routes
 const pay = require("./routes/paymentRoute")// importing routes
 
-const cartRoutes = require('./routes/cartRoute');
+
 
 
 //instantiation
@@ -42,7 +42,6 @@ const app = express();
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
 
 mongoose.connection
   .once("open", () => {
@@ -91,7 +90,7 @@ app.use("/", index);
 app.use("/", landing);
 app.use("/", dashboard);
 app.use("/", pay);
-app.use('/', cartRoutes);
+
 
 
 

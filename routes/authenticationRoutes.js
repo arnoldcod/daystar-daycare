@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 
 router.get("/login", (req, res)=> {
-    res.render("login") /////from inde-login.pug
+    res.render("./loginAndSignup/login") /////from inde-login.pug
 })
 
 router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}), 

@@ -61,7 +61,10 @@ const babiesRegisterSchema = new mongoose.Schema({
     status:{
         type: String, 
         trim: true
+        // default: "Clocked-In"
+        // enum: ["Clocked-In", "Clocked-Out"]
     },
+
     childNumber:{
         type: String, 
         unique: true
