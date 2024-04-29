@@ -89,7 +89,7 @@ main#main-div.main-div
         // content
         .container
           h1 Procurement Form Update
-          form#procurementForm(action='/procurementRegister' method='POST')
+          form#registrationForm(action='/procurementUpdate?id='+item._id  method='POST')
             .mb-3
               label.form-label(for='datePurchased') Date Purchased:
               input#datePurchased.form-control(type='date' name='datePurchased' value= item.datePurchased)
@@ -116,7 +116,7 @@ main#main-div.main-div
               label.form-label(for='totalPrice') Total Price of Item (UGX):
               input#totalPrice.form-control(type='number' step='0.01' name='totalPrice' readonly='' value= item.totalPrice )
             button.btn.btn-success(type='submit') Submit
-            
+
   #footer
     .fid_box1
       h3 Find us

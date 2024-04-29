@@ -2,23 +2,21 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Sitter Clock In
+  title Procurement form
   // cdn bootstrap css
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css')
-
-  link(rel='stylesheet' href='/css/babiesRegister.css')
+  link(rel='stylesheet' href='/css/procurement.css')
 main#main-div.main-div
   #logo-nav-parent.text-bg-success
     #logo-div.text-color
     #welcome.welcome.text-color.text-bg-success
       h4   DayStar day care Kindergarten 
     #navbar
-      div(w3-include-html='/views/navbar.pug')
-       a.btn.btn-danger.p-2( href='/logout' role='button') logout
+      div(w3-include-html='/includes-navbar/navbar.html')
   #row1
     div(id='row1-left clearfix')
       a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
-        | click Here to open canvas
+        | Open Dashboard
       #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
         .offcanvas-header
           h2#offcanvasExampleLabel.offcanvas-title Administration
@@ -26,28 +24,28 @@ main#main-div.main-div
         .offcanvas-body.text-bg-success.p-3
           div
             .card(style='width: 18rem;')
-              img.card-img-top(src='/z-project/images/lady-teacher.jpeg' alt='...')
+              img.card-img-top(src='/images/lady-teacher.jpeg' alt='...')
               .card-body
                 h5.card-title Head Teacher
                 p.card-text Ms. Ahumuza Diana
-          .dropdown.mt-3 
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          .dropdown.mt-3
+            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Babies
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/pages/babies/babies.html') Register new baby
+                a.dropdown-item.text-bg-light(href='/pages/babies/babies.html') Register new baby
               li
                 a.dropdown-item.text-bg-success(href='#') view all babies
               li
                 a.dropdown-item.text-bg-success(href='#') Update baby details 
               li
                 a.dropdown-item.text-bg-success(href='#') Record baby departure.
-          .dropdown.mt-3 
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          .dropdown.mt-3
+            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Sitters
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/pages/sitters/sitters.html') View all sitters
+                a.dropdown-item.text-bg-light(href='/pages/sitters/sitters.html') View all sitters
               li
                 a.dropdown-item.text-bg-success(href='#') Add new sitter
               li
@@ -55,21 +53,21 @@ main#main-div.main-div
               li
                 a.dropdown-item.text-bg-success(href='#') Remove sitter details
           .dropdown.mt-3
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Payments
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/pages/payments/payments.html') View payment history
+                a.dropdown-item.text-bg-light(href='/pages/payments/payments.html') View payment history
               li
                 a.dropdown-item.text-bg-success(href='#') Make payment
               li
                 a.dropdown-item.text-bg-success(href='#') Generate monthly invoices
           .dropdown.mt-3
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Procurement
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/pages/procurement/procurement.html') view procurement itemss
+                a.dropdown-item.text-bg-light(href='/pages/procurement/procurement.html') view procurement itemss
               li
                 a.dropdown-item.text-bg-success(href='#') Add new procurement item
               li
@@ -77,11 +75,11 @@ main#main-div.main-div
               li
                 a.dropdown-item.text-bg-success(href='#') Remove procurement item
           .dropdown.mt-3
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+            button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Reports &amp; Analytics
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
+                a.dropdown-item.text-bg-light(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
               li
                 a.dropdown-item.text-bg-success(href='#') Generate monthly report 
               li
@@ -90,27 +88,23 @@ main#main-div.main-div
       #row1-right-bottom
         // content
         .container
-          h1 Sitter Clocking In
-          form#registrationForm(action= '/sitterIn?id='+sitter._id  method='POST')
-            .form-group
-              label(for='name') Name:
-              input#name(type='text' name='name' value= sitter.name )    
-            .form-group
-              label(for='sitter') Sitter:
-              select#sitter.form-control(name='sitter')
-                 if sitters.length
-                 each sitter in sitters
-                     option(value=sitter_id) #{sitter.name}
-              small#sitterErr
-            .form-group
-              label(for='arrivalTime') Arrival Time:
-                 input#arrivalTime(type='time' name='arrivalTime' value= sitter.arrivalTime)
-            .form-group
-                 input#status(type='hidden' name='status'  value= 'ClockedIn')
-            .form-group
-              label(for='sitterNumber') Sitter Number:
-                 input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber)
-                 input.text-bg-success(type='submit' value='Clock-In')
+          h1 Procurement Form Update
+          form#registrationForm(action='/procurementUpdate?id='+item._id  method='POST')
+            .mb-3
+              label.form-label(for='vendor') Vendor:
+              input#vendor.form-control(type='text' name='vendor' value= item.vendor)
+            .mb-3
+              label.form-label(for='itemName') Name of Item Purchased:
+              input#itemName.form-control(type='text' name='itemName' value= item.itemName)
+            .mb-3
+              label.form-label(for='itemId') Item ID:
+              input#itemId.form-control(type='text' name='itemId' value= item.itemId)
+            .row
+              .col-md-6.mb-3
+                label.form-label(for='itemQuantity') Item Quantity:
+                input#itemQuantity.form-control(type='number' name='itemQuantity' value= item.itemQuantity)
+            button.btn.btn-success(type='submit') Submit
+
   #footer
     .fid_box1
       h3 Find us
@@ -141,4 +135,4 @@ main#main-div.main-div
 script(src='https://kit.fontawesome.com/01943d9418.js' crossorigin='anonymous')
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
 script(src='/includes-navbar/navbar.js')
-script(src='')
+script(src='/js/procurement.js')

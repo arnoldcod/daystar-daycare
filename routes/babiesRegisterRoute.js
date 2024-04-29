@@ -69,7 +69,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
 
 
-// //delete route for form in database
+ //delete route for form in database
  router.post("/delete", async(req, res)=> {
    try {  
       await BabiesRegisterModel.deleteOne({_id:req.body.id});
@@ -81,7 +81,6 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
       res.status(400).send("unable to delete baby from db!");
       console.log("error deleting baby...", error );
    }
-   
  });
 
 
@@ -106,6 +105,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
       res.status(404).send("unable to update baby in the db!");  
    }
  })
+ 
 
  //clockin baby route for form in database
  router.get("/babyClockIn/:id", async(req, res)=> { 

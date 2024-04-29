@@ -28,7 +28,7 @@ const procurementRegisterSchema = new mongoose.Schema({
     },
     measurement:{
         type: String, 
-        unique: true
+        trim: true
     },
     totalPrice:{
         type: Number, 
@@ -43,5 +43,6 @@ const procurementRegisterSchema = new mongoose.Schema({
         trim: true
     }
 });
+
 
 module.exports = mongoose.model("procurementModel", procurementRegisterSchema)

@@ -28,8 +28,8 @@ html(lang='en')
             th Level Of Eduction:
             th Sitter Number:
             th Status:
-            th Clock-In:
-            th Clock-Out:
+            th Present:
+            th Absent:
             th Update:
             th Delete:
         tbody
@@ -48,9 +48,9 @@ html(lang='en')
                 td #{sitter.sitterNumber}
                 td #{sitter.status} 
                 td 
-                  a.btn.btn-primary.btn-block.btn-light(href= "/sitterIn?id="+sitter._id) Clock-in
+                  a.btn.btn-primary.btn-block.btn-light(href= "/sitterIn?id="+sitter._id) Present
                 td 
-                  a.btn.btn-primary.btn-block.btn-secondary(href= "/sitterClockingOut?id="+sitter._id) Clock-Out   
+                  a.btn.btn-primary.btn-block.btn-secondary(href= "/sitterClockingOut?id="+sitter._id) Absent   
                 td 
                   a.btn.btn-primary.btn-block.btn-success(href= "/sittersUpdate/"+ sitter._id) Update
                 td 
