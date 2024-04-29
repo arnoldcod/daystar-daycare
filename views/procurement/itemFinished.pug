@@ -88,8 +88,8 @@ main#main-div.main-div
       #row1-right-bottom
         // content
         .container
-          h1 Procurement Form Update
-          form#registrationForm(action='/procurementUpdate?id='+item._id  method='POST')
+          h1 Procurement For Finished Items
+          form#registrationForm(action="/itemFinished?id="+ item._id  method='POST')
             .mb-3
               label.form-label(for='vendor') Vendor:
               input#vendor.form-control(type='text' name='vendor' value= item.vendor)

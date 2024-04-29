@@ -20,13 +20,13 @@ html(lang='en')
             th Name
             th Gender
             th Contact
-            th Paid Fee(UGX):
             th Address:
             th NIN:
             th Recommender's Name:
             th Religion:
             th Level Of Eduction:
             th Sitter Number:
+            th Paid Fee(UGX):
             th Status:
             th Present:
             th Absent:
@@ -39,16 +39,16 @@ html(lang='en')
                 td #{sitter.name}
                 td #{sitter.gender}
                 td #{sitter.contact}
-                td #{sitter.paidFee}
                 td #{sitter.address}
                 td #{sitter.nin}
                 td #{sitter.recommenderName}
                 td #{sitter.religion}
                 td #{sitter.levelOfEducation}
                 td #{sitter.sitterNumber}
+                td #{sitter.paidFee}
                 td #{sitter.status} 
                 td 
-                  a.btn.btn-primary.btn-block.btn-light(href= "/sitterIn?id="+sitter._id) Present
+                  a.btn.btn-primary.btn-block.btn-light(href= "/sitterPresentForm?id="+sitter._id) Present
                 td 
                   a.btn.btn-primary.btn-block.btn-secondary(href= "/sitterClockingOut?id="+sitter._id) Absent   
                 td 

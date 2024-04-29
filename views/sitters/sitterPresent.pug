@@ -90,27 +90,23 @@ main#main-div.main-div
       #row1-right-bottom
         // content
         .container
-          h1 Sitter Clocking In
-          form#registrationForm(action= '/sitterIn?id='+sitter._id  method='POST')
+          h1 Sitter Present
+          form#registrationForm(action= '/sitterPresentForm?id='+sitter._id  method='POST')
             .form-group
               label(for='name') Name:
-              input#name(type='text' name='name' value= sitter.name )    
+              input#name(type='text' name='name' value= sitter.name )   
             .form-group
-              label(for='sitter') Sitter:
-              select#sitter.form-control(name='sitter')
-                 if sitters.length
-                 each sitter in sitters
-                     option(value=sitter_id) #{sitter.name}
-              small#sitterErr
+              label(for='contact') Contact:
+              input#contact(type='text' name='contact') 
             .form-group
               label(for='arrivalTime') Arrival Time:
                  input#arrivalTime(type='time' name='arrivalTime' value= sitter.arrivalTime)
             .form-group
-                 input#status(type='hidden' name='status'  value= 'ClockedIn')
+                 input#status(type='hidden' name='status'  value= 'Present')
             .form-group
               label(for='sitterNumber') Sitter Number:
                  input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber)
-                 input.text-bg-success(type='submit' value='Clock-In')
+                 input.text-bg-success(type='submit' value='Submit')
   #footer
     .fid_box1
       h3 Find us

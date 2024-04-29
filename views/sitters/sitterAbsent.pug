@@ -90,34 +90,21 @@ main#main-div.main-div
       #row1-right-bottom
         // content
         .container
-          h1 Sitter Clock Out
+          h1 Sitter Absent
           form#registrationForm(action= '/sitterClockingOut' method='POST')
             .form-group
               label(for='name')  Name:
               input#name(type='text' name='name' value=sitter.name readonly )
-            .form-group
-              label(for='sitter') Sitter:
-              select#sitter.form-control(name='sitter')
-                 if sitters.length
-                 each sitter in sitters
-                     option(value=sitter_id) #{sitter.name}
-              small#sitterErr
-            .form-group
-              label(for='paidFee')  Paid Fee(UGX):
-              input#paidFee(type='text' name='paidFee'  value=sitter.paidFee)
             .form-group
               label(for='comment')  Comment:
               input#comment(type='text' name='comment'  value=sitter.comment)
             .form-group
               label(for='status') Status:
               input#status(type='text' name='status'  value=sitter.status)
-            .form-group
-              label(for='departureTime') Departure Time:
-              input#departureTime(type='time' name='departureTime'  value=sitter.departureTime)
             .form-groupe
               label(for='sitterNumber') Sitter Number:
-              input#sitterNumber(type='text' name='sitterNumber'  value=sitter.childNumber)
-            input.text-bg-success(type='submit' value='Clock-Out')
+              input#sitterNumber(type='text' name='sitterNumber'  value=sitter.sitterNumber)
+            input.text-bg-success(type='submit' value='Submit')
   #footer
     .fid_box1
       h3 Find us

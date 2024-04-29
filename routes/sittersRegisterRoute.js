@@ -78,87 +78,49 @@ router.post("/deleted", async(req, res)=> {
    }
  })
 
-//  //fetching list all babies clocked in from database 
-//  router.get("/sitterClockIn", async (req, res)=> {
-//    try {
-//      let sitters = await SittersModel.find({status: "ClockedIn"})
-//      res.render("./sitters/renderSitterClockIn", {sitters:sitters}) // to display sitters from data base
-//      console.log("display sitters clocked in", sitters);
-
-//    } catch (error) {
-//       res.status(400).send("unable to find babies from database!");
-//       console.log("unable to find babies from database!...", error );
-//    }
-//    })
-
-
-
-   //fetching list sitters clocked Out from database 
- router.get("/sitterclockingOut", async (req, res)=> {
+ 
+ //fetching list sitters present from database 
+ router.get("/sittersPresent", async (req, res)=> {
    try {
-     let sitters = await SittersModel.find({status: "ClockedOut"})
-     res.render("./sitters/renderSitterClockOut", {sitters:sitters}) // to display sitters from data base
-     console.log("display sitters clocked out", sitters);
+     let sitters = await SittersModel.find({status: "Present"})
+     res.render("./sitters/renderSitterPresent", {sitters:sitters}) // to display babies from data base
+     console.log("display sitter present", sitters);
 
    } catch (error) {
-      res.status(400).send("unable to find babies from database!");
-      console.log("unable to find babies from database!...", error );
+      res.status(400).send("unable to find sitters from database!");
+      console.log("unable to find sitters from database!...", error );
    }
    })
 
 
 
- //clockin sitter route for form in database
- router.get("/sitterIn/:id", async(req, res)=> { 
+ //route to register present sitter form in database
+ router.get("/sitterPresentForm/:id", async(req, res)=> { 
    try{
-
-     const sitters = await SittersModel.findOne({_id: req.params.id});
-     res.render("./sitters/sitterClockIn", {
-      sitter:sitterClockIn,
-      sitters:sitters
-   });
+      const sitters  = await SittersModel.findOne({_id: req.params.id});
+     res.render("./sitters/sitterPresent", {sitters:sitters});
 
    } catch(error){
-      console.log("error finding a baby!", error);
-      res.status(400).send("unable to find baby from the db!");  
+      console.log("error finding a Sitter!", error);
+      res.status(400).send("unable to find Sitter from the db!");  
    }
  })
 
- router.post("/sitterIn", async(req, res)=> {
+ router.post("/sitterPresentForm", async(req, res)=> {
    try {
       await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
-      res.redirect("/sitterIn");
+      res.redirect("/sittersPresent");
 
    } catch (error) {
-      res.status(404).send("unable to update baby in the db!");  
+      res.status(404).send("unable to update Sitter in the db!");  
    }
  })
 
 
- //clockOut sitter route for form in database
- router.get("/sitterClockingOut", async(req, res)=> { 
-   try{  
 
-     const sitterClockOut = await SittersModel.findOne({_id: req.params.id});
-     res.render("./sitters/sitterClockOut", {
-      sitter:sitterClockOut,
-      sitters:sitters
-   });
-   } catch(error){
-      console.log("error finding a baby!", error);
-      res.status(400).send("unable to find baby from the db!");  
-   }
- })
 
- router.post("/sitterClockingOut", async(req, res)=> {
-   try {
-      await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
-      res.redirect("/sitterClockingOut");
 
-   } catch (error) {
-      res.status(404).send("unable to update baby in the db!");  
-   }
- })
 
- ////export router
+
+
  module.exports = router;

@@ -142,7 +142,9 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
      const itemFinished = await ProcurementModel.findOne({_id: req.params.id});
      res.render("./procurement/itemFinished", {
       item:itemFinished
+  
    });
+
    } catch(error){
       console.log("error finding a item!", error);
       res.status(400).send("unable to find item from the db!");  
@@ -157,10 +159,6 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
       res.status(404).send("unable to  find item available in the db!");  
    }
  })
-
-
-
-
 
 
 

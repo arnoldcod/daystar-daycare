@@ -46,9 +46,9 @@ html(lang='en')
                 td 
                   a.btn.btn-primary.btn-block.btn-secondary(href= "/itemAvailable/"+ item._id) Available
                 td 
-                  a.btn.btn-primary.btn-block.btn-dark.text-light(href= "/itemFinishedRegistered/"+ item._id) Finished 
+                  a.btn.btn-primary.btn-block.btn-dark.text-light(href= "/itemFinished/"+ item._id) Finished 
                 td 
-                  a.btn.btn-primary.btn-block.btn-success(href= "/procurementUpdate/"+item._id) Update
+                  a.btn.btn-primary.btn-block.btn-success(href= "/procurementUpdate/"+ item._id) Update
                 td 
                   form(method="POST" action="/deleting")
                     input(type="hidden" name="id" value=item._id)
