@@ -6,7 +6,7 @@ const router = express.Router();
 const PayRegisterModel = require("../models/paymentRegisterModel") //import model
 
 router.get("/pay", (req, res)=> { //to run on the browser and display form on server file
-    res.render("payment");  //from payment.pug
+    res.render("./payment/payment");  //from payment.pug
  });
 
 
@@ -30,7 +30,7 @@ router.get("/pay", (req, res)=> { //to run on the browser and display form on se
  router.get("/pay", async (req, res)=> {
    try {
      let pay = await PayRegisterModel.find()
-     res.render("payment", {pay:pay}) // to display babies from data base
+     res.render("./payment/renderPayment", {pay:pay}) // to display babies from data base
      console.log("display pay", pay);
 
    } catch (error) {

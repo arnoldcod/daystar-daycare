@@ -18,7 +18,7 @@ main#main-div.main-div
   #row1
     div(id='row1-left clearfix')
       a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
-        | click Here to open canvas
+        | click Here to open dashboard
       #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
         .offcanvas-header
           h2#offcanvasExampleLabel.offcanvas-title Administration
@@ -90,48 +90,34 @@ main#main-div.main-div
       #row1-right-bottom
         // content
         .container
-          h1 Child Registry Update
-          form#registrationForm(action= '/babiesUpdate?id='+baby._id  method='POST')
+          h1 Sitter Clock Out
+          form#registrationForm(action= '/sitterClockingOut' method='POST')
             .form-group
-              label(for='name') Name:
-              input#name(type='text' name='name' value= baby.name)
+              label(for='name')  Name:
+              input#name(type='text' name='name' value=sitter.name readonly )
             .form-group
-              label(for='age') Age:
-              input#age(type='number' name='age' value=baby.age)
+              label(for='sitter') Sitter:
+              select#sitter.form-control(name='sitter')
+                 if sitters.length
+                 each sitter in sitters
+                     option(value=sitter_id) #{sitter.name}
+              small#sitterErr
             .form-group
-              label(for='gender') Gender:
-              select#gender(name='gender')
-                option(value='male' selected= baby.gender=== 'male') Male
-                option(value='female' selected= baby.gender=== 'female') Female
-                option(value='other' selected= baby.gender=== 'other') Other      
+              label(for='paidFee')  Paid Fee(UGX):
+              input#paidFee(type='text' name='paidFee'  value=sitter.paidFee)
             .form-group
-              label(for='contact') Contact:
-              input#contact(type='text' name='contact' value=baby.contact)
+              label(for='comment')  Comment:
+              input#comment(type='text' name='comment'  value=sitter.comment)
             .form-group
-              label(for='address') Address:
-              input#address(type='text' name='address' value=baby.address)
+              label(for='status') Status:
+              input#status(type='text' name='status'  value=sitter.status)
             .form-group
-              label(for='periodOfStay') Period of Stay:
-              input#periodOfStay(type='text' name='periodOfStay' value=baby.periodOfStay)
-              .form-group
-                label(for='childBroughtBy') Child Brought by:
-                input#childBroughtBy(type='text' name='childBroughtBy' value=baby.childBroughtBy)
-              .form-group
-                label(for='arrivalTime') Arrival Time:
-                input#arrivalTime(type='time' name='arrivalTime' value=baby.arrivalTime)
-              .form-group
-                label(for='paidFee')  Paid Fee(UGX):
-                input#paidFee(type='text' name='paidFee' value=baby.paidFee)
-              .form-group
-                label(for='childPickedBy') Child Picked by:
-                input#childPickedBy(type='text' name='childPickedBy' value=baby.childPickedBy)
-              .form-group
-                label(for='departureTime') Departure Time:
-                input#departureTime(type='time' name='departureTime' value=baby.departureTime)
-              .form-group
-                label(for='childNumber') Child Number:
-                input#childNumber(type='text' name='childNumber' value=baby.childNumber)
-              input.text-bg-success(type='submit' value='Update')
+              label(for='departureTime') Departure Time:
+              input#departureTime(type='time' name='departureTime'  value=sitter.departureTime)
+            .form-groupe
+              label(for='sitterNumber') Sitter Number:
+              input#sitterNumber(type='text' name='sitterNumber'  value=sitter.childNumber)
+            input.text-bg-success(type='submit' value='Clock-Out')
   #footer
     .fid_box1
       h3 Find us
