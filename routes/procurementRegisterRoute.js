@@ -41,7 +41,6 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
 
 
      //updating an item in the database
-
  router.get("/procurementUpdate/:id", async(req, res)=> { 
     try{
       const itemUpdate = await ProcurementModel.findOne({_id: req.params.id});
@@ -159,7 +158,6 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
       res.status(404).send("unable to  find item available in the db!");  
    }
  })
-
 
 
 

@@ -91,7 +91,7 @@ main#main-div.main-div
         // content
         .container
           h1 Sitter Present
-          form#registrationForm(action= '/sitterPresentForm?id='+sitter._id  method='POST')
+          form#registrationForm(action='/sitterPresentForm?id='+sitter._id  method='POST')
             .form-group
               label(for='name') Name:
               input#name(type='text' name='name' value= sitter.name )   

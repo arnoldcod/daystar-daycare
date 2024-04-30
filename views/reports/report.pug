@@ -1,0 +1,118 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Reports
+  // Bootstrap CSS
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/css/report.css')
+nav.navbar.navbar-expand-lg.navbar-light
+  .container
+    a.navbar-brand(href='#') Dashboard
+    // Add a responsive toggle button for smaller screens
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href='#') Home
+        li.nav-item
+          a.nav-link(href='#') About
+        li.nav-item
+          a.nav-link(href='#') Contact
+div(id='row1-left clearfix')
+  a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
+    | click Here to open canvas
+  #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+    .offcanvas-header
+      h2#offcanvasExampleLabel.offcanvas-title Administration
+      button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+    .offcanvas-body.text-bg-success.p-3
+      div
+        .card(style='width: 18rem;')
+          img.card-img-top(src='/images/lady-teacher.jpeg' alt='...')
+          .card-body
+            h5.card-title Head Teacher
+            p.card-text Ms. Ahumuza Diana
+      .dropdown.mt-3
+        button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          | Manage Babies
+        ul.dropdown-menu
+          li
+            a.dropdown-item.text-bg-success(href='/pages/babies/babies.html') Register new baby
+          li
+            a.dropdown-item.text-bg-success(href='#') view all babies
+          li
+            a.dropdown-item.text-bg-success(href='#') Update baby details 
+          li
+            a.dropdown-item.text-bg-success(href='#') Record baby departure.
+      .dropdown.mt-3
+        button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          | Manage Sitters
+        ul.dropdown-menu
+          li
+            a.dropdown-item.text-bg-success(href='/pages/sitters/sitters.html') View all sitters
+          li
+            a.dropdown-item.text-bg-success(href='#') Add new sitter
+          li
+            a.dropdown-item.text-bg-success(href='#') Edit sitter details
+          li
+            a.dropdown-item.text-bg-success(href='#') Remove sitter details
+      .dropdown.mt-3
+        button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          | Manage Payments
+        ul.dropdown-menu
+          li
+            a.dropdown-item.text-bg-success(href='/pages/payments/payments.html') View payment history
+          li
+            a.dropdown-item.text-bg-success(href='#') Make payment
+          li
+            a.dropdown-item.text-bg-success(href='#') Generate monthly invoices
+      .dropdown.mt-3
+        button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          | Manage Procurement
+        ul.dropdown-menu
+          li
+            a.dropdown-item.text-bg-success(href='/pages/procurement/procurement.html') view procurement itemss
+          li
+            a.dropdown-item.text-bg-success(href='#') Add new procurement item
+          li
+            a.dropdown-item.text-bg-success(href='#') Update procurement item
+          li
+            a.dropdown-item.text-bg-success(href='#') Remove procurement item
+      .dropdown.mt-3
+        button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
+          | Reports &amp; Analytics
+        ul.dropdown-menu
+          li
+            a.dropdown-item.text-bg-success(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
+          li
+            a.dropdown-item.text-bg-success(href='#') Generate monthly report 
+          li
+            a.dropdown-item.text-bg-success(href='#') Generate custom reports
+header.header
+  h2 Reports
+.center
+  .card-container
+    .card.mx-3
+      .card-body
+        h5.card-title Expense Report
+        ul.list-group
+          li.list-group-item Expense 1: $100
+          li.list-group-item Expense 2: $200
+          li.list-group-item Expense 3: $150
+        a.btn.btn-success.mt-3(href='#') View Report
+  .card-container
+    .card.mx-3
+      .card-body
+        h5.card-title Revenue Report
+        ul.list-group
+          li.list-group-item Revenue 1: $500
+          li.list-group-item Revenue 2: $700
+          li.list-group-item Revenue 3: $600
+        a.btn.btn-success.mt-3(href='#') View Report
+footer.footer
+  .container
+    p &copy; 2024 All Rights Reserved. DayStar Daycare &amp; kindergarten 
+// Bootstrap Bundle with Popper
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js')

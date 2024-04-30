@@ -30,6 +30,7 @@ const landing = require("./routes/landingRoute")// importing routes
 const dashboard = require("./routes/maindashboardRoute")// importing routes
 const pay = require("./routes/paymentRoute")// importing routes
 const procurements = require("./routes/procurementRegisterRoute")// importing routes
+const report = require("./routes/reportRoute") // importing routes
 
 
 
@@ -92,6 +93,7 @@ app.use("/", landing);
 app.use("/", dashboard);
 app.use("/", pay);
 app.use("/", procurements);
+app.use("/", report);
 
 
 

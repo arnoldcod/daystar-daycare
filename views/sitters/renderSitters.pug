@@ -48,9 +48,9 @@ html(lang='en')
                 td #{sitter.paidFee}
                 td #{sitter.status} 
                 td 
-                  a.btn.btn-primary.btn-block.btn-light(href= "/sitterPresentForm?id="+sitter._id) Present
+                  a.btn.btn-primary.btn-block.btn-light(href= '/sitterPresentForm/'+sitter._id) Present
                 td 
-                  a.btn.btn-primary.btn-block.btn-secondary(href= "/sitterClockingOut?id="+sitter._id) Absent   
+                  a.btn.btn-primary.btn-block.btn-secondary(href= "/sitterClockingOut/"+sitter._id) Absent   
                 td 
                   a.btn.btn-primary.btn-block.btn-success(href= "/sittersUpdate/"+ sitter._id) Update
                 td 

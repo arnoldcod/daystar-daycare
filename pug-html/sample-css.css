@@ -1,0 +1,39 @@
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/pages/dolll-store/dolls-images/img6.jpeg'); /* Replace 'your-image-url.jpg' with your actual image URL */
+    background-size: cover;
+    filter: blur(10px); /* Adjust the blur amount as needed */
+    z-index: -1;
+  }
+ 
+ 
+  /* Navbar styles */
+  .navbar {
+    background-color: rgba(248, 249, 250, 0.8); /* Add transparency to the navbar */
+  }
+  .navbar-brand {
+    color: #333;
+  }
+  /* Footer styles */
+  .footer {
+    background-color: rgba(248, 249, 250, 0.8); /* Add transparency to the footer */
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+
+
+  

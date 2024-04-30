@@ -78,6 +78,7 @@ router.post("/deleted", async(req, res)=> {
    }
  })
 
+
  
  //fetching list sitters present from database 
  router.get("/sittersPresent", async (req, res)=> {
@@ -108,13 +109,14 @@ router.post("/deleted", async(req, res)=> {
 
  router.post("/sitterPresentForm", async(req, res)=> {
    try {
-      await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      await SittersModel.findOneAndUpdate({_id: req.params.id}, req.body);
       res.redirect("/sittersPresent");
 
    } catch (error) {
       res.status(404).send("unable to update Sitter in the db!");  
    }
  })
+
 
 
 
