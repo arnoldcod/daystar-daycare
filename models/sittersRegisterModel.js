@@ -41,7 +41,7 @@ const sittersRegisterSchema = new mongoose.Schema({
         type: String, 
         trim: true
     },
-    Religion:{
+    religion:{
         type: String, 
         trim: true
     },
@@ -49,9 +49,21 @@ const sittersRegisterSchema = new mongoose.Schema({
         type: String, 
         trim: true
     },
+    status:{
+        type: String, 
+        trim: true
+    },
     sitterNumber:{
         type: String, 
         unique: true
+    },
+    arrivalTime:{
+        type: String, 
+        trim: true
+    },
+    comment:{
+        type: String, 
+        trim: true
     }
 
 });

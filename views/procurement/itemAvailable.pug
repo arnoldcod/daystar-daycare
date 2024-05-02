@@ -92,18 +92,21 @@ main#main-div.main-div
           form#registrationForm(action='/itemAvailable?id='+item._id  method='POST')
             .mb-3
               label.form-label(for='vendor') Vendor:
-              input#vendor.form-control(type='text' name='vendor' value= item.vendor)
+              input#vendor.form-control(type='text' name='vendor' value= item.vendor readonly)
             .mb-3
               label.form-label(for='itemName') Name of Item Purchased:
-              input#itemName.form-control(type='text' name='itemName' value= item.itemName)
+              input#itemName.form-control(type='text' name='itemName' value= item.itemName readonly)
             .mb-3
               label.form-label(for='itemId') Item ID:
-              input#itemId.form-control(type='text' name='itemId' value= item.itemId)
+              input#itemId.form-control(type='text' name='itemId' value= item.itemId readonly)
+            .form-group
+              input#status(type="hidden" name="status" value="Available")
             .row
               .col-md-6.mb-3
                 label.form-label(for='itemQuantity') Item Quantity:
                 input#itemQuantity.form-control(type='number' name='itemQuantity' value= item.itemQuantity)
             button.btn.btn-success(type='submit') Submit
+
 
   #footer
     .fid_box1

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Babies</title>
+    <title>Revenue</title>
 
      <!-- cdn bootstrap css -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/pages/babies/babies.css">
+    <link rel="stylesheet" href="/pages/reports-analytics/reports-analytics.css">
 </head>
 <body>
     <main id="main-div" class="main-div">
@@ -22,12 +22,11 @@
                <div w3-include-html="/includes-navbar/navbar.html"></div> 
             </div>
          </div>
-         
      
          <div id="row1">
             <div id="row1-left clearfix">
                 <a class="btn btn-primary text-bg-success p-2 " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                   Open Dashboard
+                    Open Dashboard
                   </a>  
                        
                   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -42,7 +41,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Head Teacher</h5>
                               <p class="card-text">Ms. Ahumuza Diana</p>
-                                                          
+                             
                             </div>
                           </div>
                       </div>
@@ -52,7 +51,7 @@
                           Manage Babies
                         </button>
                         <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-light " href="/pages/babies/babies.html">Register new baby</a></li>
+                          <li><a class="dropdown-item text-bg-success " href="/pages/babies/babies.html">Register new baby</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">view all babies</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Update baby details </a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Record baby departure.</a></li>
@@ -63,7 +62,7 @@
                           Manage Sitters
                         </button>
                         <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-light " href="/pages/sitters/sitters.html">View all sitters</a></li>
+                          <li><a class="dropdown-item text-bg-success " href="/pages/sitters/sitters.html">View all sitters</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Add new sitter</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Edit sitter details</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Remove sitter details</a></li>
@@ -74,7 +73,7 @@
                           Manage Payments
                         </button>
                         <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-light " href="/pages/payments/payments.html">View payment history</a></li>
+                          <li><a class="dropdown-item text-bg-success " href="/pages/payments/payments.html">View payment history</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Make payment</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Generate monthly invoices</a></li>
                          
@@ -85,7 +84,7 @@
                           Manage Procurement
                         </button>
                         <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-light " href="/pages/procurement/procurement.html">view procurement itemss</a></li>
+                          <li><a class="dropdown-item text-bg-success " href="/pages/procurement/procurement.html">view procurement itemss</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Add new procurement item</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Update procurement item</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Remove procurement item</a></li>
@@ -96,7 +95,7 @@
                             Reports & Analytics
                         </button>
                         <ul class="dropdown-menu ">
-                          <li><a class="dropdown-item text-bg-light " href="/pages/reports-analytics/reports-analytics.html">Generate daily report</a></li>
+                          <li><a class="dropdown-item text-bg-success " href="/pages/reports-analytics/reports-analytics.html">Generate daily report</a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Generate monthly report </a></li>
                           <li><a class="dropdown-item text-bg-success " href="#">Generate custom reports</a></li>
                         </ul>
@@ -106,84 +105,75 @@
             </div>
 
             <div id="row1-right">
+                <div id="row1-right-logo">
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>        
+                </div>
 
                 <div id="row1-right-bottom">
                     
                     <!--content-->
-                    <div  class="container">               
-                          <h1>Child Registry</h1>
-                          <form id="registrationForm registrationForm">
-                            <div class="form-group">
-                              <label for="name">Name:</label>
-                              <input type="text" id="name" name="name">
-                            </div>
-                            <div class="form-group">
-                              <label for="dob">Date of Birth:</label>
-                              <input type="date" id="dob" name="dob" >
-                            </div>
-                            <div class="form-group">
-                              <label for="age">Age:</label>
-                              <input type="number" id="age" name="age">
-                            </div>
-                            <div class="form-group">
-                              <label for="gender">Gender:</label>
-                              <select id="gender" name="gender" >
-                                <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                              </select>
-                            </div>
-                            <div class="form-group">
-                              <label for="parentNames">Parent Names:</label>
-                              <input type="text" id="parentNames" name="parentNames" >
-                            </div>
-                            <div class="form-group">
-                              <label for="contact">Contact:</label>
-                              <input type="text" id="contact" name="contact">
-                            </div>
-                            <div class="form-group">
-                              <label for="address">Address:</label>
-                              <input type="text" id="address" name="address">
-                            </div>
-                            <div class="form-group">
-                              <label for="periodOfStay">Period of Stay:</label>
-                              <input type="text" id="periodOfStay" name="periodOfStay">
-                              <div class="form-group">
-                                <label for="childBroughtBy">Child Brought by:</label>
-                                <input type="text" id="childBroughtBy" name="childBroughtBy">
+
+                    <div class="container mt-5">
+                      <div class="row justify-content-center">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <h4 class="card-title text-center">Revenue Form</h4>
+                                      <form>
+                                        <div class="mb-3"></div>
+                                        <div class="mb-3">
+                                          <label for="date" class="form-label">Date</label>
+                                          <input type="date" class="form-control" id="date" placeholder="Enter Per Date" name="date">
+                                       </div>
+                                          <div class="mb-3">
+                                            <label for="category">Category:</label>
+                                            <select id="category" name="category" >
+                                              <option value="">Select Category</option>
+                                              <option value="male">Babies</option>
+                                              <option value="female">Doll Stall</option>
+                                              <option value="other">Donations</option>
+                                              <option value="other">Others</option>
+                                            </select>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label for="totalPayment" class="form-label">Total Payment Collected</label>
+                                              <input type="number" class="form-control" id="totalPayment" placeholder="Enter Totat Payment" name="totalPayment">
+                                          </div>
+                                          <div class="mb-3">
+                                            <label for="day" class="form-label">Per Day</label>
+                                            <input type="number" class="form-control" id="day" placeholder="Enter Per Day" name="day">
+                                         </div>
+                                         <div class="mb-3">
+                                          <label for="week" class="form-label">Per Week</label>
+                                          <input type="number" class="form-control" id="week" placeholder="Enter Per Week" name="week">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="month" class="form-label">Per Month</label>
+                                          <input type="number" class="form-control" id="month" placeholder="Enter Per Month" name="month">
+                                        </div>
+                                          <div class="mb-3">
+                                              <label for="comment" class="form-label">Comment</label>
+                                              <input type="text" class="form-control" id="comment" placeholder="Comment" name="comment"   readonly>
+                                          </div>
+                                          <button type="submit" class="btn btn-success">Submit</button>
+                                      </form>
+                                  </div>
                               </div>
-                              <div class="form-group">
-                                <label for="arrivalTime">Arrival Time:</label>
-                                <input type="time" id="arrivalTime" name="arrivalTime" >
-                              </div>
-                              <div class="form-group">
-                                <label for="paidFee"> Paid Fee(UGX):</label>
-                                <input type="text" id="paidFee" name="paidFee" >
-                              </div>
-                              <div class="form-group">
-                                <label for="childPickedBy">Child Picked by:</label>
-                                <input type="text" id="childPickedBy" name="childPickedBy" >
-                              </div>
-                              <div class="form-group">
-                                <label for="departureTime">Departure Time:</label>
-                                <input type="time" id="departureTime" name="departureTime" >
-                              </div>
-                            
-                            <div class="form-group">
-                              <label for="childNumber">Child Number:</label>
-                              <input type="text" id="childNumber" name="childNumber">
-                            </div>
+                          </div>
+                      </div>
+                  </div>
                     
-                            <input class="text-bg-success" type="submit" value="Register">
-                       
-                        </div>
-                          </form>
-                    </div>          
                 </div>
+
             </div>
          </div>
-
 
           <div id="footer">  
             <div class="fid_box1">
@@ -198,11 +188,10 @@
             </div>
        
 
-
          <div class="copyright">
-            <div class="container1">
+            <div class="container">
               <div class="row">
-                <div class="col-md-">
+                <div class="col-md-6">
                   <p>© 2024 All Rights Reserved. DayStar Daycare & kindergarten </p>
                 </div>
               </div>
@@ -210,6 +199,8 @@
           </div>
 
       </div>
+
+           
 
     </main>
 
@@ -221,7 +212,7 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
    <script src="/includes-navbar/navbar.js"> </script>
 
-   <script src="/pages/babies/babies.js"></script>
+   <script src="/pages/reports-analytics/reports-analytics.js"></script>
     
 </body>
 </html>

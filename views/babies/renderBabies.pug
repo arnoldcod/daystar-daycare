@@ -36,7 +36,7 @@ html(lang='en')
             each baby in babies
               tr
                 td #{baby.name}
-                td #{baby.dob}
+                td #{moment(baby.dob).format("DD-MM-YY")}
                 td #{baby.age}
                 td #{baby.gender}
                 td #{baby.parentNames}
@@ -55,6 +55,7 @@ html(lang='en')
                   form(method="POST" action="/delete")
                     input(type="hidden" name="id" value=baby._id)
                     button.btn.btn-danger(type="submit") Delete
+                    
                     
     #footer.footer.text-center.text-light.p-3
       .fid_box1

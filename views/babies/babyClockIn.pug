@@ -103,20 +103,20 @@ main#main-div.main-div
                      option(value=sitter_id) #{sitter.name}
               small#sitterErr
                .form-group
+                 label(for='paidFee')  Paid Fee(UGX):
+                 input#paidFee(type='text' name='paidFee'  value=baby.paidFee)
+               .form-group
                  label(for='childBroughtBy') Child Brought by:
                  input#childBroughtBy(type='text' name='childBroughtBy' value= baby.childBroughtBy)
                .form-group
                  label(for='arrivalTime') Arrival Time:
                  input#arrivalTime(type='time' name='arrivalTime' value= baby.arrivalTime)
                .form-group
-                 label(for='paidFee')  Paid Fee(UGX):
-                 input#paidFee(type='text' name='paidFee' value= baby.paidFee)
-               .form-group
                  input#status(type='hidden' name='status'  value= 'ClockedIn')
                .form-group
                  label(for='childNumber') Child Number:
                  input#childNumber(type='text' name='childNumber' value= baby.childNumber)
-                 input.text-bg-success(type='submit' value='Clock-In')
+                 input.text-bg-success(type='submit' value='Clock-In')   
   #footer
     .fid_box1
       h3 Find us

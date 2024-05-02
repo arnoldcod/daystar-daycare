@@ -16,7 +16,7 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
       console.log(item);
       await item.save();
       
-         res.redirect("/procurementRegister");
+       res.redirect("/procurementView");
 
    } catch (error) {
       res.status(400).send("Sorry something wrong!");
@@ -98,10 +98,8 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
     // item available form route for form in database
  router.get("/itemAvailable/:id", async(req, res)=> { 
    try{
-     const itemAvailable = await ProcurementModel.findOne({_id: req.params.id});
-     res.render("./procurement/itemAvailable", {
-      item:itemAvailable
-   });
+     const item = await ProcurementModel.findOne({_id: req.params.id});
+     res.render("./procurement/itemAvailable", {item:item});
    } catch(error){
       console.log("error finding a baby!", error);
       res.status(400).send("unable to find baby from the db!");  
@@ -116,8 +114,6 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
       res.status(404).send("unable to  find item available in the db!");  
    }
  })
-
-
 
 
 
@@ -138,11 +134,8 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
   // item Finished form route for form in database
   router.get("/itemFinished/:id", async(req, res)=> { 
    try{
-     const itemFinished = await ProcurementModel.findOne({_id: req.params.id});
-     res.render("./procurement/itemFinished", {
-      item:itemFinished
-  
-   });
+     const item = await ProcurementModel.findOne({_id: req.params.id});
+     res.render("./procurement/itemFinished", {item:item});
 
    } catch(error){
       console.log("error finding a item!", error);

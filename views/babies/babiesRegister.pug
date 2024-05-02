@@ -11,14 +11,21 @@ main#main-div.main-div
   #logo-nav-parent.text-bg-success
     #logo-div.text-color
     #welcome.welcome.text-color.text-bg-success
-      h4   DayStar day care Kindergarten 
-    #navbar
-      div(w3-include-html='/views/navbar.pug')
-       a.btn.btn-danger.p-2( href='/logout' role='button') logout
+      h4 DayStar day care Kindergarten
+    #navbar.navbar.navbar-expand-lg.navbar-light.bg-success 
+      div
+        a.text1.text-light(href='/logout' role='text') logout
+       
+      div
+        a.text2.text-light(href='/logout' role='text') logout
+
+      div
+        a.text.text-light(href='/logout' role='text') logout
+
   #row1
     div(id='row1-left clearfix')
       a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
-        | click Here to open dashboard
+        | open dashboard
       #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
         .offcanvas-header
           h2#offcanvasExampleLabel.offcanvas-title Administration
@@ -35,25 +42,25 @@ main#main-div.main-div
               | Manage Babies
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/babiesRegistry') Register new baby
+                a.dropdown-item.text-bg-light(href='/babiesRegister') Register new Child
               li
-                a.dropdown-item.text-bg-success(href='/babies') view all babies
+                a.dropdown-item.text-bg-success(href='/babies') View all Children
               li
-                a.dropdown-item.text-bg-success(href='/babiesUpdate?id=') Update baby details 
+                a.dropdown-item.text-bg-success(href='/babyClockIn')  Clocken-In Children
               li
-                a.dropdown-item.text-bg-success(href='#') Record baby departure.
+                a.dropdown-item.text-bg-success(href='/clockingOutList') Clocken-Out Children
           .dropdown.mt-3
             button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Sitters
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/sitters') View all sitters
+                a.dropdown-item.text-bg-light(href='/sittersRegister') Register new sitter
               li
-                a.dropdown-item.text-bg-success(href='#') Add new sitter
+                a.dropdown-item.text-bg-success(href='/sitters') View all sitters
               li
-                a.dropdown-item.text-bg-success(href='#') Edit sitter details
+                a.dropdown-item.text-bg-success(href='/sittersPresent') Present Sitters
               li
-                a.dropdown-item.text-bg-success(href='#') Remove sitter details
+                a.dropdown-item.text-bg-success(href='/sittersAbsent') Absent Sitters
           .dropdown.mt-3
             button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Payments
@@ -69,13 +76,13 @@ main#main-div.main-div
               | Manage Procurement
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-light(href='/pages/procurement/procurement.html') view procurement itemss
+                a.dropdown-item.text-bg-light(href='/procurementRegister') Register new procurement item
               li
-                a.dropdown-item.text-bg-success(href='#') Add new procurement item
+                a.dropdown-item.text-bg-success(href='/procurementView') View procurement itemss 
               li
-                a.dropdown-item.text-bg-success(href='#') Update procurement item
+                a.dropdown-item.text-bg-success(href='/itemAvailableRegistered') Available Items
               li
-                a.dropdown-item.text-bg-success(href='#') Remove procurement item
+                a.dropdown-item.text-bg-success(href='/itemFinishedRegistered') Finished Items
           .dropdown.mt-3
             button.btn.btn-secondary.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Reports &amp; Analytics

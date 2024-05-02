@@ -96,10 +96,10 @@ router.post("/deleted", async(req, res)=> {
 
 
  //route to register present sitter form in database
- router.get("/sitterPresentForm/:id", async(req, res)=> { 
+ router.get("/sitterPresentRoute/:id", async(req, res)=> { 
    try{
-      const sitters  = await SittersModel.findOne({_id: req.params.id});
-     res.render("./sitters/sitterPresent", {sitters:sitters});
+      const sitter  = await SittersModel.findOne({_id: req.params.id});
+     res.render("./sitters/sitterPresent", {sitter:sitter});
 
    } catch(error){
       console.log("error finding a Sitter!", error);
@@ -107,16 +107,56 @@ router.post("/deleted", async(req, res)=> {
    }
  })
 
- router.post("/sitterPresentForm", async(req, res)=> {
+ router.post("/sitterPresentRoute", async(req, res)=> {
    try {
-      await SittersModel.findOneAndUpdate({_id: req.params.id}, req.body);
+      await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      console.log(req.body);
       res.redirect("/sittersPresent");
 
    } catch (error) {
-      res.status(404).send("unable to update Sitter in the db!");  
+      res.status(404).send("unable to update Sitter in the db!");
+      console.log("........................", error);  
    }
  })
 
+
+
+ //fetching list sitters Absent from database 
+ router.get("/sittersAbsent", async (req, res)=> {
+   try {
+     let sitters = await SittersModel.find({status: "Absent"})
+     res.render("./sitters/renderSitterAbsent", {sitters:sitters}) // to display babies from data base
+     console.log("display sitter Absent", sitters);
+
+   } catch (error) {
+      res.status(400).send("unable to find sitters from database!");
+      console.log("unable to find sitters from database!...", error );
+   }
+   })
+
+
+   //route to register Absent sitter form in database
+ router.get("/sitterAbsentRoute/:id", async(req, res)=> { 
+   try{
+      const sitter  = await SittersModel.findOne({_id: req.params.id});
+     res.render("./sitters/sitterAbsent", {sitter:sitter});
+
+   } catch(error){
+      console.log("error finding a Sitter!", error);
+      res.status(400).send("unable to find Sitter from the db!");  
+   }
+ })
+ 
+
+ router.post("/sitterAbsentRoute", async(req, res)=> {
+   try {
+      await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      res.redirect("/sittersAbsent");
+
+   } catch (error) {
+      res.status(404).send("unable to find Sitter in the db!");  
+   }
+ })
 
 
 

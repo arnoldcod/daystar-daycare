@@ -103,6 +103,11 @@ main#main-div.main-div
               .col-md-6.mb-3
                 label.form-label(for='itemQuantity') Item Quantity:
                 input#itemQuantity.form-control(type='number' name='itemQuantity' value= item.itemQuantity)
+            .form-group
+              input#status(type="hidden" name="status" value="Finished")
+            .mb-3
+              label.form-label(for='comment') Comment:
+              input#comment.form-control(type='text' name='comment' value= item.comment)
             button.btn.btn-success(type='submit') Submit
 
   #footer

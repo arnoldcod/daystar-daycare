@@ -50,6 +50,29 @@ body{
     justify-content: right;
     padding-right: 80px;
 }
+.text3 {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 60%;
+  margin-right: 20px;
+  justify-content: right;
+}
+
+.text2 {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 60%;
+  margin-right: 30px;
+  justify-content: right;
+}
+
+.text1 {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 60%;
+  margin-right: 20px;
+  justify-content: right;
+}
 
 
 #row1 {

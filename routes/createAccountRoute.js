@@ -8,7 +8,7 @@ const CreateAccountModel = require("../models/createAccountModel"); //import mod
 
 
 router.get("/createAccount",  (req, res)=> { //to run on the browser and display form on server file
-    res.render("signup");  //from createAccount.pug
+    res.render("./loginAndSignup/signup");  //from createAccount.pug
  });
 
 

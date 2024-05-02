@@ -14,11 +14,12 @@ main#main-div.main-div.content
       a.text-bg-success(href= '/dashboard')
         h4 DayStar day care Kindergarten 
     #navbar
-      div(w3-include-html='/includes-navbar/navbar.html')
+      div(w3-include-html='/views/navbar.pug')
+       a.btn.btn-danger.p-2( href='/logout' role='button') logout
   #row1
     div(id='row1-left clearfix')
       a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
-        | click Here to open dashboard 
+        | open dashboard 
       #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
         .offcanvas-header
           h2#offcanvasExampleLabel.offcanvas-title Administration
@@ -35,31 +36,31 @@ main#main-div.main-div.content
               | Manage Babies
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/babiesRegister') Register new baby
+                a.dropdown-item.text-bg-success(href='/babiesRegister') Register new Child
               li
-                a.dropdown-item.text-bg-light(href='/babies') view all babies
+                a.dropdown-item.text-bg-light(href='/babies') View all Children
               li
-                a.dropdown-item.text-bg-light(href='/babyClockIn') List Of Children Clocked In. 
+                a.dropdown-item.text-bg-light(href='/babyClockIn')  Clock-In Children
               li
-                a.dropdown-item.text-bg-light(href='/clockingOutList') List Of Children clocked Out
+                a.dropdown-item.text-bg-light(href='/clockingOutList') Clock-Out Children
           .dropdown.mt-3
             button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Sitters
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/sittersRegister')  Register sitter
+                a.dropdown-item.text-bg-success(href='/sittersRegister') Register new sitter
               li
                 a.dropdown-item.text-bg-light(href='/sitters') View all sitters
               li
-                a.dropdown-item.text-bg-light(href='#') List of sitters Clocked-in 
+                a.dropdown-item.text-bg-light(href='/sittersPresent') Present Sitters
               li
-                a.dropdown-item.text-bg-light(href='#') Remove sitter details
+                a.dropdown-item.text-bg-light(href='/sittersAbsent') Absent Sitters
           .dropdown.mt-3
             button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Manage Payments
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/pay') View payment history
+                a.dropdown-item.text-bg-success(href='/pages/payments/payments.html') View payment history
               li
                 a.dropdown-item.text-bg-light(href='#') Make payment
               li
@@ -69,19 +70,19 @@ main#main-div.main-div.content
               | Manage Procurement
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/procurementRegister') view procurement itemss
+                a.dropdown-item.text-bg-success(href='/procurementRegister') Register new procurement item
               li
-                a.dropdown-item.text-bg-light(href='#') Add new procurement item
+                a.dropdown-item.text-bg-light(href='/procurementView') View procurement itemss 
               li
-                a.dropdown-item.text-bg-light(href='#') Update procurement item
+                a.dropdown-item.text-bg-light(href='/itemAvailableRegistered') Available Items
               li
-                a.dropdown-item.text-bg-light(href='#') Remove procurement item
+                a.dropdown-item.text-bg-light(href='/itemFinishedRegistered') Finished Items
           .dropdown.mt-3
             button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
               | Reports &amp; Analytics
             ul.dropdown-menu
               li
-                a.dropdown-item.text-bg-success(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
+                a.dropdown-item.text-bg-success(href='/reports') Generate daily report
               li
                 a.dropdown-item.text-bg-light(href='#') Generate monthly report 
               li
@@ -95,7 +96,7 @@ main#main-div.main-div.content
         .container
         .container
         .container
-        .container hello
+        .container 
       #row1-right-bottom
         // Main wrapper for the calendar application
         .wrapper

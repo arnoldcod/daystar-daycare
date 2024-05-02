@@ -91,7 +91,7 @@ main#main-div.main-div
         // content
         .container
           h1 Sitter Absent
-          form#registrationForm(action= '/sitterClockingOut' method='POST')
+          form#registrationForm(action='/sitterAbsentRoute?id='+sitter._id  method='POST')
             .form-group
               label(for='name')  Name:
               input#name(type='text' name='name' value=sitter.name readonly )
@@ -99,11 +99,10 @@ main#main-div.main-div
               label(for='comment')  Comment:
               input#comment(type='text' name='comment'  value=sitter.comment)
             .form-group
-              label(for='status') Status:
-              input#status(type='text' name='status'  value=sitter.status)
+              input#status(type="hidden" name="status" value="Absent")
             .form-groupe
               label(for='sitterNumber') Sitter Number:
-              input#sitterNumber(type='text' name='sitterNumber'  value=sitter.sitterNumber)
+              input#sitterNumber(type='text' name='sitterNumber'  value=sitter.sitterNumber readonly)
             input.text-bg-success(type='submit' value='Submit')
   #footer
     .fid_box1

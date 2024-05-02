@@ -91,21 +91,21 @@ main#main-div.main-div
         // content
         .container
           h1 Sitter Present
-          form#registrationForm(action='/sitterPresentForm?id='+sitter._id  method='POST')
+          form#registrationForm(action='/sitterPresentRoute?id='+sitter._id  method='POST')
             .form-group
               label(for='name') Name:
-              input#name(type='text' name='name' value= sitter.name )   
+              input#name(type='text' name='name' value= sitter.name readonly) 
             .form-group
               label(for='contact') Contact:
-              input#contact(type='text' name='contact') 
+              input#contact(type='number' name='contact' value= sitter.contact readonly)        
             .form-group
               label(for='arrivalTime') Arrival Time:
-                 input#arrivalTime(type='time' name='arrivalTime' value= sitter.arrivalTime)
+              input#arrivalTime(type='time' name='arrivalTime' )
             .form-group
-                 input#status(type='hidden' name='status'  value= 'Present')
+              input#status(type="hidden" name="status" value="Present")
             .form-group
               label(for='sitterNumber') Sitter Number:
-                 input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber)
+                 input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber readonly)
                  input.text-bg-success(type='submit' value='Submit')
   #footer
     .fid_box1

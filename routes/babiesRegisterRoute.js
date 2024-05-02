@@ -40,6 +40,8 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
    }
    })
 
+   
+
  //fetching list all babies clocked in from database 
  router.get("/babyClockIn", async (req, res)=> {
    try {
@@ -52,6 +54,8 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
       console.log("unable to find babies from database!...", error );
    }
    })
+
+
 
 //fetching list babies clocked Out from database 
  router.get("/clockingOutList", async (req, res)=> {
@@ -98,7 +102,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
  router.post("/babiesUpdate", async(req, res)=> {
    try {
-      await BabiesRegisterModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      await BabiesRegisterModel.findByIdAndUpdate({_id: req.query.id}, req.body);
       res.redirect("/babies");
 
    } catch (error) {

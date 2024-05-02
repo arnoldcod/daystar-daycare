@@ -34,7 +34,7 @@ html(lang='en')
           if items.length 
             each item in items
               tr
-                td #{item.datePurchased}
+                td #{moment(item.datePurchased).format("DD-MM-YY")}
                 td #{item.vendor}
                 td #{item.itemName}
                 td #{item.itemId}
@@ -42,7 +42,7 @@ html(lang='en')
                 td #{item.itemUnitPrice}
                 td #{item.measurement}
                 td #{item.totalPrice}
-                td #{item.status} 
+                td #{item.status}
                 td 
                   a.btn.btn-primary.btn-block.btn-secondary(href= "/itemAvailable/"+ item._id) Available
                 td 
