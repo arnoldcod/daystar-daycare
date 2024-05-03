@@ -31,6 +31,8 @@ const dashboard = require("./routes/maindashboardRoute")// importing routes
 const pay = require("./routes/paymentRoute")// importing routes
 const procurements = require("./routes/procurementRegisterRoute")// importing routes
 const report = require("./routes/reportRoute") // importing routes
+const revenue = require("./routes/revenueRoutes") // importing routes
+const expense = require("./routes/expenseRoutes") // importing routes
 
 
 
@@ -94,6 +96,8 @@ app.use("/", dashboard);
 app.use("/", pay);
 app.use("/", procurements);
 app.use("/", report);
+app.use("/", revenue);
+app.use("/", expense);
 
 
 

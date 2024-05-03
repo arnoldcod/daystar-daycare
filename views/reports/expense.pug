@@ -102,7 +102,7 @@ main#main-div.main-div
               .card
                 .card-body
                   h4.card-title.text-center Expense Form
-                  form
+                  form(action='/expense' method='POST')
                     .mb-3
                     .mb-3
                       label.form-label(for='date') Date
@@ -111,22 +111,19 @@ main#main-div.main-div
                       label(for='category') Category:
                       select#category(name='category')
                         option(value='') Select Category
-                        option(value='male') Staff Payment
-                        option(value='female') Inventory Purchase
-                        option(value='other') School Maintaince
-                        option(value='other') Others
+                        option(value='staffPayment') Staff Payment
+                        option(value='inventoryPurchase') Inventory Purchase
+                        option(value='schoolMaintaince') School Maintaince
+                        option(value='others') Others
                     .mb-3
                       label.form-label(for='totalPayment') Total Payment Cleared (UGX) 
-                      input#totalPayment.form-control(type='number' name='totalPayment' placeholder='Enter Totat Payment Cleared')
+                      input#totalPayment.form-control(type='number' name='totalPayment' placeholder='Enter Total Payment Cleared')
                     .mb-3
-                      label.form-label(for='week') Per Week
-                      input#week.form-control(type='number' placeholder='Enter Per Week' name='week')
-                    .mb-3
-                      label.form-label(for='month') Per Month
-                      input#month.form-control(type='number' placeholder='Enter Per Month' name='month')
+                      label.form-label(for='day') Per Day
+                      input#week.form-control(type='number' placeholder='Enter Per Day' name='day')
                     .mb-3
                       label.form-label(for='comment') Comment
-                      input#comment.form-control(type='text' placeholder='Comment' name='comment' readonly='')
+                      input#comment.form-control(type='text' placeholder='Comment' name='comment' )
                     button.btn.btn-success(type='submit') Submit
   #footer
     .fid_box1

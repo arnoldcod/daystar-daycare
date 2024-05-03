@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const reportRegisterSchema = new mongoose.Schema({
+const revenueRegisterSchema = new mongoose.Schema({
     date:{
         type: Date, 
         trim: true
@@ -9,7 +9,7 @@ const reportRegisterSchema = new mongoose.Schema({
         type: String, 
         trim: true
     },
-    totalPayment:{
+    totalPayments:{
         type: Number, 
         unique: true
     },
@@ -17,7 +17,6 @@ const reportRegisterSchema = new mongoose.Schema({
         type: Number, 
         unique: true
     },
-   
     comment:{
         type: String, 
         trim: true
@@ -25,4 +24,4 @@ const reportRegisterSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("ReportModel", reportRegisterSchema)
+module.exports = mongoose.model("Revenue", revenueRegisterSchema)

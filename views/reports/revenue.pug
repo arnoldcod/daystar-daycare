@@ -102,7 +102,7 @@ main#main-div.main-div
               .card
                 .card-body
                   h4.card-title.text-center Revenue Form
-                  form
+                  form(action='/revenue' method='POST')
                     .mb-3
                     .mb-3
                       label.form-label(for='date') Date
@@ -111,25 +111,19 @@ main#main-div.main-div
                       label(for='category') Category:
                       select#category(name='category')
                         option(value='') Select Category
-                        option(value='male') Babies
-                        option(value='female') Doll Stall
-                        option(value='other') Donations
-                        option(value='other') Others
+                        option(value='babies') Babies
+                        option(value='dollStall') Doll Stall
+                        option(value='donations') Donations
+                        option(value='others') Others
                     .mb-3
-                      label.form-label(for='totalPayment') Total Payment Collected
-                      input#totalPayment.form-control(type='number' placeholder='Enter Total Payment' name='totalPayment')
+                      label.form-label(for='totalPayments') Total Payment Collected (UGX)
+                      input#totalPayments.form-control(type='number' placeholder='Enter Total Payment' name='totalPayments')
                     .mb-3
                       label.form-label(for='day') Per Day
                       input#day.form-control(type='number' placeholder='Enter Per Day' name='day')
                     .mb-3
-                      label.form-label(for='week') Per Week
-                      input#week.form-control(type='number' placeholder='Enter Per Week' name='week')
-                    .mb-3
-                      label.form-label(for='month') Per Month
-                      input#month.form-control(type='number' placeholder='Enter Per Month' name='month')
-                    .mb-3
                       label.form-label(for='comment') Comment
-                      input#comment.form-control(type='text' placeholder='Comment' name='comment' readonly='')
+                      input#comment.form-control(type='text' placeholder='Comment' name='comment' )
                     button.btn.btn-success(type='submit') Submit
   #footer
     .fid_box1
