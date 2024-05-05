@@ -26,6 +26,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
       console.log("error registering baby...", error );
    }
  });
+ 
 
  //fetching All babies from database 
  router.get("/babies", async (req, res)=> {
