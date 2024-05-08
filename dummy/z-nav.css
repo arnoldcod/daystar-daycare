@@ -4,6 +4,7 @@ body{
     font-family: sans-serif;
 }
 
+
 header {
     z-index: 1;
     position: fixed;
@@ -44,6 +45,7 @@ header {
 .logout-btn:hover{
     background: #19b3d3;
 }
+
 
 .sidebar{
     z-index: 1;

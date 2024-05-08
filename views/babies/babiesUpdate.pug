@@ -2,93 +2,100 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Babies Registry
-  // cdn bootstrap css
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css')
-
+  title Baby Update
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css')
+  script(src='https://kit.fontawesome.com/ae360af17e.js' crossorigin='anonymous')
   link(rel='stylesheet' href='/css/babiesRegister.css')
-main#main-div.main-div
-  #logo-nav-parent.text-bg-success
-    #logo-div.text-color
-    #welcome.welcome.text-color.text-bg-success
-      h4   DayStar day care Kindergarten 
-    #navbar
-      div(w3-include-html='/views/navbar.pug')
-       a.btn.btn-danger.p-2( href='/logout' role='button') logout
-  #row1
-    div(id='row1-left clearfix')
-      a.btn.btn-primary.text-bg-success.p-2(data-bs-toggle='offcanvas' href='#offcanvasExample' role='button' aria-controls='offcanvasExample')
-        | click Here to open canvas
-      #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
-        .offcanvas-header
-          h2#offcanvasExampleLabel.offcanvas-title Administration
-          button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
-        .offcanvas-body.text-bg-success.p-3
-          div
-            .card(style='width: 18rem;')
-              img.card-img-top(src='/z-project/images/lady-teacher.jpeg' alt='...')
-              .card-body
-                h5.card-title Head Teacher
-                p.card-text Ms. Ahumuza Diana
-          .dropdown.mt-3 
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
-              | Manage Babies
-            ul.dropdown-menu
-              li
-                a.dropdown-item.text-bg-success(href='/pages/babies/babies.html') Register new baby
-              li
-                a.dropdown-item.text-bg-success(href='#') view all babies
-              li
-                a.dropdown-item.text-bg-success(href='#') Update baby details 
-              li
-                a.dropdown-item.text-bg-success(href='#') Record baby departure.
-          .dropdown.mt-3 
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
-              | Manage Sitters
-            ul.dropdown-menu
-              li
-                a.dropdown-item.text-bg-success(href='/pages/sitters/sitters.html') View all sitters
-              li
-                a.dropdown-item.text-bg-success(href='#') Add new sitter
-              li
-                a.dropdown-item.text-bg-success(href='#') Edit sitter details
-              li
-                a.dropdown-item.text-bg-success(href='#') Remove sitter details
-          .dropdown.mt-3
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
-              | Manage Payments
-            ul.dropdown-menu
-              li
-                a.dropdown-item.text-bg-success(href='/pages/payments/payments.html') View payment history
-              li
-                a.dropdown-item.text-bg-success(href='#') Make payment
-              li
-                a.dropdown-item.text-bg-success(href='#') Generate monthly invoices
-          .dropdown.mt-3
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
-              | Manage Procurement
-            ul.dropdown-menu
-              li
-                a.dropdown-item.text-bg-success(href='/pages/procurement/procurement.html') view procurement itemss
-              li
-                a.dropdown-item.text-bg-success(href='#') Add new procurement item
-              li
-                a.dropdown-item.text-bg-success(href='#') Update procurement item
-              li
-                a.dropdown-item.text-bg-success(href='#') Remove procurement item
-          .dropdown.mt-3
-            button.btn.btn-light.dropdown-toggle(type='button' data-bs-toggle='dropdown')
-              | Reports &amp; Analytics
-            ul.dropdown-menu
-              li
-                a.dropdown-item.text-bg-success(href='/pages/reports-analytics/reports-analytics.html') Generate daily report
-              li
-                a.dropdown-item.text-bg-success(href='#') Generate monthly report 
-              li
-                a.dropdown-item.text-bg-success(href='#') Generate custom reports
-    #row1-right
-      #row1-right-bottom
-        // content
+.wrapper
+  aside#sidebar.js-sidebar.bg-dark
+    // Content For Sidebar
+    .h-100
+      .sidebar-logo
+        a(href='#') DayStar DayCare
+      ul.sidebar-nav
+        li.sidebar-header
+          | ADMIN
+        li.sidebar-item
+          a.sidebar-link.text-bg-success(href='#')
+            i.fa-solid.fa-list.pe-2
+            |                             Dashboard
+        li.sidebar-item
+          a.sidebar-link.collapsed.text-bg-light(href='#' data-bs-target='#pages' data-bs-toggle='collapse' aria-expanded='false')
+            i.fa-solid.fa-file-lines.pe-2
+            |                            Manage  Babies
+          ul#pages.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+            li.sidebar-item
+              a.sidebar-link(href='/babiesRegister') Register new Child
+            li.sidebar-item
+              a.sidebar-link(href='/babies') View All Children
+            li.sidebar-item
+              a.sidebar-link(href='/babyClockIn') Clocked-In Children
+            li.sidebar-item
+              a.sidebar-link(href='/clockingOutList') Clocked-Out Children
+        li.sidebar-item
+          a.sidebar-link.collapsed.text-bg-light(href='#' data-bs-target='#pages' data-bs-toggle='collapse' aria-expanded='false')
+            i.fa-solid.fa-file-lines.pe-2
+            |                           Manage Sitters
+          ul#pages.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+            li.sidebar-item
+              a.sidebar-link(href='/sittersRegister') Register new Sitter
+            li.sidebar-item
+              a.sidebar-link(href='/sitters') View All Sitters
+            li.sidebar-item
+              a.sidebar-link(href='/sittersPresent') Present Sitters
+            li.sidebar-item
+              a.sidebar-link(href='/sittersAbsent') Absent Sitters
+        li.sidebar-item
+          a.sidebar-link.collapsed.text-bg-light(href='#' data-bs-target='#posts' data-bs-toggle='collapse' aria-expanded='false')
+            i.fa-solid.fa-file-lines.pe-2
+            |                           Manage Procurement
+          ul#posts.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+            li.sidebar-item
+              a.sidebar-link(href='/procurementRegister') Register New Procurement Item
+            li.sidebar-item
+              a.sidebar-link(href='/procurementView') View Procurement Items
+            li.sidebar-item
+              a.sidebar-link(href='/itemAvailableRegistered') Available Items
+            li.sidebar-item
+              a.sidebar-link(href='/itemFinishedRegistered') Finished Items
+        li.sidebar-item
+          a.sidebar-link.collapsed.text-bg-light(href='#' data-bs-target='#posts' data-bs-toggle='collapse' aria-expanded='false')
+            i.fa-solid.fa-file-lines.pe-2
+            |                             Reports & Analytics
+          ul#posts.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+            li.sidebar-item
+              a.sidebar-link(href='#') Reports
+            li.sidebar-item
+              a.sidebar-link(href='#') Revenue
+            li.sidebar-item
+              a.sidebar-link(href='#') Expenses
+        li.sidebar-item
+          a.sidebar-link.collapsed(href='#' data-bs-target='#auth' data-bs-toggle='collapse' aria-expanded='false')
+            i.fa-regular.fa-user.pe-2
+            |                             Auth
+          ul#auth.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+            li.sidebar-item
+              a.sidebar-link(href='/login') Login
+            li.sidebar-item
+              a.sidebar-link(href='/createAccount') Register Admin
+            li.sidebar-item
+              a.sidebar-link(href='#') Forgot Password
+  .main
+    nav.navbar.navbar-expand.px-3.border-bottom
+      button#sidebar-toggle.btn(type='button')
+        span.navbar-toggler-icon
+      .navbar-collapse.navbar
+        ul.navbar-nav
+          li.nav-item.dropdown
+            a.nav-icon.pe-md-0(href='#' data-bs-toggle='dropdown')
+              img.avatar.img-fluid.rounded(src='/images/lady-teacher.jpeg' alt='')
+            .dropdown-menu.dropdown-menu-end
+              a.dropdown-item(href='#') Profile
+              a.dropdown-item(href='#') Setting
+              a.dropdown-item(href='#') Logout
+    main.content.px-3.py-2
+      .container-fluid
+        // Content  
         .container
           h1 Child Registry Update
           form#registrationForm(action= '/babiesUpdate?id='+baby._id  method='POST')
@@ -116,54 +123,48 @@ main#main-div.main-div
             .form-group
               label(for='periodOfStay') Period of Stay:
               input#periodOfStay(type='text' name='periodOfStay' value=baby.periodOfStay)
-              .form-group
-                label(for='childBroughtBy') Child Brought by:
-                input#childBroughtBy(type='text' name='childBroughtBy' value=baby.childBroughtBy)
-              .form-group
-                label(for='arrivalTime') Arrival Time:
-                input#arrivalTime(type='time' name='arrivalTime' value=baby.arrivalTime)
-              .form-group
-                label(for='paidFee')  Paid Fee(UGX):
-                input#paidFee(type='text' name='paidFee' value=baby.paidFee)
-              .form-group
-                label(for='childPickedBy') Child Picked by:
-                input#childPickedBy(type='text' name='childPickedBy' value=baby.childPickedBy)
-              .form-group
-                label(for='departureTime') Departure Time:
-                input#departureTime(type='time' name='departureTime' value=baby.departureTime)
-              .form-group
-                label(for='childNumber') Child Number:
-                input#childNumber(type='text' name='childNumber' value=baby.childNumber)
+            .form-group
+              label(for='childBroughtBy') Child Brought by:
+              input#childBroughtBy(type='text' name='childBroughtBy' value=baby.childBroughtBy)
+            .form-group
+              label(for='arrivalTime') Arrival Time:
+              input#arrivalTime(type='time' name='arrivalTime' value=baby.arrivalTime)
+            .form-group
+              label(for='paidFee')  Paid Fee(UGX):
+              input#paidFee(type='text' name='paidFee' value=baby.paidFee)
+            .form-group
+              label(for='childPickedBy') Child Picked by:
+              input#childPickedBy(type='text' name='childPickedBy' value=baby.childPickedBy)
+            .form-group
+              label(for='departureTime') Departure Time:
+              input#departureTime(type='time' name='departureTime' value=baby.departureTime)
+            .form-group
+              label(for='childNumber') Child Number:
+              input#childNumber(type='text' name='childNumber' value=baby.childNumber)
               input.text-bg-success(type='submit' value='Update')
-              
-  #footer
-    .fid_box1
-      h3 Find us
-      ul.location_icon
-        li
-          a(href='#')
-            i.fa.fa-map-marker(aria-hidden='true')
-          br
-          |  kabalagala
-        li
-          a(href='#')
-            i.fa.fa-phone(aria-hidden='true')
-          br
-          |                      (+71) 1234567890
-          br
-          |  (+71) 1234567890
-        li
-          a(href='#')
-            i.fa.fa-envelope(aria-hidden='true')
-          br
-          |  demo@gmail.com
-    .copyright
-      .container1
-        .row
-          .col-md-
-            p &copy; 2024 All Rights Reserved. DayStar Daycare &amp; kindergarten 
-// cdn bootstrap js
-script(src='https://kit.fontawesome.com/01943d9418.js' crossorigin='anonymous')
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
-script(src='/includes-navbar/navbar.js')
-script(src='')
+    a.theme-toggle(href='#')
+      i.fa-regular.fa-moon
+      i.fa-regular.fa-sun
+    footer.footer
+      .container-fluid
+        .row.text-muted
+          .col-6.text-start
+            p.mb-0
+              a.text-muted(href='#')
+                strong
+                  p &copy; 2024 All Rights Reserved. DayStar Daycare &amp; kindergarten 
+          .col-6.text-end
+            ul.list-inline
+              li.list-inline-item
+                a.text-muted(href='#') Contact
+              li.list-inline-item
+                a.text-muted(href='#') About Us
+              li.list-inline-item
+                a.text-muted(href='#') Terms
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
+script(src='/js/babiesRegister.js')
+
+
+
+
+      

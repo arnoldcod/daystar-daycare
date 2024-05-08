@@ -1,14 +1,33 @@
-  // Calculate total price based on item quantity and unit price
-  document.getElementById('itemQuantity').addEventListener('input', function() {
-    calculateTotalPrice();
-  });
-  document.getElementById('itemUnitPrice').addEventListener('input', function() {
-    calculateTotalPrice();
-  });
 
-  function calculateTotalPrice() {
-    var quantity = parseFloat(document.getElementById('itemQuantity').value);
-    var unitPrice = parseFloat(document.getElementById('itemUnitPrice').value);
-    var totalPrice = quantity * unitPrice;
-    document.getElementById('totalPrice').value = totalPrice.toFixed(2);
-  }
+//for front end
+  const sidebarToggle = document.querySelector("#sidebar-toggle");
+sidebarToggle.addEventListener("click",function(){
+    document.querySelector("#sidebar").classList.toggle("collapsed");
+});
+
+document.querySelector(".theme-toggle").addEventListener("click",() => {
+    toggleLocalStorage();
+    toggleRootClass();
+});
+
+function toggleRootClass(){
+    const current = document.documentElement.getAttribute('data-bs-theme');
+    const inverted = current == 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-bs-theme',inverted);
+}
+
+function toggleLocalStorage(){
+    if(isLight()){
+        localStorage.removeItem("light");
+    }else{
+        localStorage.setItem("light","set");
+    }
+}
+
+function isLight(){
+    return localStorage.getItem("light");
+}
+
+if(isLight()){
+    toggleRootClass();
+}
