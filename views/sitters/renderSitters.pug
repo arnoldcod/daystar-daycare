@@ -18,7 +18,7 @@ head
         li.sidebar-header
           | ADMIN
         li.sidebar-item
-          a.sidebar-link.text-bg-success(href='#')
+          a.sidebar-link.text-bg-success(href='/dashboard')
             i.fa-solid.fa-list.pe-2
             |                             Dashboard
         li.sidebar-item
@@ -97,6 +97,7 @@ head
               a.dropdown-item(href='/logout') Logout
     main.content.px-3.py-2
       .container-fluid
+        h1 Number of sitters: #{registeredSitters}
         h1.text-center.my-6.text-bg-success.text-light List Of Sitters Registered
         table.table.table-striped
           thead
@@ -132,7 +133,7 @@ head
                   td #{sitter.levelOfEducation}
                   td #{sitter.sitterNumber}
                   td #{sitter.paidFee}
-                  td.status-class.text-center.text-light.text-bg-success #{sitter.status}
+                  td #{sitter.status}
                   td 
                     a.btn.btn-light.btn-block(href= '/sitterPresentRoute/'+sitter._id) Present
                   td 

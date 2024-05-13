@@ -73,8 +73,8 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
      
 
    } catch (error) {
-      res.status(400).send("unable to delete baby from db!");
-      console.log("error deleting baby...", error );
+      res.status(400).send("unable to itemfrom db!");
+      console.log("error deleting item...", error );
    }
  });
 

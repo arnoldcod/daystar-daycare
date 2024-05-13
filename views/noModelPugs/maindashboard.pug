@@ -14,7 +14,7 @@ head
         a(href='#') DayStar DayCare
       ul.sidebar-nav
         li.sidebar-header
-          | ADMIN
+          |
         li.sidebar-item
           a.sidebar-link.text-bg-success(href='#')
             i.fa-solid.fa-list.pe-2
@@ -64,11 +64,23 @@ head
             |                             Reports & Analytics
           ul#posts.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
             li.sidebar-item
-              a.sidebar-link(href='/reports') Reports
+              a.sidebar-link(href='/income') Income Register
             li.sidebar-item
-              a.sidebar-link(href='/revenue') Revenue
+              a.sidebar-link(href='/incomeList') View Incomes
             li.sidebar-item
-              a.sidebar-link(href='/expense') Expenses
+              a.sidebar-link(href='/expense') Expense Register
+            li.sidebar-item
+              a.sidebar-link(href='/expenseList') View Expenses
+        li.sidebar-item
+          a.sidebar-link.collapsed.text-bg-light(href='#' data-bs-target='#posts' data-bs-toggle='collapse' aria-expanded='false')
+            i.fa-solid.fa-file-lines.pe-2
+            |                             Shop
+          ul#posts.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+            li.sidebar-item
+              a.sidebar-link(href='/dollsRegister') Doll Register
+            li.sidebar-item
+              a.sidebar-link(href='/dolls') View Dolls
+               
         li.sidebar-item
           a.sidebar-link.collapsed(href='#' data-bs-target='#auth' data-bs-toggle='collapse' aria-expanded='false')
             i.fa-regular.fa-user.pe-2
@@ -95,58 +107,164 @@ head
               a.dropdown-item(href='#') Logout
     main.content.px-3.py-2
       .container-fluid
-        .mb-3
+        .mb-3.header
+          h2 ADMIN DASHBOARD
+        .row
+          .col-12.col-md-6.d-flex
+            .card.flex-fill.border-0.illustration
+              .card-body.p-0.d-flex.flex-fill
+                .row.g-0.w-100
+                  .col-6
+                    .p-3.m-1
+                      h2 Babies
+                      p.mb-0
+                      h5 Number of Babies Registered: #{registeredBabies}
+                      p
+                      br
+                      p.mb-0
+                      h5 Number of Babies Present: #{BabyClockIn}
+                      p
+                      br
+                      p.mb-0
+                      h5
+                        | Number of Babies Absent: #{BabyClockOut}
+                        p
+                        br
+                        a(href='')
+                          button.btn.btn-success(type='button') View Details
+                  .col-6.align-self-top.text-end
+                    img.img-fluid.illustration-img(src='/images/iconsdash/babies.jpeg' alt='')
+          .col-12.col-md-6.d-flex
+            .card.flex-fill.border-0.illustration
+              .card-body.p-0.d-flex.flex-fill
+                .row.g-0.w-100
+                  .col-6
+                    .p-3.m-1
+                      h2 Sitters
+                      p.mb-0
+                      h5 Number of Sitters Registered: #{registeredSitters}
+                      p
+                      br
+                      p.mb-0
+                      h5 Number of Sitters Present: #{sittersPresent}
+                      p
+                      br
+                      p.mb-0
+                      h5
+                        | Number of Sitters Absent: #{sittersAbsent}
+                        p
+                        br
+                        a(href='')
+                          button.btn.btn-success(type='button') View Details
+                  .col-6.align-self-top.text-end
+                    img.img-fluid.illustration-img(src='/images/iconsdash/sitter.jpeg' alt='')
+        .row
+          .col-12.col-md-6.d-flex
+            .card.flex-fill.border-0.illustration
+              .card-body.p-0.d-flex.flex-fill
+                .row.g-0.w-100
+                  .col-6
+                    .p-3.m-1
+                      h2 Procurement
+                      p.mb-0
+                      h5 Number of Items Registered: #{registeredItems}
+                      p
+                      br
+                      p.mb-0
+                      h5 Number of Items In Store: #{itemsAvailable}
+                      p
+                      br
+                      a(href='')
+                        button.btn.btn-success(type='button') View Details
+                  .col-6.align-self-top.text-end
+                    img.img-fluid.illustration-img(src='/images/iconsdash/procurement.png' alt='')
+          .col-12.col-md-6.d-flex
+            .card.flex-fill.border-0.illustration
+              .card-body.p-0.d-flex.flex-fill
+                .row.g-0.w-100
+                  .col-6
+                    .p-3.m-1
+                      h2 Reports
+                      p.mb-0
+                      h5 Income: #{income}
+                      p
+                      br
+                      p.mb-0
+                      h5 Expenses: #{expense}
+                      p
+                      br
+                      a(href='')
+                        button.btn.btn-success(type='button') View Details
+                  .col-6.align-self-top.text-end
+                    img.img-fluid.illustration-img(src='/images/iconsdash/report.png' alt='')
+          .col-12.col-md-6.d-flex
+            .card.flex-fill.border-0.illustration
+              .card-body.p-0.d-flex.flex-fill
+                .row.g-0.w-100
+                  .col-6
+                    .p-3.m-1
+                      h2 Dolls
+                      p.mb-0
+                      h5
+                        | Number of Dolls: #{dolls}
+                        p
+                        br
+                        a(href='')
+                          button.btn.btn-success(type='button') View Details
+                  .col-6.align-self-top.text-end
+                    img.img-fluid.illustration-img(src='/images/iconsdash/dolls.jpeg' alt='')
         // Table Element
-        // Main wrapper for the calendar application
-        .wrapper
-          .container-calendar
-            #left
-              h1 DayStar Calendar
-              #event-section
-                h3 Add Event
-                input#eventDate(type='date')
-                input#eventTitle(type='text' placeholder='Event Title')
-                input#eventDescription(type='text' placeholder='Event Description')
-                button#addEvent(onclick='addEvent()')
-                  | Add
-              #reminder-section
-                h3 Reminders
-                // List to display reminders
-                ul#reminderList
-                  li(data-event-id='1')
-                    strong Event Title
-                    |                                     - Event Description on Event Date
-                    button.delete-event(onclick='deleteEvent(1)')
-                      | Delete
-            #right
-              h3#monthAndYear
-              .button-container-calendar
-                button#previous(onclick='previous()')
-                  | &lsaquo;
-                button#next(onclick='next()')
-                  | &rsaquo;
-              table#calendar.table-calendar(data-lang='en')
-                thead#thead-month
-                // Table body for displaying the calendar
-                tbody#calendar-body
-              .footer-container-calendar
-                label(for='month') Jump To: 
-                // Dropdowns to select a specific month and year
-                select#month(onchange='jump()')
-                  option(value='0') Jan
-                  option(value='1') Feb
-                  option(value='2') Mar
-                  option(value='3') Apr
-                  option(value='4') May
-                  option(value='5') Jun
-                  option(value='6') Jul
-                  option(value='7') Aug
-                  option(value='8') Sep
-                  option(value='9') Oct
-                  option(value='10') Nov
-                  option(value='11') Dec
-                // Dropdown to select a specific year
-                select#year(onchange='jump()')
+        .card.border-0.table
+          // calendar
+          .wrapper
+            .container-calendar
+              #left
+                h1 DayStar Calendar
+                #event-section
+                  h3 Add Event
+                  input#eventDate(type='date')
+                  input#eventTitle(type='text' placeholder='Event Title')
+                  input#eventDescription(type='text' placeholder='Event Description')
+                  button#addEvent(onclick='addEvent()')
+                    | Add
+                #reminder-section
+                  h3 Reminders
+                  // List to display reminders
+                  ul#reminderList
+                    li(data-event-id='1')
+                      strong Event Title
+                      |                                             - Event Description on Event Date
+                      button.delete-event(onclick='deleteEvent(1)')
+                        | Delete
+              #right
+                h3#monthAndYear
+                .button-container-calendar
+                  button#previous(onclick='previous()')
+                    | &lsaquo;
+                  button#next(onclick='next()')
+                    | &rsaquo;
+                table#calendar.table-calendar(data-lang='en')
+                  thead#thead-month
+                  // Table body for displaying the calendar
+                  tbody#calendar-body
+                .footer-container-calendar
+                  label(for='month') Jump To: 
+                  // Dropdowns to select a specific month and year
+                  select#month(onchange='jump()')
+                    option(value='0') Jan
+                    option(value='1') Feb
+                    option(value='2') Mar
+                    option(value='3') Apr
+                    option(value='4') May
+                    option(value='5') Jun
+                    option(value='6') Jul
+                    option(value='7') Aug
+                    option(value='8') Sep
+                    option(value='9') Oct
+                    option(value='10') Nov
+                    option(value='11') Dec
+                  // Dropdown to select a specific year
+                  select#year(onchange='jump()')
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
       i.fa-regular.fa-sun
@@ -156,8 +274,7 @@ head
           .col-6.text-start
             p.mb-0
               a.text-muted(href='#')
-                strong
-                  p &copy; 2024 All Rights Reserved. DayStar Daycare &amp; kindergarten 
+                strong CodzSwod
           .col-6.text-end
             ul.list-inline
               li.list-inline-item
@@ -166,5 +283,7 @@ head
                 a.text-muted(href='#') About Us
               li.list-inline-item
                 a.text-muted(href='#') Terms
+              li.list-inline-item
+                a.text-muted(href='#') Booking
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
-script(src='/js/maindashboard.js')
+script(src='js/maindashboard.js')

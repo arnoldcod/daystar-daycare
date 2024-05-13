@@ -2,10 +2,10 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Baby Update
+  title Doll Stall
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css')
   script(src='https://kit.fontawesome.com/ae360af17e.js' crossorigin='anonymous')
-  link(rel='stylesheet' href='/css/babiesRegister.css')
+  link(rel='stylesheet' href='/css/dolls.css')
 .wrapper
   aside#sidebar.js-sidebar.bg-dark
     // Content For Sidebar
@@ -90,58 +90,38 @@ head
             a.nav-icon.pe-md-0(href='#' data-bs-toggle='dropdown')
               img.avatar.img-fluid.rounded(src='/images/lady-teacher.jpeg' alt='')
             .dropdown-menu.dropdown-menu-end
-              a.dropdown-item(href='#') Profile
-              a.dropdown-item(href='#') Setting
-              a.dropdown-item(href='#') Logout
+              a.dropdown-item(href='/dashboard') Home
+              a.dropdown-item(href='/welcome') Contact
+              a.dropdown-item(href='/logout') Logout
     main.content.px-3.py-2
-      .container-fluid
-        // Content  
-        .container
-          h1 Child Registry Update
-          form#registrationForm(action= '/babiesUpdate?id='+baby._id  method='POST')
-            .form-group
-              label(for='name') Name:
-              input#name(type='text' name='name' value= baby.name)
-            .form-group
-              label(for='dob') Date of Birth:
-              input#dob(type='date' name='dob' value= baby.dob)
-            .form-group
-              label(for='age') Age:
-              input#age(type='number' name='age' value=baby.age)
-            .form-group
-              label(for='gender') Gender:
-              select#gender(name='gender')
-                option(value='male' selected= baby.gender=== 'male') Male
-                option(value='female' selected= baby.gender=== 'female') Female
-                option(value='other' selected= baby.gender=== 'other') Other      
-            .form-group
-              label(for='contact') Contact:
-              input#contact(type='text' name='contact' value=baby.contact)
-            .form-group
-              label(for='address') Address:
-              input#address(type='text' name='address' value=baby.address)
-            .form-group
-              label(for='periodOfStay') Period of Stay:
-              input#periodOfStay(type='text' name='periodOfStay' value=baby.periodOfStay)
-            .form-group
-              label(for='childBroughtBy') Child Brought by:
-              input#childBroughtBy(type='text' name='childBroughtBy' value=baby.childBroughtBy)
-            .form-group
-              label(for='arrivalTime') Arrival Time:
-              input#arrivalTime(type='time' name='arrivalTime' value=baby.arrivalTime)
-            .form-group
-              label(for='paidFee')  Paid Fee(UGX):
-              input#paidFee(type='text' name='paidFee' value=baby.paidFee)
-            .form-group
-              label(for='childPickedBy') Child Picked by:
-              input#childPickedBy(type='text' name='childPickedBy' value=baby.childPickedBy)
-            .form-group
-              label(for='departureTime') Departure Time:
-              input#departureTime(type='time' name='departureTime' value=baby.departureTime)
-            .form-group
-              label(for='childNumber') Child Number:
-              input#childNumber(type='text' name='childNumber' value=baby.childNumber)
-              input.text-bg-success(type='submit' value='Update')
+      .container
+        // Content
+        h1.mb-4 Doll Stall Register Form
+        form#registrationForm(action='/dollsRegister' method='POST')
+            .mb-3
+            label.form-label(for='date') Date
+            input#date.form-control(type='date' name='date' required='')
+            .mb-3
+            label.form-label(for='name') Name
+            input#name.form-control(type='text' name='name' required='')
+            .mb-3
+            label.form-label(for='description') Description
+            input#description.form-control(type='text' name='description' required='')
+            .mb-3
+            label.form-label(for='quantity') Quantity
+            input#quantity.form-control(type='text' name='quantity' required='')
+            .mb-3
+            label.form-label(for='purchasePrice') Purchase Price(UGX)
+            input#purchasePrice.form-control(type='text' name='purchasePrice' required='')
+            .mb-3
+            label.form-label(for='sellPrice') Sell Price(UGX)
+            input#sellPrice.form-control(type='text' name='sellPrice' required='')
+            .mb-3
+            label.form-label(for='comment') Comment
+            input#comment.form-control(type='text' name='comment' required='')
+            button.btn.btn-success.btn-submit(type='submit') Submit
+            
+
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
       i.fa-regular.fa-sun
@@ -162,9 +142,5 @@ head
               li.list-inline-item
                 a.text-muted(href='#') Terms
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
-script(src='/js/babiesRegister.js')
+script(src='/js/dolls.js')
 
-
-
-
-      

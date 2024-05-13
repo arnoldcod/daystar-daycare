@@ -4,16 +4,28 @@ const mongoose = require("mongoose");
 
 
 ////all data types like String, Date start with an uppercase
-const reportRegisterSchema = new mongoose.Schema({
+const dollRegisterSchema = new mongoose.Schema({
     date:{
         type: Date,
         trim: true
     },
-    category:{
+    name:{
         type: String, 
         trim: true
     },
-    totalExpense:{
+    description:{
+        type: String, 
+        trim: true
+    },
+    quantity:{
+        type: String, 
+        trim: true
+    },
+    purchasePrice:{
+        type: String, 
+        unique: true
+    },
+    sellPrice:{
         type: String, 
         unique: true
     },
@@ -24,6 +36,6 @@ const reportRegisterSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("expense", reportRegisterSchema) 
+module.exports = mongoose.model("doll", dollRegisterSchema) 
 
 ///// ("Name of schema (could any of preferance ..best use name of file),  then  new schema file")

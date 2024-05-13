@@ -31,8 +31,9 @@ router.get("/sittersRegister", (req, res)=> {
   //fetching All Sitters from database 
   router.get("/sitters", async (req, res)=> {
    try {
-     let sitters = await SittersModel.find()  //from line8
-     res.render("./sitters/renderSitters", {sitters:sitters}) // to display sitters from data base
+      let registeredSitters = await SittersModel.countDocuments({}) // aggregations
+     let sitters = await SittersModel.find().sort({ $natural: -1});  //from line8
+     res.render("./sitters/renderSitters", {sitters:sitters, registeredSitters}) // to display sitters from data base
      console.log("display sitters", sitters);
 
    } catch (error) {

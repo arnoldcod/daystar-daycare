@@ -130,13 +130,52 @@ a.sidebar-link {
     }
 }
 
+
+.header {
+    margin-left: 40%;
+    margin-bottom: 20px;
+   font: bolder;
+}
+
 .card {
     box-shadow: 0 0 .875rem 0 rgba(34, 46, 60, .05);
     margin-bottom: 24px;
 }
 
+
+/*//////////////*/
+
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .card-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .card-footer {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+ 
+
+
+
 .illustration {
-    background-color: var(--bs-primary-bg-subtle);
+    
     color: var(--bs-emphasis-color);
 }
 
@@ -199,13 +238,20 @@ html[data-bs-theme="dark"] .theme-toggle .fa-moon {
 html[data-bs-theme="light"] .theme-toggle .fa-sun {
     display: none;
 }
+.table{
+    background-color: var(--bs-dark-bg-subtle);
+}
 
 
 
-   
 
-
-
+  
+.wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+}
+ 
 /* Calendar container */
 .container-calendar {
     background: #ffffff;

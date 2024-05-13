@@ -13,7 +13,7 @@ const reportRegisterSchema = new mongoose.Schema({
         type: String, 
         trim: true
     },
-    totalExpense:{
+    totalIncome:{
         type: String, 
         unique: true
     },
@@ -24,6 +24,6 @@ const reportRegisterSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("expense", reportRegisterSchema) 
+module.exports = mongoose.model("income", reportRegisterSchema) 
 
 ///// ("Name of schema (could any of preferance ..best use name of file),  then  new schema file")
