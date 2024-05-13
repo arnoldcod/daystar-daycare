@@ -18,15 +18,15 @@ const dollRegisterSchema = new mongoose.Schema({
         trim: true
     },
     quantity:{
-        type: String, 
+        type: Number, 
         trim: true
     },
     purchasePrice:{
-        type: String, 
+        type: Number, 
         unique: true
     },
     sellPrice:{
-        type: String, 
+        type: Number, 
         unique: true
     },
     comment:{

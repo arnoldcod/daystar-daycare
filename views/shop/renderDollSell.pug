@@ -107,23 +107,21 @@ head
             th Name
             th Description
             th Quantity
-            th Purchase Price(UGX)
             th Sell Price(UGX)
             th Comment
             th Sell
             th Update
             th Delete
         tbody
-          if dolls.length 
-            each doll in dolls
+          if soldDolls.length 
+            each soldDoll in soldDolls
               tr
-                td td #{moment(doll.date).format("DD-MM-YY")}
-                td #{doll.name}
-                td #{doll.description}
-                td #{doll.quantity}
-                td #{doll.purchasePrice}
-                td #{doll.sellPrice}
-                td #{doll.comment}
+                td td #{moment(soldDoll.date).format("DD-MM-YY")}
+                td #{soldDoll.name}
+                td #{soldDoll.description}
+                td #{soldDoll.quantity}
+                td #{soldDoll.sellPrice}
+                td #{soldDoll.comment}
                 td 
                     a.btn.btn-block.i.bi.btn-success(href=`/sell/${doll._id}`) Sell Now
                 td 

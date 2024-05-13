@@ -2,19 +2,20 @@ const express = require("express");
 const router = express.Router();
 const moment = require('moment');
 const passport = require("passport");
+const connectEnsureLogin = require("connect-ensure-login");
 
 
 const SittersModel = require("../models/sittersRegisterModel")   //import model
 
 const BabiesRegisterModel = require("../models/babiesRegisterModel") //import model
 
-router.get("/babiesRegister",   (req, res)=> { //to run on the browser and display form on server file
+router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> { //to run on the browser and display form on server file
     res.render("./babies/babiesRegister");  //from babiesRegister.pug
  });
 
 
 //post route for babiesregistered to database
- router.post("/babiesRegister", async(req, res)=> {
+ router.post("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), async(req, res)=> {
    try {  
       const child = new BabiesRegisterModel(req.body);
       console.log(child);
@@ -30,7 +31,7 @@ router.get("/babiesRegister",   (req, res)=> { //to run on the browser and displ
  
 
  //fetching All babies from database 
- router.get("/babies",   async (req, res)=> {
+ router.get("/babies", connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
    try {
       let registeredBabies = await BabiesRegisterModel.countDocuments({}) // aggregations
      let babies = await BabiesRegisterModel.find().sort({ $natural: -1});   //from line8
@@ -46,7 +47,7 @@ router.get("/babiesRegister",   (req, res)=> { //to run on the browser and displ
    
 
  //fetching list all babies clocked in from database 
- router.get("/babyClockIn",   async (req, res)=> {
+ router.get("/babyClockIn",connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
    try {
       let BabyClockIn = await BabiesRegisterModel.countDocuments({}) // aggregations
      let babies = await BabiesRegisterModel.find({status: "ClockedIn"}).sort({ $natural: -1}); 

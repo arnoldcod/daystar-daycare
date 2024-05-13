@@ -80,4 +80,24 @@ router.post("/delete", async(req, res)=> {
 
 
 
+ // Route to handle selling off dolls
+router.get('/sell/:id', async (req, res) => {
+   try {
+       const { sellPrice } = req.body;
+       const dollId = req.params.id;
+       // Assuming you have a field in your Doll schema to mark it as sold
+       const doll = await DollModel.findByIdAndUpdate(dollId, { sold: true, price: sellPrice });
+       if (!doll) {
+           return res.status(404).send("Doll not found");
+       }
+       res.redirect("/dolls"); // Redirect to dolls page or any other appropriate route
+   } catch (error) {
+       console.error("Error selling doll:", error);
+       res.status(500).send("Internal server error");
+   }
+});
+
+
+
+
  module.exports = router;
