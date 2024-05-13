@@ -33,7 +33,7 @@ router.get("/sittersRegister", (req, res)=> {
    try {
       let registeredSitters = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find().sort({ $natural: -1});  //from line8
-     res.render("./sitters/renderSitters", {sitters:sitters, registeredSitters}) // to display sitters from data base
+     res.render("./sitters/renderSitters", {sitters:sitters, registeredSitters }) // to display sitters from data base
      console.log("display sitters", sitters);
 
    } catch (error) {
@@ -41,6 +41,7 @@ router.get("/sittersRegister", (req, res)=> {
       console.log("unable to find babies from database!...", error );
    }
    })
+
 
 
    //delete route for each  sitter form in database
@@ -84,8 +85,9 @@ router.post("/deleted", async(req, res)=> {
  //fetching list sitters present from database 
  router.get("/sittersPresent", async (req, res)=> {
    try {
+      let sittersPresent = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find({status: "Present"})
-     res.render("./sitters/renderSitterPresent", {sitters:sitters}) // to display babies from data base
+     res.render("./sitters/renderSitterPresent", {sitters:sitters, sittersPresent}) // to display babies from data base
      console.log("display sitter present", sitters);
 
    } catch (error) {
@@ -125,9 +127,9 @@ router.post("/deleted", async(req, res)=> {
  //fetching list sitters Absent from database 
  router.get("/sittersAbsent", async (req, res)=> {
    try {
+    let sittersAbsent = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find({status: "Absent"})
-     res.render("./sitters/renderSitterAbsent", {sitters:sitters}) // to display babies from data base
-     console.log("display sitter Absent", sitters);
+     res.render("./sitters/renderSitterAbsent", {sitters:sitters, sittersAbsent}) // to display babies from data base
 
    } catch (error) {
       res.status(400).send("unable to find sitters from database!");

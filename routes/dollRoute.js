@@ -12,7 +12,7 @@ router.get("/dollsRegister", (req, res)=> {
  });
 
 
-//post route for sitters to register to database
+//post route for dolls to register to database
  router.post("/dollsRegister", async(req, res)=> { 
    try {  
       const doll = new DollModel(req.body); 
@@ -28,7 +28,7 @@ router.get("/dollsRegister", (req, res)=> {
  });
 
 
-  //fetching All Sitters from database 
+  //fetching All dolls from database 
   router.get("/dolls", async (req, res)=> {
    try {
       let registeredDolls = await DollModel.countDocuments({}) // aggregations

@@ -31,8 +31,9 @@ router.get("/expense", (req, res)=> {
  //fetching expenses from database 
  router.get("/expenseList", async (req, res)=> {
    try {
+      let expense = await ExpenseModel.countDocuments({}) // aggregations
      let expenses = await ExpenseModel.find()
-     res.render("./reports/renderExpense", {expenses:expenses}) 
+     res.render("./reports/renderExpense", {expenses:expenses, expense}) 
      console.log("display expenses", expenses);
 
    } catch (error) {

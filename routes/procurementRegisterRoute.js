@@ -29,8 +29,9 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
   //fetching All items from database 
   router.get("/procurementView", async (req, res)=> {
     try {
+      let registeredItems = await ProcurementModel.countDocuments({}) // aggregations
       let items = await ProcurementModel.find()  
-      res.render("./procurement/renderProcurement", {items:items}) // to display items from data base
+      res.render("./procurement/renderProcurement", {items:items, registeredItems}) // to display items from data base
       console.log("display items", items);
  
     } catch (error) {
@@ -83,8 +84,9 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
   //fetching list all items available from database 
   router.get("/itemAvailableRegistered", async (req, res)=> {
    try {
+      let itemsAvailable = await ProcurementModel.countDocuments({}) // aggregations
      let items = await ProcurementModel.find({status: "Available"})
-     res.render("./procurement/renderItemAvailable", {items:items}) // to display items available from data base
+     res.render("./procurement/renderItemAvailable", {items:items, itemsAvailable}) // to display items available from data base
      console.log("display items available", items);
 
    } catch (error) {

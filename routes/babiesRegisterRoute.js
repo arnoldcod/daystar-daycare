@@ -31,8 +31,9 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
  //fetching All babies from database 
  router.get("/babies", async (req, res)=> {
    try {
+      let registeredBabies = await BabiesRegisterModel.countDocuments({}) // aggregations
      let babies = await BabiesRegisterModel.find()  //from line8
-     res.render("./babies/renderBabies", {babies:babies}) // to display babies from data base
+     res.render("./babies/renderBabies", {babies:babies, registeredBabies }) // to display babies from data base
      console.log("display babies", babies);
 
    } catch (error) {
@@ -46,8 +47,9 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
  //fetching list all babies clocked in from database 
  router.get("/babyClockIn", async (req, res)=> {
    try {
+      let BabyClockIn = await BabiesRegisterModel.countDocuments({}) // aggregations
      let babies = await BabiesRegisterModel.find({status: "ClockedIn"})
-     res.render("./babies/renderBabyClockIn", {babies:babies}) // to display babies from data base
+     res.render("./babies/renderBabyClockIn", {babies:babies, BabyClockIn}) // to display babies from data base
      console.log("display babies clocked in", babies);
 
    } catch (error) {
@@ -61,8 +63,9 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 //fetching list babies clocked Out from database 
  router.get("/clockingOutList", async (req, res)=> {
    try {
+      let BabyClockOut = await BabiesRegisterModel.countDocuments({}) // aggregations
      let babies = await BabiesRegisterModel.find({status: "ClockedOut"})
-     res.render("./babies/renderBabyClockOut", {babies:babies}) // to display babies from data base
+     res.render("./babies/renderBabyClockOut", {babies:babies, BabyClockOut}) // to display babies from data base
      console.log("display babies clocked out", babies);
 
    } catch (error) {

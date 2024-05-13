@@ -97,6 +97,7 @@ head
       .container-fluid
         // Content  
         .container
+          h5  Number of Babies Absent: #{BabyClockOut}
           h1 Children Clock Out
           form#registrationForm(action= '/ClockingOut?id='+baby._id  method='POST')
             .form-group

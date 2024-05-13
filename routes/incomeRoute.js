@@ -30,8 +30,9 @@ router.get("/income", (req, res)=> {
  //fetching incomes from database 
  router.get("/incomeList", async (req, res)=> {
    try {
+      let income = await IncomeModel.countDocuments({}) // aggregations
      let incomes = await IncomeModel.find()
-     res.render("./reports/renderIncome", {incomes:incomes}) 
+     res.render("./reports/renderIncome", {incomes:incomes, income}) 
      console.log("display incomes", incomes);
 
    } catch (error) {
