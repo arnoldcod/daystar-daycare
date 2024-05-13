@@ -10,11 +10,12 @@ head
   #logo-nav-parent.text-bg-success
     #logo-div.text-color
     #welcome.welcome.text-color.text-bg-success
-      a(href='/index.pug')
-        h4.text-light  Welcome to DayStar daycare &amp; Kindergarten 
+      a.sidebar-link.text-bg-success(href='#')
+            |     Welcome to DayStar daycare &amp; Kindergarten
     #navbar
       di
-        a.navbar-brand.text-light.admin(href='/login') Admin
+        a(href='/login')
+          button.btn.btn-light(type='button' style='width: 10rem; ') Admin
   #carouselExampleCaptions.carousel.slide(data-bs-ride='carousel1' data-bs-interval='4000')
     .carousel-indicators
       button.active(type='button' data-bs-target='#carouselExampleCaptions' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')

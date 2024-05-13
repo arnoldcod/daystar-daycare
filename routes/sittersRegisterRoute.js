@@ -1,10 +1,12 @@
 const express = require("express"); ////using routers from express
 const router = express.Router(); /////accessing router function in express
 const moment = require('moment');
+const passport = require("passport");
 
 
 const SittersModel = require("../models/sittersRegisterModel") 
 
+// passport.authenticate("local", {failureRedirect: "/login"}),
 
 //creating routes
 router.get("/sittersRegister", (req, res)=> { 
@@ -125,7 +127,7 @@ router.post("/deleted", async(req, res)=> {
 
 
  //fetching list sitters Absent from database 
- router.get("/sittersAbsent", async (req, res)=> {
+ router.get("/sittersAbsent",  async (req, res)=> {
    try {
     let sittersAbsent = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find({status: "Absent"})
@@ -160,10 +162,6 @@ router.post("/deleted", async(req, res)=> {
       res.status(404).send("unable to find Sitter in the db!");  
    }
  })
-
-
-
-
 
 
 

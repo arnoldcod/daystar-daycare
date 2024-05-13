@@ -22,8 +22,12 @@ body{
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 50px;
+  min-height: 100px;
   margin-bottom: 50px;
+}
+
+.sidebar-link {
+  font-size: 30px;
 }
 
 #welcome{

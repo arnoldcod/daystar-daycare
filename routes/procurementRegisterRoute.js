@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const moment = require('moment');
+const passport = require("passport");
 
 const ProcurementModel = require("../models/procurementRegisterModel");
 
-router.get("/procurementRegister",  (req, res)=> { //to run on the browser and display form on server file
+router.get("/procurementRegister",   (req, res)=> { //to run on the browser and display form on server file
     res.render("./procurement/procurementRegister");  
  });
 
@@ -27,7 +28,7 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
 
 
   //fetching All items from database 
-  router.get("/procurementView", async (req, res)=> {
+  router.get("/procurementView",   async (req, res)=> {
     try {
       let registeredItems = await ProcurementModel.countDocuments({}) // aggregations
       let items = await ProcurementModel.find()  
@@ -42,7 +43,7 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
 
 
      //updating an item in the database
- router.get("/procurementUpdate/:id", async(req, res)=> { 
+ router.get("/procurementUpdate/:id",   async(req, res)=> { 
     try{
       const itemUpdate = await ProcurementModel.findOne({_id: req.params.id});
       res.render("./procurement/procurementUpdate", {item:itemUpdate});
@@ -82,7 +83,7 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
 
 
   //fetching list all items available from database 
-  router.get("/itemAvailableRegistered", async (req, res)=> {
+  router.get("/itemAvailableRegistered",   async (req, res)=> {
    try {
       let itemsAvailable = await ProcurementModel.countDocuments({}) // aggregations
      let items = await ProcurementModel.find({status: "Available"})
@@ -98,7 +99,7 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
 
 
     // item available form route for form in database
- router.get("/itemAvailable/:id", async(req, res)=> { 
+ router.get("/itemAvailable/:id",   async(req, res)=> { 
    try{
      const item = await ProcurementModel.findOne({_id: req.params.id});
      res.render("./procurement/itemAvailable", {item:item});
@@ -120,7 +121,7 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
 
 
   //fetching list all items Finished from database 
-  router.get("/itemFinishedRegistered", async (req, res)=> {
+  router.get("/itemFinishedRegistered",   async (req, res)=> {
    try {
      let items = await ProcurementModel.find({status: "Finished"})
      res.render("./procurement/renderItemFinished", {items:items}) // to display items available from data base
@@ -134,7 +135,7 @@ router.get("/procurementRegister",  (req, res)=> { //to run on the browser and d
 
 
   // item Finished form route for form in database
-  router.get("/itemFinished/:id", async(req, res)=> { 
+  router.get("/itemFinished/:id",   async(req, res)=> { 
    try{
      const item = await ProcurementModel.findOne({_id: req.params.id});
      res.render("./procurement/itemFinished", {item:item});
