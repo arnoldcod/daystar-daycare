@@ -2,20 +2,22 @@ const express = require("express");
 const router = express.Router();
 const moment = require('moment');
 const passport = require("passport");
-const connectEnsureLogin = require("connect-ensure-login");
+// const connectEnsureLogin = require("connect-ensure-login");
+
+// connectEnsureLogin.ensureLoggedIn(),
 
 
 const SittersModel = require("../models/sittersRegisterModel")   //import model
 
 const BabiesRegisterModel = require("../models/babiesRegisterModel") //import model
 
-router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> { //to run on the browser and display form on server file
+router.get("/babiesRegister",  (req, res)=> { //to run on the browser and display form on server file
     res.render("./babies/babiesRegister");  //from babiesRegister.pug
  });
 
 
 //post route for babiesregistered to database
- router.post("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), async(req, res)=> {
+ router.post("/babiesRegister",  async(req, res)=> {
    try {  
       const child = new BabiesRegisterModel(req.body);
       console.log(child);
@@ -31,11 +33,11 @@ router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> 
  
 
  //fetching All babies from database 
- router.get("/babies", connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
+ router.get("/babies",   async (req, res)=> {
    try {
-      let registeredBabies = await BabiesRegisterModel.countDocuments({}) // aggregations
+     
      let babies = await BabiesRegisterModel.find().sort({ $natural: -1});   //from line8
-     res.render("./babies/renderBabies", {babies:babies, registeredBabies }) // to display babies from data base
+     res.render("./babies/renderBabies", {babies:babies}) // to display babies from data base
      console.log("display babies", babies);
 
    } catch (error) {
@@ -47,11 +49,11 @@ router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> 
    
 
  //fetching list all babies clocked in from database 
- router.get("/babyClockIn",connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
+ router.get("/babyClockIn",  async (req, res)=> {
    try {
-      let BabyClockIn = await BabiesRegisterModel.countDocuments({}) // aggregations
+
      let babies = await BabiesRegisterModel.find({status: "ClockedIn"}).sort({ $natural: -1}); 
-     res.render("./babies/renderBabyClockIn", {babies:babies, BabyClockIn}) // to display babies from data base
+     res.render("./babies/renderBabyClockIn", {babies:babies}) // to display babies from data base
      console.log("display babies clocked in", babies);
 
    } catch (error) {
@@ -80,7 +82,7 @@ router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> 
 
 
  //delete route for form in database
- router.post("/delete",  async(req, res)=> {
+ router.post("/deleteBaby",  async(req, res)=> {
    try {  
       await BabiesRegisterModel.deleteOne({_id:req.body.id});
       

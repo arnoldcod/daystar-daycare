@@ -9,6 +9,9 @@ const dollRegisterSchema = new mongoose.Schema({
         type: Date,
         trim: true
     },
+    imageUpload:{
+        type: String
+    },
     name:{
         type: String, 
         trim: true

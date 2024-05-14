@@ -97,7 +97,8 @@ head
               a.dropdown-item(href='/logout') Logout
     main.content.px-3.py-2
       .container-fluid
-        h5 Number of Babies Registered: #{registeredBabies}
+        a.btn.btn-success(href= "/babiesRegister") Register A Child
+        p
         h1.text-center.my-6.text-bg-success.text-light List Of Children Registered
         table.table.table-striped
           thead
@@ -137,7 +138,7 @@ head
                   td 
                     a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/babiesUpdate/"+ baby._id)
                   td 
-                    form(method="POST" action="/delete")
+                    form(method="POST" action="/deleteBaby")
                       input(type="hidden" name="id" value=baby._id)
                       button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
 

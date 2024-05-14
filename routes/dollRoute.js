@@ -1,10 +1,22 @@
 const express = require("express"); ////using routers from express
 const router = express.Router(); /////accessing router function in express
 const moment = require('moment');
+const multer = require("multer");
 
 
 const DollModel = require("../models/dollModel") 
 
+
+// Image upload
+let storage = multer.diskStorage({
+   destination: (req, file, cb) => {
+     cb(null, "public/images/uploads");
+   },
+   filename: (req, file, cb) => {
+     cb(null, file.originalname);
+   },
+ });
+ let upload = multer({ storage: storage })
 
 //creating routes
 router.get("/dollsRegister", (req, res)=> { 

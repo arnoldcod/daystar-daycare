@@ -97,7 +97,6 @@ head
       .container-fluid
         // Content  
         .container
-          h5 Number of Babies Present: #{BabyClockIn}
           h1 child Clocking In
           form#registrationForm(action= '/babyClockIn?id='+baby._id  method='POST')
              .form-group
@@ -112,8 +111,11 @@ head
                      option(value=sitter_id) #{sitter.name}
               small#sitterErr
                .form-group
-                 label(for='paidFee')  Paid Fee(UGX):
-                 input#paidFee(type='text' name='paidFee'  value=baby.paidFee)
+                label(for='paidFee') Select Period Of Stay 
+                select#paidFee(name='paidFee' value=baby.paidFee)
+                  option(value='') Select Period Of Stay
+                  option(value='Half A Day (UGX 10000)') Half A Day (UGX 10000)
+                  option(value='Full Day (UGX 15000)') Full Day (UGX 15000)
                .form-group
                  label(for='childBroughtBy') Child Brought by:
                  input#childBroughtBy(type='text' name='childBroughtBy' value= baby.childBroughtBy)

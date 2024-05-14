@@ -33,9 +33,8 @@ router.get("/sittersRegister", (req, res)=> {
   //fetching All Sitters from database 
   router.get("/sitters", async (req, res)=> {
    try {
-      let registeredSitters = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find().sort({ $natural: -1});  //from line8
-     res.render("./sitters/renderSitters", {sitters:sitters, registeredSitters }) // to display sitters from data base
+     res.render("./sitters/renderSitters", {sitters:sitters}) // to display sitters from data base
      console.log("display sitters", sitters);
 
    } catch (error) {
@@ -47,7 +46,7 @@ router.get("/sittersRegister", (req, res)=> {
 
 
    //delete route for each  sitter form in database
-router.post("/deleted", async(req, res)=> {
+router.post("/deleteSitter", async(req, res)=> {
    try {  
       await SittersModel.deleteOne({_id:req.body.id});
       res.redirect("back");

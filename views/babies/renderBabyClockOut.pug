@@ -109,12 +109,13 @@ head
             th child Picked By
             th departure time
             th Child Number:
+            th Delete
         tbody
           if babies.length 
             each baby in babies
               tr
                 td #{baby.name}
-                td #{baby.sitter}
+                td #{sitter.name}
                 td #{baby.paidFee}
                 td #{baby.comment}
                 td #{baby.status}
@@ -122,7 +123,7 @@ head
                 td #{baby.departureTime}
                 td #{baby.childNumber}
                 td 
-                    form(method="POST" action="/delete")
+                    form(method="POST" action="/deleteBaby")
                       input(type="hidden" name="id" value=baby._id)
                       button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")   
 

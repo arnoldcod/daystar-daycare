@@ -97,31 +97,32 @@ head
               a.dropdown-item(href='/logout') Logout
     main.content.px-3.py-2
       .container-fluid
-      h5 Income: #{income}
-      h1.text-center.my-6.text-bg-success.text-light Income List 
-      table.table.table-striped
-        thead
-          tr
-            th Date
-            th Category
-            th Total Income
-            th Comment
-            th Update
-            th Delete
-        tbody
-          if incomes.length 
-            each income in incomes
-              tr
-                td #{income.date}
-                td #{income.category}
-                td #{income.totalIncome}
-                td #{income.comment}
-                td 
-                    a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/incomeUpdate/"+ income._id)
-                td 
-                    form(method="POST" action="/deletes")
-                    input(type="hidden" name="id" value=income._id)
-                    button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
+        a.btn.btn-success(href= "/income") Register Income
+        p
+        h1.text-center.my-6.text-bg-success.text-light Income List 
+        table.table.table-striped
+          thead
+            tr
+              th Date
+              th Category
+              th Total Income
+              th Comment
+              th Update
+              th Delete
+          tbody
+            if incomes.length 
+              each income in incomes
+                tr
+                  td #{income.date}
+                  td #{income.category}
+                  td #{income.totalIncome}
+                  td #{income.comment}
+                  td 
+                      a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/incomeUpdate/"+ income._id)
+                  td 
+                      form(method="POST" action="/deletes")
+                      input(type="hidden" name="id" value=income._id)
+                      button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
         
 
     a.theme-toggle(href='#')
@@ -145,7 +146,7 @@ head
                 a.text-muted(href='#') Terms
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
 script(src='/js/procurement.js')
-script(src='/js/income.js')
+script(src='//income.js')
 
 
 

@@ -70,6 +70,7 @@ mongoose.connection
  *! Middleware
  */
 app.use(express.static(path.join(__dirname, "public")))// for static files in dir public
+app.use("/public/images/uploads", express.static(__dirname +"/public/images/uploads"));
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());

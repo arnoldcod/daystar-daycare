@@ -153,6 +153,10 @@ a.sidebar-link {
     padding: 20px;
     margin-bottom: 30px;
   }
+
+  .btn{
+    margin-right: 10px;
+  }
   
   .card-header {
     font-size: 22px;

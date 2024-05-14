@@ -102,8 +102,10 @@ head
         thead
           tr
             th Name
+            th Sitter
             th Child Brought By
             th Arrival Time
+            th Period Of Stay
             th Status:
             th Child Number:
             th Delete
@@ -113,12 +115,14 @@ head
             each baby in babies
               tr
                 td #{baby.name}
+                td #{baby.sitter}
                 td #{baby.childBroughtBy}
                 td #{baby.arrivalTime}
+                td #{baby.paidFee}
                 td #{baby.status}
                 td #{baby.childNumber}
                 td 
-                    form(method="POST" action="/delete")
+                    form(method="POST" action="/deleteBaby")
                       input(type="hidden" name="id" value=baby._id)
                       button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit") 
 

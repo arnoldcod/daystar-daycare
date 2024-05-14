@@ -278,9 +278,23 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
   
 
 
-  
+  /* for images in render*/
 
-
+  .card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  .card-body {
+    background-color: #f8f9fa;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
 
 
 
