@@ -41,14 +41,6 @@ body{
 .text-color{
   color: white;
 }
-#navbar{
-  display: flex;
-  flex-direction: row;
-  flex-basis: 60%;
-  align-items: center;
-  justify-content: right;
-  padding-right: 80px;
-}
 
 
 #row1 {

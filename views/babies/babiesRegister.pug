@@ -100,14 +100,17 @@ head
           h1 Register Child
           form#registrationForm(action='/babiesRegister' method='POST')
             .form-group
-              label(for='name') Name:
-              input#name(type='text' name='name' placeholder='Enter Name')
+              label(for='name') Full Name:
+              input#fullname(type='text' name='name' placeholder='Enter Full Name')
+              small#fullnameerror
             .form-group
               label(for='dob') Date of Birth:
               input#dob(type='date' name='dob')
+              small#dobError
             .form-group
               label(for='age') Age:
               input#age(type='number' name='age' placeholder='Enter Age')
+              small#ageError
             .form-group
               label(for='gender') Gender:
               select#gender(name='gender')
@@ -116,17 +119,22 @@ head
                 option(value='female') Female
                 option(value='other') Other
             .form-group
-              label(for='parentNames') Parent Names:
-              input#parentNames(type='text' name='parentNames' placeholder='Enter Parent Name')
+              label(for='parentNames') Parent Name:
+              input#parentName(type='text' name='parentNames' placeholder='Enter Parent Name')
+              small#parentNameError
             .form-group
-              label(for='contact') Contact:
-              input#contact(type='text' name='contact' placeholder='Enter Contact')
+              label(for='contact') Parent Contact:
+              input#parentContact(type='text' name='contact' placeholder='0712345678')
+              small#parentContactError
             .form-group
               label(for='address') Address:
               input#address(type='text' name='address' placeholder='Enter Address')
+              small#addressError
             .form-group
               label(for='childNumber') Child Number:
               input#childNumber(type='text' name='childNumber' placeholder='Child Number')
+              small#childNumberError
+              p
             button.btn.btn-success#register(type='submit' value='Register') Submit
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
@@ -149,6 +157,8 @@ head
                 a.text-muted(href='#') Terms
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
 script(src='js/babiesRegister.js')
+
+script(src='js/validation.js')
 
 
 
