@@ -215,8 +215,8 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
   .container {
   max-width: 700px;
   height: 900px;
-  margin: 50px auto;
-  padding: 30px;
+  margin: 30px auto;
+  padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -248,7 +248,7 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
   input[type="time"],
   select {
     width: 100%;
-    padding: 22px;
+    padding: 18px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
@@ -278,7 +278,6 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
   
 
 
-  
   
 
 

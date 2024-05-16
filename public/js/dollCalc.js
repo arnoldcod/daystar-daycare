@@ -37,3 +37,7 @@
   // Attach calculatesellPrice function to quantity and price input fields (on input change)
   document.getElementById('quantity').addEventListener('input', calculatesellPrice);
   document.getElementById('price').addEventListener('input', calculatesellPrice);
+
+
+
+  

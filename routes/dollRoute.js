@@ -106,9 +106,6 @@ router.get("/dollsRegister", (req, res)=> {
 
 
 
-
-
-
    //delete route for each  doll form in database
 router.post("/deleteDoll", async(req, res)=> {
    try {  

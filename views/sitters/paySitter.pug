@@ -2,10 +2,10 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Baby Clock Out
+  title Admin Dashboard
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css')
   script(src='https://kit.fontawesome.com/ae360af17e.js' crossorigin='anonymous')
-  link(rel='stylesheet' href='/css/babiesRegister.css')
+  link(rel='stylesheet' href='/css/sittersRegister.css')
 .wrapper
   aside#sidebar.js-sidebar.bg-dark
     // Content For Sidebar
@@ -16,7 +16,7 @@ head
         li.sidebar-header
           |
         li.sidebar-item
-          a.sidebar-link.text-bg-success(href='/dashboard')
+          a.sidebar-link.text-bg-success(href='dashboard')
             i.fa-solid.fa-list.pe-2
             |                             Dashboard
         li.sidebar-item
@@ -103,42 +103,30 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
-        // Content  
+        // Content
         .container
-         
-          h1 Baby Clock Out
-          form#registrationForm(action= '/ClockingOut?id='+baby._id  method='POST')
+          h1 Pay Present Sitter
+          form#registrationForm(action= '/paySitter?id='+sitter._id  method='POST')
             .form-group
-              label(for='name')  Name:
-              input#name(type='text' name='name' value=baby.name readonly )
+              label(for='name') Name:
+              input#name(type='text' name='name' value= sitter.name)
             .form-group
-              label(for='sitter') Sitter:
-              select#sitter.form-control(name='sitter')
-                 if sitters.length
-                 each sitter in sitters
-                     option(value=sitter_id) #{sitter.name}
-              small#sitterErr
+              label(for='contact') Contact:
+              input#contact(type='text' name='contact' value= sitter.contact )
             .form-group
-              label(for='comment')  Comment:
-              input#comment(type='text' name='comment'  value=baby.comment)
-            //- .form-group
-            //-   label(for='status') Status:
-            //-   input#status(type='text' name='status'  value=baby.status)
+              label(for='paidFee')  Paid Fee(UGX):
+              input#paidFee(type='number' name='paidFee' value= 3000 readOnly )
             .form-group
-              label(for='status') Status:
-              select#status( type='text' name='status' value=baby.status)
-                option(value='ClockedIn') ClockedIn
-                option(value='ClockedOut') ClockedOut
+              label(for='babyNumber') No. Of Babies:
+              input#babyNumber(type='number' name='babyNumber' value= sitter.babyNumber)
             .form-group
-              label(for='childPickedBy') Child Picked by:
-              input#childPickedBy(type='text' name='childPickedBy'  value=baby.childPickedBy)
+              label(for='totalPay') Total Payment (UGX):
+              input#totalPay(type='number' name='totalPay' value= sitter.totalPay)
             .form-group
-              label(for='departureTime') Departure Time:
-              input#departureTime(type='time' name='departureTime'  value=baby.departureTime)
-            .form-group
-              label(for='childNumber') Child Number:
-              input#childNumber(type='text' name='childNumber'  value=baby.childNumber)
-            button.btn.btn-success#register(type='submit' value='Register') Submit
+              label(for='sitterNumber') Sitter Number:
+              input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber)
+              input.text-bg-success(type='submit' value='Pay')
+            
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
       i.fa-regular.fa-sun
@@ -159,10 +147,17 @@ head
               li.list-inline-item
                 a.text-muted(href='#') Terms
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
-script(src='/js/babiesRegister.js')
+script(src='/js/sitters.js')
+
+script(src='/js/paySitter.js')
 
 
 
 
 
-            input.text-bg-success(type='submit' value='Clock-Out')
+
+
+        
+
+
+        

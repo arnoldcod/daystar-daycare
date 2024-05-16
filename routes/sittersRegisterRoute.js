@@ -30,6 +30,7 @@ router.get("/sittersRegister", (req, res)=> {
  });
 
 
+
   //fetching All Sitters from database 
   router.get("/sitters", async (req, res)=> {
    try {
@@ -122,6 +123,42 @@ router.post("/deleteSitter", async(req, res)=> {
       console.log("........................", error);  
    }
  })
+
+
+
+//paying sitter
+router.get("/paySitter/:id", async(req, res)=> { 
+   try{
+     const paySitter = await SittersModel.findOne({_id: req.params.id});
+     res.render("./sitters/paySitter", {sitter:paySitter});
+
+   } catch(error){
+      console.log("error finding a sitter!", error);
+      res.status(400).send("unable to find sitter from the db!");  
+   }
+ })
+
+ router.post("/paySitter", async(req, res)=> {
+   try {
+      await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      res.redirect("/sitters");
+
+   } catch (error) {
+      res.status(404).send("unable to update sitter in the db!");  
+   }
+ })
+
+   //delete route for each  sitter form in database
+router.post("/deleteSitterPresent", async(req, res)=> {
+   try {  
+      await SittersModel.deleteOne({_id:req.body.id});
+      res.redirect("back");
+     
+   } catch (error) {
+      res.status(400).send("unable to delete sitter from db!");
+      console.log("error deleting sitter...", error );
+   }
+ });
 
 
 

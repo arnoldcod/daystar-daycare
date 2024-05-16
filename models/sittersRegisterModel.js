@@ -5,11 +5,16 @@ const mongoose = require("mongoose");
 
 ////all data types like String, Date start with an uppercase
 const sittersRegisterSchema = new mongoose.Schema({
+
     name:{
         type: String, 
         trim: true
     },
     dob:{
+        type: Date,
+        trim: true
+    },
+    date:{
         type: Date,
         trim: true
     },
@@ -64,9 +69,19 @@ const sittersRegisterSchema = new mongoose.Schema({
     comment:{
         type: String, 
         trim: true
+    },
+    babyNumber:{
+        type: Number, 
+        trim: true
+    },
+    totalPay:{
+        type: Number, 
+        trim: true
     }
 
 });
+
+
 
 module.exports = mongoose.model("SittersModel", sittersRegisterSchema) 
 

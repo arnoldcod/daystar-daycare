@@ -2,7 +2,7 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Sitter Present Register
+  title Admin Dashboard
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css')
   script(src='https://kit.fontawesome.com/ae360af17e.js' crossorigin='anonymous')
   link(rel='stylesheet' href='/css/sittersRegister.css')
@@ -14,9 +14,9 @@ head
         a(href='#') DayStar DayCare
       ul.sidebar-nav
         li.sidebar-header
-          | ADMIN
+          |
         li.sidebar-item
-          a.sidebar-link.text-bg-success(href='/dashboard')
+          a.sidebar-link.text-bg-success(href='dashboard')
             i.fa-solid.fa-list.pe-2
             |                             Dashboard
         li.sidebar-item
@@ -25,13 +25,13 @@ head
             |                            Manage  Babies
           ul#pages.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
             li.sidebar-item
-              a.sidebar-link(href='/babiesRegister') Register new Child
+              a.sidebar-link(href='/babiesRegister') Register new Baby
             li.sidebar-item
-              a.sidebar-link(href='/babies') View All Children
+              a.sidebar-link(href='/babies') View All Baby
             li.sidebar-item
-              a.sidebar-link(href='/babyClockIn') Clocked-In Children
+              a.sidebar-link(href='/babyClockIn') Clocked-In Baby
             li.sidebar-item
-              a.sidebar-link(href='/clockingOutList') Clocked-Out Children
+              a.sidebar-link(href='/clockingOutList') Clocked-Out Baby
         li.sidebar-item
           a.sidebar-link.collapsed.text-bg-light(href='#' data-bs-target='#pages' data-bs-toggle='collapse' aria-expanded='false')
             i.fa-solid.fa-file-lines.pe-2
@@ -64,22 +64,32 @@ head
             |                             Reports & Analytics
           ul#posts.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
             li.sidebar-item
-              a.sidebar-link(href='#') Reports
+              a.sidebar-link(href='/income') Income Register
             li.sidebar-item
-              a.sidebar-link(href='#') Revenue
+              a.sidebar-link(href='/incomeList') View Incomes
             li.sidebar-item
-              a.sidebar-link(href='#') Expenses
+              a.sidebar-link(href='/expense') Expense Register
+            li.sidebar-item
+              a.sidebar-link(href='/expenseList') View Expenses
+        li.sidebar-item
+          a.sidebar-link.collapsed.text-bg-light(href='#' data-bs-target='#posts' data-bs-toggle='collapse' aria-expanded='false')
+            i.fa-solid.fa-file-lines.pe-2
+            |                             Shop
+          ul#posts.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
+            li.sidebar-item
+              a.sidebar-link(href='/dollsRegister') Doll Register
+            li.sidebar-item
+              a.sidebar-link(href='/dolls') View Dolls
+               
         li.sidebar-item
           a.sidebar-link.collapsed(href='#' data-bs-target='#auth' data-bs-toggle='collapse' aria-expanded='false')
             i.fa-regular.fa-user.pe-2
             |                             Auth
           ul#auth.sidebar-dropdown.list-unstyled.collapse(data-bs-parent='#sidebar')
             li.sidebar-item
-              a.sidebar-link(href='/login') Login
+              a.sidebar-link(href='/welcome') Logout
             li.sidebar-item
               a.sidebar-link(href='/createAccount') Register Admin
-            li.sidebar-item
-              a.sidebar-link(href='#') Forgot Password
   .main
     nav.navbar.navbar-expand.px-3.border-bottom
       button#sidebar-toggle.btn(type='button')
@@ -90,15 +100,16 @@ head
             a.nav-icon.pe-md-0(href='#' data-bs-toggle='dropdown')
               img.avatar.img-fluid.rounded(src='/images/lady-teacher.jpeg' alt='')
             .dropdown-menu.dropdown-menu-end
-              a.dropdown-item(href='/dashboard') Home
-              a.dropdown-item(href='/welcome') Contact
-              a.dropdown-item(href='/logout') Logout
+              a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
         // Content
         .container
           h1 Sitter Present Register
           form#registrationForm(action='/sitterPresentRoute?id='+sitter._id  method='POST')
+            .form-group
+              label(for='date') Date:
+              input#date(type='date' date='date' value= sitter.date ) 
             .form-group
               label(for='name') Name:
               input#name(type='text' name='name' value= sitter.name readonly) 
