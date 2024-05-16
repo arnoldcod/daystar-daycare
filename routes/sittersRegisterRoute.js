@@ -113,7 +113,7 @@ router.post("/deleteSitter", async(req, res)=> {
 
  router.post("/sitterPresentRoute", async(req, res)=> {
    try {
-      await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
+      await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body); // {avaible: true}
       console.log(req.body);
       res.redirect("/sittersPresent");
 

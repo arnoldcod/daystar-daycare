@@ -97,8 +97,8 @@ head
       .container-fluid
         // Content
         .container
-          h1 Register Child
-          form#registrationForm(action='/babiesRegister' method='POST')
+          h1 Register Baby
+          form#registrationForm(onsubmit=' ' action='/babiesRegister' method='POST')
             .form-group
               label(for='name') Full Name:
               input#fullname(type='text' name='name' placeholder='Enter Full Name')
@@ -158,7 +158,7 @@ head
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
 script(src='js/babiesRegister.js')
 
-script(src='js/validation.js')
+script(src='/js/validation.js')
 
 
 

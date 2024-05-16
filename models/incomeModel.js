@@ -15,7 +15,7 @@ const reportRegisterSchema = new mongoose.Schema({
     },
     totalIncome:{
         type: String, 
-        unique: true
+        trim: true
     },
     comment:{
         type: String, 

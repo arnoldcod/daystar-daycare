@@ -24,13 +24,18 @@ const dollRegisterSchema = new mongoose.Schema({
         type: Number, 
         trim: true
     },
-    purchasePrice:{
+    price:{
         type: Number, 
-        unique: true
+        trim: true
     },
     sellPrice:{
         type: Number, 
-        unique: true
+        trim: true
+    },
+    status:{
+        type: String, 
+        default: "Available",
+        enum:["Available", "Sold Out"]
     },
     comment:{
         type: String, 

@@ -98,7 +98,7 @@ head
         // Content  
         .container
          
-          h1 Children Clock Out
+          h1 Baby Clock Out
           form#registrationForm(action= '/ClockingOut?id='+baby._id  method='POST')
             .form-group
               label(for='name')  Name:
@@ -130,7 +130,7 @@ head
             .form-group
               label(for='childNumber') Child Number:
               input#childNumber(type='text' name='childNumber'  value=baby.childNumber)
-              input.text-bg-success(type='submit' value='Clock-Out')
+            button.btn.btn-success#register(type='submit' value='Register') Submit
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
       i.fa-regular.fa-sun

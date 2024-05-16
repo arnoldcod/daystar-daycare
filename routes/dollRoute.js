@@ -25,10 +25,11 @@ router.get("/dollsRegister", (req, res)=> {
 
 
 //post route for dolls to register to database
- router.post("/dollsRegister", async(req, res)=> { 
+ router.post("/dollsRegister", upload.single("imageUpload"), async(req, res)=> { 
    try {  
-      const doll = new DollModel(req.body); 
-      console.log(doll);
+      const doll = new DollModel(req.body);
+      doll.imageUpload = req.file.path; // Sends image url to db
+   
       await doll.save();
       res.redirect("/dolls");
        //to display on same page////res.redirect("/sitters")
@@ -45,18 +46,71 @@ router.get("/dollsRegister", (req, res)=> {
    try {
       let registeredDolls = await DollModel.countDocuments({}) // aggregations
      let dolls = await DollModel.find().sort({ $natural: -1});  //from line8
-     res.render("./shop/renderDolls", {dolls:dolls, registeredDolls}) // to display Dolls from data base
+     res.render("./shop/renderDolls", {dolls:dolls, registeredDolls }) // to display Dolls from data base
      console.log("display dolls", dolls);
 
    } catch (error) {
       res.status(400).send("unable to find dolls from database!");
       console.log("unable to find dolls from database!...", error );
    }
-   })
+   });
+
+
+    
+ // Sell Doll Route
+ router.get("/sellDoll/:id", async (req, res) => {
+   try {
+     const sellDoll = await DollModel.findOne({ _id: req.params.id });
+     res.render("./shop/dollSell", { doll: sellDoll});
+   } catch (error) {
+     console.log("Error fetching data for sell", error);
+     res.status(400).send("Unable to find doll in the db");
+   }
+ });
+ 
+ router.post("/sellDoll", async (req, res) => {
+   const dollId = req.body.id; // Get the doll ID from the form body
+   const quantityToSell = req.body.quantity; // Get the quantity to sell from the form body
+ 
+   try {
+     // Find the doll by ID
+     const doll = await DollModel.findById(dollId);
+ 
+     if (!doll) {
+       return res.status(404).send("Doll not found");
+     }
+ 
+     console.log("Current doll quantity:", doll.quantity);
+     console.log("Quantity to sell:", quantityToSell);
+ 
+     // Reduce the quantity of the doll
+     if (doll.quantity >= quantityToSell && quantityToSell > 0) {
+       doll.quantity -= quantityToSell;
+       if (doll.quantity === 0) {
+         doll.status = "Sold Out";
+       }
+       await doll.save();
+       res.redirect("/dolls"); // Redirect to the dolls list after selling
+     } else {
+       console.log("Invalid quantity or insufficient stock");
+       console.log("Available quantity:", doll.quantity);
+       console.log("Requested quantity to sell:", quantityToSell);
+       return res.status(400).send("Invalid quantity or insufficient stock");
+     }
+   } catch (error) {
+     console.log("Error selling doll", error);
+     res.status(404).send("Unable to sell doll");
+   }
+ });
+
+
+
+
+
 
 
    //delete route for each  doll form in database
-router.post("/delete", async(req, res)=> {
+router.post("/deleteDoll", async(req, res)=> {
    try {  
       await DollModel.deleteOne({_id:req.body.id});
       res.redirect("back");
@@ -90,24 +144,6 @@ router.post("/delete", async(req, res)=> {
    }
  })
 
-
-
- // Route to handle selling off dolls
-router.get('/sell/:id', async (req, res) => {
-   try {
-       const { sellPrice } = req.body;
-       const dollId = req.params.id;
-       // Assuming you have a field in your Doll schema to mark it as sold
-       const doll = await DollModel.findByIdAndUpdate(dollId, { sold: true, price: sellPrice });
-       if (!doll) {
-           return res.status(404).send("Doll not found");
-       }
-       res.redirect("/dolls"); // Redirect to dolls page or any other appropriate route
-   } catch (error) {
-       console.error("Error selling doll:", error);
-       res.status(500).send("Internal server error");
-   }
-});
 
 
 

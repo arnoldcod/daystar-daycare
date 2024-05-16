@@ -138,7 +138,7 @@ a.sidebar-link {
 
 .card {
     box-shadow: 0 0 .875rem 0 rgba(34, 46, 60, .05);
-    margin-bottom: 24px;
+    margin-bottom: 26px;
 }
 
 .illustration {
@@ -209,10 +209,6 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
 
 
 
-
-
-
-
  
   .container {
   max-width: 600px;
@@ -276,7 +272,6 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
     background-color: #0056b3;
   }
   
-
 
   /* for images in render*/
 

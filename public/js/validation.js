@@ -1,3 +1,5 @@
+
+
 let email = document.getElementById("email");
 let fullName = document.getElementById('fullname'); //for input tag id
 let dob = document.getElementById('dob'); //for input tag id
@@ -250,3 +252,4 @@ const validation = (event) => {
     event.preventDefault();
   }
 };
+
