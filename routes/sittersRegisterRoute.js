@@ -2,6 +2,7 @@ const express = require("express"); ////using routers from express
 const router = express.Router(); /////accessing router function in express
 const moment = require('moment');
 const passport = require("passport");
+const connectEnsureLogin = require("connect-ensure-login");
 
 
 const SittersModel = require("../models/sittersRegisterModel") 
@@ -9,7 +10,7 @@ const SittersModel = require("../models/sittersRegisterModel")
 // passport.authenticate("local", {failureRedirect: "/login"}),
 
 //creating routes
-router.get("/sittersRegister", (req, res)=> { 
+router.get("/sittersRegister", connectEnsureLogin.ensureLoggedIn(),  (req, res)=> { 
     res.render("./sitters/sittersRegister");  ////file name that you want to render such as sittersRegiste.pug
  });
 
@@ -32,7 +33,7 @@ router.get("/sittersRegister", (req, res)=> {
 
 
   //fetching All Sitters from database 
-  router.get("/sitters", async (req, res)=> {
+  router.get("/sitters", connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
    try {
      let sitters = await SittersModel.find().sort({ $natural: -1});  //from line8
      res.render("./sitters/renderSitters", {sitters:sitters}) // to display sitters from data base
@@ -61,7 +62,7 @@ router.post("/deleteSitter", async(req, res)=> {
 
 
    //updating a Sitter in the database
- router.get("/sittersUpdate/:id", async(req, res)=> { 
+ router.get("/sittersUpdate/:id",  connectEnsureLogin.ensureLoggedIn(), async(req, res)=> { 
    try{
      const sitterUpdate = await SittersModel.findOne({_id: req.params.id});
      res.render("./sitters/sittersUpdate", {sitter:sitterUpdate});
@@ -85,7 +86,7 @@ router.post("/deleteSitter", async(req, res)=> {
 
  
  //fetching list sitters present from database 
- router.get("/sittersPresent", async (req, res)=> {
+ router.get("/sittersPresent", connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
    try {
       let sittersPresent = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find({status: "Present"})
@@ -101,7 +102,7 @@ router.post("/deleteSitter", async(req, res)=> {
 
 
  //route to register present sitter form in database
- router.get("/sitterPresentRoute/:id", async(req, res)=> { 
+ router.get("/sitterPresentRoute/:id", connectEnsureLogin.ensureLoggedIn(),  async(req, res)=> { 
    try{
       const sitter  = await SittersModel.findOne({_id: req.params.id});
      res.render("./sitters/sitterPresent", {sitter:sitter});
@@ -127,7 +128,7 @@ router.post("/deleteSitter", async(req, res)=> {
 
 
 //paying sitter
-router.get("/paySitter/:id", async(req, res)=> { 
+router.get("/paySitter/:id", connectEnsureLogin.ensureLoggedIn(),  async(req, res)=> { 
    try{
      const paySitter = await SittersModel.findOne({_id: req.params.id});
      res.render("./sitters/paySitter", {sitter:paySitter});
@@ -163,7 +164,7 @@ router.post("/deleteSitterPresent", async(req, res)=> {
 
 
  //fetching list sitters Absent from database 
- router.get("/sittersAbsent",  async (req, res)=> {
+ router.get("/sittersAbsent", connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
    try {
     let sittersAbsent = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find({status: "Absent"})
@@ -177,7 +178,7 @@ router.post("/deleteSitterPresent", async(req, res)=> {
 
 
    //route to register Absent sitter form in database
- router.get("/sitterAbsentRoute/:id", async(req, res)=> { 
+ router.get("/sitterAbsentRoute/:id", connectEnsureLogin.ensureLoggedIn(),  async(req, res)=> { 
    try{
       const sitter  = await SittersModel.findOne({_id: req.params.id});
      res.render("./sitters/sitterAbsent", {sitter:sitter});

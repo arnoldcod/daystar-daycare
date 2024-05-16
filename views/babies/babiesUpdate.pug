@@ -5,7 +5,7 @@ head
   title Baby Update
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css')
   script(src='https://kit.fontawesome.com/ae360af17e.js' crossorigin='anonymous')
-  link(rel='stylesheet' href='/css/babiesRegister.css')
+  link(rel='stylesheet' href='/css/babiesRegisterUpdate.css')
 .wrapper
   aside#sidebar.js-sidebar.bg-dark
     // Content For Sidebar
@@ -105,7 +105,7 @@ head
       .container-fluid
         // Content  
         .container
-          h1 Child Registry Update
+          h1 Baby Registry Update
           form#registrationForm(action= '/babiesUpdate?id='+baby._id  method='POST')
             .form-group
               label(for='name') Name:

@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const connectEnsureLogin = require("connect-ensure-login");
 
 
 
 const IncomeModel = require("../models/incomeModel") //import model
 
-router.get("/income", (req, res)=> { 
+router.get("/income", connectEnsureLogin.ensureLoggedIn(), (req, res)=> { 
     res.render("./reports/income");  
  });
 
@@ -28,7 +29,7 @@ router.get("/income", (req, res)=> {
  });
 
  //fetching incomes from database 
- router.get("/incomeList", async (req, res)=> {
+ router.get("/incomeList", connectEnsureLogin.ensureLoggedIn(), async (req, res)=> {
    try {
       let income = await IncomeModel.countDocuments({}) // aggregations
      let incomes = await IncomeModel.find()
@@ -57,7 +58,7 @@ router.get("/income", (req, res)=> {
 });
 
     //updating a income in the database
- router.get("/incomeUpdate/:id", async(req, res)=> { 
+ router.get("/incomeUpdate/:id", connectEnsureLogin.ensureLoggedIn(), async(req, res)=> { 
    try{
      const incomeUpdate = await IncomeModel.findOne({_id: req.params.id});
      res.render("./reports/incomeUpdate", {income:incomeUpdate});

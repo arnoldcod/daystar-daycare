@@ -28,7 +28,6 @@ const authenticationRoutes = require("./routes/authenticationRoutes") //importin
 const index = require("./routes/indexRoute")// importing routes
 const landing = require("./routes/landingRoute")// importing routes
 const dashboard = require("./routes/maindashboardRoute")// importing routes
-const pay = require("./routes/paymentRoute")// importing routes
 const procurements = require("./routes/procurementRegisterRoute")// importing routes
 const income = require("./routes/incomeRoute")// importing routes
 const expense = require("./routes/expenseRoute")// importing routes
@@ -96,7 +95,6 @@ app.use("/", authenticationRoutes); //from imported routes above
 app.use("/", index);
 app.use("/", landing);
 app.use("/", dashboard);
-app.use("/", pay);
 app.use("/", procurements);
 app.use("/", income);
 app.use("/", expense);

@@ -2,16 +2,15 @@ const express = require("express");
 const router = express.Router();
 const moment = require('moment');
 const passport = require("passport");
-// const connectEnsureLogin = require("connect-ensure-login");
+const connectEnsureLogin = require("connect-ensure-login");
 
-// connectEnsureLogin.ensureLoggedIn(),
 
 
 const SittersModel = require("../models/sittersRegisterModel")   //import model
-
 const BabiesRegisterModel = require("../models/babiesRegisterModel") //import model
 
-router.get("/babiesRegister",  (req, res)=> { //to run on the browser and display form on server file
+
+router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> { //to run on the browser and display form on server file
     res.render("./babies/babiesRegister");  //from babiesRegister.pug
  });
 
@@ -33,7 +32,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
  
 
  //fetching All babies from database 
- router.get("/babies",   async (req, res)=> {
+ router.get("/babies", connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
    try {
      
      let babies = await BabiesRegisterModel.find().sort({ $natural: -1});   //from line8
@@ -49,7 +48,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
    
 
  //fetching list all babies clocked in from database 
- router.get("/babyClockIn",  async (req, res)=> {
+ router.get("/babyClockIn", connectEnsureLogin.ensureLoggedIn(), async (req, res)=> {
    try {
 
      let babies = await BabiesRegisterModel.find({status: "ClockedIn"}).sort({ $natural: -1}); 
@@ -65,7 +64,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
 
 //fetching list babies clocked Out from database 
- router.get("/clockingOutList",  async (req, res)=> {
+ router.get("/clockingOutList",connectEnsureLogin.ensureLoggedIn(), async (req, res)=> {
    try {
       let BabyClockOut = await BabiesRegisterModel.countDocuments({}) // aggregations
      let babies = await BabiesRegisterModel.find({status: "ClockedOut"}).sort({ $natural: -1}); 
@@ -82,7 +81,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
 
  //delete route for form in database
- router.post("/deleteBaby",  async(req, res)=> {
+ router.post("/deleteBaby", async(req, res)=> {
    try {  
       await BabiesRegisterModel.deleteOne({_id:req.body.id});
       
@@ -97,7 +96,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
 
  //updating a baby in the database
- router.get("/babiesUpdate/:id",   async(req, res)=> { //babiesUpdate can be any
+ router.get("/babiesUpdate/:id", connectEnsureLogin.ensureLoggedIn(),  async(req, res)=> { //babiesUpdate can be any
    try{
      const babyUpdate = await BabiesRegisterModel.findOne({_id: req.params.id});
      res.render("./babies/babiesUpdate", {baby:babyUpdate});
@@ -120,7 +119,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
  
 
  //clockin baby route for form in database
- router.get("/babyClockIn/:id",   async(req, res)=> { 
+ router.get("/babyClockIn/:id", connectEnsureLogin.ensureLoggedIn(),  async(req, res)=> { 
    try{
       const sitters  = await SittersModel.find()
      const babyClockIn = await BabiesRegisterModel.findOne({_id: req.params.id});
@@ -148,7 +147,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
 
 
 //clockOut baby route for form in database
-  router.get("/ClockingOut/:id",  async(req, res)=> { 
+  router.get("/ClockingOut/:id", connectEnsureLogin.ensureLoggedIn(),  async(req, res)=> { 
    try{  
     const sitters  = await SittersModel.find()
      const babyClockOut = await BabiesRegisterModel.findOne({_id: req.params.id}); 
@@ -162,7 +161,7 @@ router.get("/babiesRegister",  (req, res)=> { //to run on the browser and displa
    }
  })
 
- router.post("/ClockingOut", async(req, res)=> {
+ router.post("/ClockingOut",  async(req, res)=> {
    try {
       await BabiesRegisterModel.findOneAndUpdate({_id: req.query.id}, req.body);
       res.redirect("/clockingOutList");
