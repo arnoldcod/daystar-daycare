@@ -105,10 +105,12 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
-      h1.text-center.my-6.text-bg-success.text-light List Of Children Clocked In
+      a.btn.btn-success(href= "/babies") Back To Babies Registered
+      a.btn.btn-warning(href= "/income") Record Daily Income
+      h1.text-center.my-6.text-bg-light.text-dark Babies Clocked In
       table.table.table-striped
         thead
-          tr
+          tr.text-bg-light
             th Name
             th Sitter
             th Child Brought By
@@ -116,23 +118,23 @@ head
             th Period Of Stay
             th Status:
             th Child Number:
-            th Delete
-            
+          
+
         tbody
           if babies.length 
             each baby in babies
               tr
                 td #{baby.name}
-                td #{baby.sitter}
+                td #{baby.sitter ? baby.sitter.name : ''}
                 td #{baby.childBroughtBy}
                 td #{baby.arrivalTime}
                 td #{baby.paidFee}
                 td #{baby.status}
                 td #{baby.childNumber}
-                td 
-                    form(method="POST" action="/deleteBaby")
-                      input(type="hidden" name="id" value=baby._id)
-                      button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit") 
+                //- td 
+                //-     form(method="POST" action="/deleteBabyClockedIn")
+                //-       input(type="hidden" name="id" value=baby._id)
+                //-       button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit") 
 
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon

@@ -32,7 +32,7 @@ router.get("/income", connectEnsureLogin.ensureLoggedIn(), (req, res)=> {
  router.get("/incomeList", connectEnsureLogin.ensureLoggedIn(), async (req, res)=> {
    try {
       let income = await IncomeModel.countDocuments({}) // aggregations
-     let incomes = await IncomeModel.find()
+     let incomes = await IncomeModel.find().sort({ $natural: -1}); 
      res.render("./reports/renderIncome", {incomes:incomes, income}) 
      console.log("display incomes", incomes);
 
@@ -44,7 +44,7 @@ router.get("/income", connectEnsureLogin.ensureLoggedIn(), (req, res)=> {
 
 
    //delete route for income in database
- router.post("/deletes", async(req, res)=> {
+ router.post("/deleteIncome", async(req, res)=> {
    try {  
       await IncomeModel.deleteOne({_id:req.body.id});
       

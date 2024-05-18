@@ -4,13 +4,14 @@ const moment = require('moment');
 const passport = require("passport");
 const connectEnsureLogin = require("connect-ensure-login");
 
+// connectEnsureLogin.ensureLoggedIn(),
 
 
 const SittersModel = require("../models/sittersRegisterModel")   //import model
 const BabiesRegisterModel = require("../models/babiesRegisterModel") //import model
 
 
-router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> { //to run on the browser and display form on server file
+router.get("/babiesRegister", (req, res)=> { //to run on the browser and display form on server file
     res.render("./babies/babiesRegister");  //from babiesRegister.pug
  });
 
@@ -63,6 +64,22 @@ router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> 
 
 
 
+ //delete route for baby clocked in in database
+ router.post("/deleteBabyClockedIn", async(req, res)=> {
+   try {  
+      await BabiesRegisterModel.deleteOne({_id:req.body.id});
+      
+      res.redirect("back");
+     
+
+   } catch (error) {
+      res.status(400).send("unable to delete baby from db!");
+      console.log("error deleting baby...", error );
+   }
+ });
+
+
+
 //fetching list babies clocked Out from database 
  router.get("/clockingOutList",connectEnsureLogin.ensureLoggedIn(), async (req, res)=> {
    try {
@@ -80,7 +97,7 @@ router.get("/babiesRegister", connectEnsureLogin.ensureLoggedIn(), (req, res)=> 
 
 
 
- //delete route for form in database
+ //delete route for baby in database
  router.post("/deleteBaby", async(req, res)=> {
    try {  
       await BabiesRegisterModel.deleteOne({_id:req.body.id});

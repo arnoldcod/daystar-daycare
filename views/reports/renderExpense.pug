@@ -109,27 +109,27 @@ head
         h1.text-center.my-6.text-bg-danger.text-light Expense List 
         table.table.table-striped
           thead
-            tr
+            tr.text-bg-light
               th Date
               th Category
               th Total Expense
               th Comment
               th Update
-              th Delete
+              //- th Delete
           tbody
             if expenses.length 
               each expense in expenses
                 tr
-                  td #{expense.date}
+                  td #{moment(expense.date).format("DD-MM-YY")}
                   td #{expense.category}
                   td #{expense.totalExpense}
                   td #{expense.comment}
                   td 
                       a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/expenseUpdate/"+ expense._id)
-                  td 
-                      form(method="POST" action="/deletes")
-                      input(type="hidden" name="id" value=expense._id)
-                      button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
+                  //- td 
+                  //-     form(method="POST" action="/deleteExpense")
+                  //-     input(type="hidden" name="id" value=expense._id)
+                  //-     button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
         
 
     a.theme-toggle(href='#')

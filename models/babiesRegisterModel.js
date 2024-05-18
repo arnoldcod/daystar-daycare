@@ -68,6 +68,11 @@ const babiesRegisterSchema = new mongoose.Schema({
     childNumber:{
         type: String, 
         unique: true
+    },
+
+   sitter:{
+        type: String, 
+        unique: true
     }
 
 });

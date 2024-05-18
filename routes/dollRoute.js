@@ -110,6 +110,7 @@ router.get("/dollsRegister", (req, res)=> {
 router.post("/deleteDoll", async(req, res)=> {
    try {  
       await DollModel.deleteOne({_id:req.body.id});
+      
       res.redirect("back");
      
    } catch (error) {

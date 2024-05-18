@@ -104,7 +104,9 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
     .container-fluid
-      h3(style='text-align: center;') Doll Stall
+      a.btn.btn-success(href= "/dollsRegister") Add New Doll
+      a.btn.btn-warning(href= "/income") Record Daily Income
+      h3.text-center.my-6.text-bg-light.text-dark Doll Stall
       p
       if dolls.length
           .row.row-cols-md-3.g-4(style='padding-left: 60px')
@@ -120,9 +122,9 @@ head
 
                               a.btn.btn-block.i.bi.bi-pencil-square.btn-secondary(href= "/dollsUpdate/"+ doll._id)
 
-                              a(method="POST" action="/deleteDoll")
-                               input(type="hidden" name="id" value=doll._id)
-                               button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
+                              //- a(method="POST" action="/deleteDoll")
+                              //-  input(type="hidden" name="id" value=doll._id)
+                              //- button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
 
 
 

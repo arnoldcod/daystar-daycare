@@ -104,35 +104,37 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
-        h1.text-center.my-6.text-bg-success.text-light List Of Sitters Present
+        a.btn.btn-success(href= "/sitters") Back To Sitters Registered
+        a.btn.btn-danger(href= "/expense") Record Daily Expense
+        h1.text-center.my-6.text-bg-light.text-dark  Sitters Present
         table.table.table-striped
           thead
-            tr
+            tr.text-bg-light
               th Date
               th Name
               th contact
               th Arrival Time
-              th Status
               th Sitter Number:
+              th Payment (UGX)
               th Pay Sitter (UGX)
-              th Delete
+            
               
           tbody
             if sitters.length 
               each sitter in sitters
                 tr
-                  td #{sitter.date}
+                  td #{moment(sitter.date).format("DD-MM-YY")}
                   td #{sitter.name}
                   td #{sitter.contact}
                   td #{sitter.arrivalTime}
-                  td #{sitter.status}
                   td #{sitter.sitterNumber}
+                  td #{sitter.totalPay}
                   td 
-                    a.btn.btn-block.i.bi.btn-light(href="/paySitter/"+ sitter._id) Payment  
-                  td 
-                      form(method="POST" action="/deleteSitterPresent")
-                        input(type="hidden" name="id" value= sitter._id)
-                        button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit") 
+                    a.btn.btn-block.i.bi.btn-success(href="/paySitter/"+ sitter._id) Pay Form 
+                  //- td 
+                  //-     form(method="POST" action="/deleteSitterPresent")
+                  //-       input(type="hidden" name="id" value= sitter._id)
+                  //-       button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit") 
             
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon

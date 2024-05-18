@@ -151,7 +151,7 @@ router.get("/procurementRegister",  connectEnsureLogin.ensureLoggedIn(),  (req, 
  router.post("/itemFinished",  async(req, res)=> {
    try {
       await ProcurementModel.findOneAndUpdate({_id: req.query.id}, req.body);
-      res.redirect("/itemFinishedRegistered");
+      res.redirect("/procurementView");
    } catch (error) {
       res.status(404).send("unable to  find item available in the db!");  
    }

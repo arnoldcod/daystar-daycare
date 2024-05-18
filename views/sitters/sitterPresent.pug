@@ -109,18 +109,18 @@ head
           form#registrationForm(action='/sitterPresentRoute?id='+sitter._id  method='POST')
             .form-group
               label(for='date') Date:
-              input#date(type='date' date='date' value= sitter.date ) 
+              input#date(type='date' name='date' required='' ) 
             .form-group
               label(for='name') Name:
               input#name(type='text' name='name' value= sitter.name readonly) 
             .form-group
               label(for='contact') Contact:
-              input#contact(type='number' name='contact' value= sitter.contact readonly)        
+              input#contact(type='number' name='contact' value= sitter.contact required='')        
             .form-group
               label(for='arrivalTime') Arrival Time:
-              input#arrivalTime(type='time' name='arrivalTime' )
+              input#arrivalTime(type='time' name='arrivalTime' required='')
             .form-group
-              input#status(type="hidden" name="status" value="Present")
+              input#status(type="text" name="status" value="Present" required='')
             .form-group
               label(for='sitterNumber') Sitter Number:
               input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber readonly)

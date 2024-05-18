@@ -6,11 +6,19 @@ const createAccountSchema = new mongoose.Schema({
         type: String, 
         trim: true
     },
+    dob:{
+        type: String, 
+        trim: true
+    },
     email:{
         type: String, 
         unique: true
     },
     password:{
+        type: String, 
+        trim: true
+    },
+    confirmpassword:{
         type: String, 
         trim: true
     },

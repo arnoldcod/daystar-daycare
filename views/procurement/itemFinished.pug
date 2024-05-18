@@ -105,8 +105,8 @@ head
       .container-fluid
         // Content
         .container
-          h1  Form  for Items Finished
-          form#registrationForm(action="/itemFinished?id="+ item._id  method='POST')
+          h1  Items Out Of Stock
+          form#registrationForm(action="/itemFinished?id="+item._id  method='POST')
             .mb-3
               label.form-label(for='vendor') Vendor:
               input#vendor.form-control(type='text' name='vendor' value= item.vendor)
@@ -116,10 +116,9 @@ head
             .mb-3
               label.form-label(for='itemId') Item ID:
               input#itemId.form-control(type='text' name='itemId' value= item.itemId)
-            .row
-              .col-md-6.mb-3
-                label.form-label(for='itemQuantity') Item Quantity:
-                input#itemQuantity.form-control(type='number' name='itemQuantity' value= item.itemQuantity)
+            .mb-3
+              label.form-label(for='itemQuantity') Item Quantity:
+              input#itemQuantity.form-control(type='number' name='itemQuantity' value= item.itemQuantity)
             .form-group
               input#status(type="hidden" name="status" value="Finished")
             .mb-3
@@ -153,4 +152,4 @@ script(src='/js/procurement.js')
 
 
 
-
+       

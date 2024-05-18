@@ -111,12 +111,12 @@ head
               label(for='name') Name:
               input#name(type='text' name='name' value= baby.name readonly)    
              .form-group
-              label(for='sitter') Sitter:
+              label(for='sitter' ) Sitter:
               select#sitter.form-control(name='sitter')
                 option(value='') Select Sitter
                  if sitters.length
                  each sitter in sitters
-                     option(value=sitter._id)= sitter.name
+                     option(value=sitter._id) #{sitter.name}
               small#sitterErr
                .form-group
                 label(for='paidFee') Select Period Of Stay 
@@ -134,7 +134,7 @@ head
                  input#status(type='hidden' name='status'  value= 'ClockedIn')
                .form-group
                  label(for='childNumber') Child Number:
-                 input#childNumber(type='text' name='childNumber' value= baby.childNumber)
+                 input#childNumber(type='text' name='childNumber' value= baby.childNumber readonly)
                button.btn.btn-success#register(type='submit' value='Register') Submit 
 
     a.theme-toggle(href='#')

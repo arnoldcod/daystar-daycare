@@ -105,8 +105,10 @@ head
     main.content.px-3.py-2
       .container-fluid
         a.btn.btn-success(href= "/sittersRegister") Register A Sitter
+        a.btn.btn-light(href= "/sittersPresent") View Sitters Present
+        a.btn.btn-secondary(href= "/sitters") View Sitters Absent
         p
-        h1.text-center.my-6.text-bg-success.text-light List Of Sitters Registered
+        h1.text-center.my-6.text-bg-success.text-light  Sitters Registered
         table.table.table-striped
           thead
             tr
@@ -120,7 +122,6 @@ head
               th Religion:
               th Level Of Eduction:
               th Sitter Number:
-              th Payment (UGX)
               th Status:
               th Present:
               th Absent:
@@ -140,7 +141,6 @@ head
                   td #{sitter.religion}
                   td #{sitter.levelOfEducation}
                   td #{sitter.sitterNumber}
-                  td #{sitter.totalPay}
                   td #{sitter.status}
                   td 
                     a.btn.btn-light.btn-block(href= '/sitterPresentRoute/'+sitter._id) Present

@@ -105,20 +105,20 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
-        a.btn.btn-success(href= "/babiesRegister") Register A Child
+        a.btn.btn-success(href= "/babiesRegister") Register A Baby
+        a.btn.btn-light(href= "/babyClockIn") View Babies clocked In
+        a.btn.btn-secondary(href= "/clockingOutList") View Babies clocked Out
         p
-        h1.text-center.my-6.text-bg-success.text-light List Of Children Registered
+        h1.text-center.my-6.text-bg-success.text-light Babies Registered
         table.table.table-striped
           thead
-            tr
+            tr.text-bg-light
               th Name
               th Date Of Birth
-              th Age
               th Gender
               th Parent Names
               th Contact
               th Address
-              th Paid Fee(UGX):
               th Child Number:
               th Status:
               th Clock-In:
@@ -131,12 +131,10 @@ head
                 tr
                   td #{baby.name}
                   td #{moment(baby.dob).format("DD-MM-YY")}
-                  td #{baby.age}
                   td #{baby.gender}
                   td #{baby.parentNames}
                   td #{baby.contact}
                   td #{baby.address}
-                  td #{baby.paidFee}
                   td #{baby.childNumber}
                   td #{baby.status} 
                   td 

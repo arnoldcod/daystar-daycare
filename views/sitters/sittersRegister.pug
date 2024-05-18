@@ -109,38 +109,37 @@ head
             form#registrationForm(action='/sittersRegister' method='POST')
               .form-group
                 label(for='name') Name:
-                input#name(type='text' name='name' placeholder='Enter name')
+                input#name(type='text' name='name' placeholder='Enter name' required='')
               .form-group
                 label(for='dob') Date of Birth:
-                input#dob(type='date' name='dob' placeholder='YYYY-MM-DD')
+                input#dob(type='date' name='dob' placeholder='YYYY-MM-DD' required='')
               .form-group
                 label(for='gender') Gender:
-                select#gender(name='gender')
+                select#gender(name='gender' required='')
                   option(value='') Select Gender
                   option(value='male') Male
                   option(value='female') Female
-                  option(value='other') Other
               .form-group
                 label(for='contact') Contact:
-                input#contact(type='text' name='contact' placeholder='Enter contact number')
+                input#contact(type='text' name='contact' placeholder='Enter contact number' required='')
               .form-group
                 label(for='address') Address:
-                input#address(type='text' name='address' placeholder='Enter address')
+                input#address(type='text' name='address' placeholder='Enter address' required='')
               .form-group
                 label(for='nin') NIN:
-                input#nin(type='text' name='nin' placeholder='Enter NIN')
+                input#nin(type='text' name='nin' placeholder='Enter NIN' required='')
               .form-group
                 label(for='recommenderName') Recommender's Name:
-                input#recommenderName(type='text' name='recommenderName' placeholder='Enter recommender\'s name')
+                input#recommenderName(type='text' name='recommenderName' placeholder='Enter recommender\'s name' required='')
               .form-group
                 label(for='religion') Religion(Option):
-                input#religion(type='text' name='religion' placeholder='Enter religion')
+                input#religion(type='text' name='religion' placeholder='Enter religion' required='')
               .form-group
                 label(for='levelOfEducation') Level of Education:
-                input#levelOfEducation(type='text' name='levelOfEducation' placeholder='Enter level of education')
+                input#levelOfEducation(type='text' name='levelOfEducation' placeholder='Enter level of education' required='')
               .form-group
                 label(for='sitterNumber') Sitter Number:
-                input#sitterNumber(type='text' name='sitterNumber' placeholder='Enter sitter number')
+                input#sitterNumber(type='text' name='sitterNumber' placeholder='Enter sitter number' required='')
                 input.text-bg-success(type='submit' value='Register')
             
     a.theme-toggle(href='#')

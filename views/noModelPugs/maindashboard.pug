@@ -103,8 +103,8 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
-        .mb-3.header
-          h2 ADMIN DASHBOARD
+        .mb-3.header-bg-success 
+          h2.text-center.text-bg-success ADMIN DASHBOARD
         .row
           .col-12.col-md-6.d-flex
             .card.flex-fill.border-0.illustration
@@ -112,23 +112,14 @@ head
                 .row.g-0.w-100
                   .col-6
                     .p-3.m-1
-                      h2 Babies
+                      h2.text-center.text-bg-secondary Babies
                       p
                       p.mb-0
-                      h5 Registered: #{registeredBabies}
-                      p
-                      br
-                      p.mb-0
-                      h5 Clocked In: #{BabyClockIn}
+                      h5 Registered: #{registeredBabies}  
                       p
                       br
-                      p.mb-0
-                      h5
-                        | Clocked Out: #{BabyClockOut}
-                        p
-                        br
-                        a(href='/babies')
-                          button.btn.btn-success(type='button') View Details
+                      a(href='/babies')
+                        button.btn.btn-success(type='button') View Details
                         
                   .col-6.align-self-top.text-end
                     img.img-fluid.illustration-img(src='/images/iconsdash/babies.jpeg' alt='')
@@ -138,27 +129,14 @@ head
                 .row.g-0.w-100
                   .col-6
                     .p-3.m-1
-                      h2 Sitters
+                      h2.text-center.text-bg-secondary  Sitters
                       p.mb-0
-                      h5 Registered: #{registeredSitters}
-                      p
-                      br
-                      p.mb-0
-                      h5 Present: #{sittersPresent}
-                      p
-                      br
-                      p.mb-0
-                      h5
-                        |Absent: #{sittersAbsent}
+                      h5 Registered: #{registeredSitters}                     
                       p
                       br
                       a(href='/sitters')
-                        button.btn.btn-success(type='button') View Sitters
-                    
-                      a(href='/sittersPresent')
-                        button.btn.btn-secondary(type='button') View Sitters Present
-
-                        
+                        button.btn.btn-success(type='button') View Details
+                       
                   .col-6.align-self-top.text-end
                     img.img-fluid.illustration-img(src='/images/iconsdash/sitter.jpeg' alt='')
         .row
@@ -168,17 +146,14 @@ head
                 .row.g-0.w-100
                   .col-6
                     .p-3.m-1
-                      h2 Procurement
+                      h2.text-center.text-bg-secondary  Procurement
                       p.mb-0
                       h5  Items Registered: #{registeredItems}
                       p
                       br
-                      p.mb-0
-                      h5 Items In Store: #{itemsAvailable}
-                      p
-                      br
                       a(href='/procurementView')
                         button.btn.btn-success(type='button') View Details
+
                   .col-6.align-self-top.text-end
                     img.img-fluid.illustration-img(src='/images/iconsdash/procurement.png' alt='')
           .col-12.col-md-6.d-flex
@@ -187,7 +162,7 @@ head
                 .row.g-0.w-100
                   .col-6
                     .p-3.m-1
-                      h2 Reports
+                      h2.text-center.text-bg-secondary  Reports
                       p.mb-0
                       h5 Income: #{income}
                       p
@@ -209,7 +184,7 @@ head
                 .row.g-0.w-100
                   .col-6
                     .p-3.m-1
-                      h2 Dolls
+                      h2.text-center.text-bg-secondary  Dolls
                       p.mb-0
                       h5
                         | Number of Dolls: #{registeredDolls}
@@ -294,4 +269,7 @@ head
                 a.text-muted(href='#') Booking
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
 script(src='js/maindashboard.js')
+
+
+
 

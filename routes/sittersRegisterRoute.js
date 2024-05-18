@@ -88,9 +88,9 @@ router.post("/deleteSitter", async(req, res)=> {
  //fetching list sitters present from database 
  router.get("/sittersPresent", connectEnsureLogin.ensureLoggedIn(),  async (req, res)=> {
    try {
-      let sittersPresent = await SittersModel.countDocuments({}) // aggregations
+      let sitterspresent = await SittersModel.countDocuments({}) // aggregations
      let sitters = await SittersModel.find({status: "Present"})
-     res.render("./sitters/renderSitterPresent", {sitters:sitters, sittersPresent}) // to display babies from data base
+     res.render("./sitters/renderSitterPresent", {sitters:sitters, sitterspresent }) // to display babies from data base
      console.log("display sitter present", sitters);
 
    } catch (error) {
@@ -142,7 +142,7 @@ router.get("/paySitter/:id", connectEnsureLogin.ensureLoggedIn(),  async(req, re
  router.post("/paySitter", async(req, res)=> {
    try {
       await SittersModel.findOneAndUpdate({_id: req.query.id}, req.body);
-      res.redirect("/sitters");
+      res.redirect("/sittersPresent");
 
    } catch (error) {
       res.status(404).send("unable to update sitter in the db!");  

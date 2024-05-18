@@ -43,8 +43,8 @@ router.get("/expense", (req, res)=> {
    })
 
 
-   //delete route for income in database
- router.post("/deletes", async(req, res)=> {
+   //delete route for expense in database
+ router.post("/deleteExpense", async(req, res)=> {
    try {  
       await ExpenseModel.deleteOne({_id:req.body.id});
       

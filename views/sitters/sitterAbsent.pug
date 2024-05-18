@@ -108,12 +108,12 @@ head
           form#registrationForm(action='/sitterAbsentRoute?id='+sitter._id  method='POST')
             .form-group
               label(for='name')  Name:
-              input#name(type='text' name='name' value=sitter.name readonly )
+              input#name(type='text' name='name' value=sitter.name required='')
             .form-group
               label(for='comment')  Comment:
-              input#comment(type='text' name='comment'  value=sitter.comment)
+              input#comment(type='text' name='comment'  value=sitter.comment required='')
             .form-group
-              input#status(type="hidden" name="status" value="Absent")
+              input#status(type="hidden" name="status" value="Absent" required='')
             .form-group
               label(for='sitterNumber') Sitter Number:
               input#sitterNumber(type='text' name='sitterNumber'  value=sitter.sitterNumber readonly)

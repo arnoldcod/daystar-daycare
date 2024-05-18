@@ -109,22 +109,22 @@ head
           form#registrationForm(action= '/paySitter?id='+sitter._id  method='POST')
             .form-group
               label(for='name') Name:
-              input#name(type='text' name='name' value= sitter.name)
+              input#name(type='text' name='name' value= sitter.name required='')
             .form-group
               label(for='contact') Contact:
-              input#contact(type='text' name='contact' value= sitter.contact )
+              input#contact(type='text' name='contact' value= sitter.contact required='')
             .form-group
               label(for='paidFee')  Paid Fee(UGX):
               input#paidFee(type='number' name='paidFee' value= 3000 readOnly )
             .form-group
               label(for='babyNumber') No. Of Babies:
-              input#babyNumber(type='number' name='babyNumber' value= sitter.babyNumber)
+              input#babyNumber(type='number' name='babyNumber' value= sitter.babyNumber required='')
             .form-group
               label(for='totalPay') Total Payment (UGX):
-              input#totalPay(type='number' name='totalPay' value= sitter.totalPay)
+              input#totalPay(type='number' name='totalPay' value= sitter.totalPay required='')
             .form-group
               label(for='sitterNumber') Sitter Number:
-              input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber)
+              input#sitterNumber(type='text' name='sitterNumber' value= sitter.sitterNumber readOnly)
               input.text-bg-success(type='submit' value='Pay')
             
     a.theme-toggle(href='#')

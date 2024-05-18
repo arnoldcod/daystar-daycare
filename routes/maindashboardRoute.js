@@ -19,7 +19,7 @@ router.get("/dashboard", async (req, res)=> {
        let BabyClockIn = await BabiesRegisterModel.countDocuments({}) // aggregations
        let BabyClockOut = await BabiesRegisterModel.countDocuments({}) // aggregations
        let registeredSitters = await SittersModel.countDocuments({}) // aggregations
-       let sittersPresent = await SittersModel.countDocuments({}) // aggregations
+       let sitters = await SittersModel.countDocuments({}) // aggregations
        let sittersAbsent = await SittersModel.countDocuments({}) // aggregations
        let registeredItems = await ProcurementModel.countDocuments({}) // aggregations
        let itemsAvailable = await ProcurementModel.countDocuments({}) // aggregations
@@ -31,7 +31,7 @@ router.get("/dashboard", async (req, res)=> {
 
       res.render("./noModelPugs/maindashboard", { 
          registeredBabies, BabyClockIn, BabyClockOut, 
-         registeredSitters, sittersPresent, sittersAbsent,
+         registeredSitters, sitters, sittersAbsent,
          registeredItems, itemsAvailable,
          income, expense ,
          registeredDolls}) // to display babies from data base

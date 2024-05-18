@@ -117,7 +117,7 @@ head
             th Comment
             th Sell
             th Update
-            th Delete
+          
         tbody
           if soldDolls.length 
             each soldDoll in soldDolls
@@ -132,10 +132,7 @@ head
                     a.btn.btn-block.i.bi.btn-success(href=`/sell/${doll._id}`) Sell Now
                 td 
                     a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/dollsUpdate/"+ doll._id)
-                td 
-                    form(method="POST" action="/delete")
-                    input(type="hidden" name="id" value=doll._id)
-                    button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
+                
         
 
     a.theme-toggle(href='#')

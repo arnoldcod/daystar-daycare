@@ -104,11 +104,11 @@ head
     main.content.px-3.py-2
       .container
         // Content
-        h1.mb-4 Expense Register Form
+        h1.mb-4 Expense Update Form
         form#registrationForm(action='/expenseUpdate?id='+expense._id  method='POST')
             .mb-3
             label.form-label(for='date') Date
-            input#date.form-control(type='date' name='date' required='' value= expense.date)
+            input#date.form-control(type='date' name='date'  value= expense.date )
             .mb-3
             label.form-label(for='category') Category
             select#category.form-select( name= 'category' required='' value= expense.category)
@@ -123,7 +123,7 @@ head
             .mb-3
             label.form-label(for='comment') Comment
             input#comment.form-control(type='text' name='comment' required='' value= expense.comment) 
-            button.btn.btn-success.btn-submit(type='submit') Submit
+            button.btn.btn-success#register(type='submit' value='Register') Submit
             
 
     a.theme-toggle(href='#')
