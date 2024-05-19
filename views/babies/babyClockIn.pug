@@ -112,7 +112,7 @@ head
               input#name(type='text' name='name' value= baby.name readonly)    
              .form-group
               label(for='sitter' ) Sitter:
-              select#sitter.form-control(name='sitter')
+              select#sitter.form-control(name='sitter' required='' )
                 option(value='') Select Sitter
                  if sitters.length
                  each sitter in sitters
@@ -120,18 +120,22 @@ head
               small#sitterErr
                .form-group
                 label(for='paidFee') Select Period Of Stay 
-                select#paidFee(name='paidFee' value=baby.paidFee)
+                select#paidFee(name='paidFee' value=baby.paidFee required='')
                   option(value='') Select Period Of Stay
                   option(value='Half A Day (UGX 10000)') Half A Day (UGX 10000)
                   option(value='Full Day (UGX 15000)') Full Day (UGX 15000)
+                  option(value=' ') Other (UGX)
                .form-group
                  label(for='childBroughtBy') Child Brought by:
-                 input#childBroughtBy(type='text' name='childBroughtBy' value= baby.childBroughtBy)
+                 input#childBroughtBy(type='text' name='childBroughtBy' value= baby.childBroughtBy required='')
                .form-group
                  label(for='arrivalTime') Arrival Time:
-                 input#arrivalTime(type='time' name='arrivalTime' value= baby.arrivalTime)
+                 input#arrivalTime(type='date' name='arrivalTime' value= baby.arrivalTime required='')
                .form-group
-                 input#status(type='hidden' name='status'  value= 'ClockedIn')
+                 input#status(type='hidden' name='status'  value= 'ClockedIn' readOnly)
+               .form-group
+                 label(for='comment') Comment:
+                 input#comment(type='text' name='comment' value= baby.comment required='')
                .form-group
                  label(for='childNumber') Child Number:
                  input#childNumber(type='text' name='childNumber' value= baby.childNumber readonly)

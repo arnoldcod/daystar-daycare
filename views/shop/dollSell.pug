@@ -108,25 +108,25 @@ head
         form#registrationForm(onsubmit='return validateForm()' action='/sellDoll?id='+doll._id method='POST')
             .mb-3
             label.form-label(for='date') Date
-            input#date.form-control(type='date' name='date'  )
+            input#date.form-control(type='date' name='date' required=' ' )
             .mb-3
             label.form-label(for='name') Name
-            input#name.form-control(type='text' name='name'  value= doll.name)
+            input#name.form-control(type='text' name='name'  value= doll.name readOnly)
             .mb-3
             label.form-label(for='description') Description
-            input#description.form-control(type='text' name='description'  value= doll.description)
+            input#description.form-control(type='text' name='description'  value= doll.description readOnly)
             .mb-3
             label.form-label(for='quantity') Quantity
-            input#quantity.form-control(type='number' name='quantity' )
+            input#quantity.form-control(type='number' name='quantity' required=' ')
             .mb-3
             label.form-label(for='price') Price per Doll (UGX)
-            input#price.form-control(type='number' name='price' )
+            input#price.form-control(type='number' name='price' required=' ' )
             .mb-3
             label.form-label(for='sellPrice') Sell Price(UGX)
-            input#sellPrice.form-control(type='number'  name='sellPrice' )
+            input#sellPrice.form-control(type='number'  name='sellPrice' required=' ')
             .mb-3
             label.form-label(for='comment') Comment
-            input#comment.form-control(type='text' name='comment' )
+            input#comment.form-control(type='text' name='comment' required=' ')
             input#id(type='hidden' name='id' value=doll._id)
             input#status(type='hidden' name='status')
 

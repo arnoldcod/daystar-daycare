@@ -2,11 +2,12 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Admin Dashboard
+  title Items Finished List
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css')
   script(src='https://kit.fontawesome.com/ae360af17e.js' crossorigin='anonymous')
   link(rel='stylesheet' href='/css/procurement.css')
-..wrapper
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css')
+.wrapper
   aside#sidebar.js-sidebar.bg-dark
     // Content For Sidebar
     .h-100
@@ -103,6 +104,8 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
+            a.btn.btn-success(href= "/procurementView") Back To Procurement List
+            p
             h1.text-center.my-6.text-bg-danger.text-light List Of Items Not Available in Store
             table.table.table-striped
               thead
@@ -122,10 +125,10 @@ head
                       td #{item.itemId}
                       td #{item.itemQuantity}
                       td #{item.status}
-                      td 
-                          form(method="POST" action="/deleting")
-                          input(type="hidden" name="id" value=item._id)
-                          button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit") 
+                      //- td 
+                      //-     form(method="POST" action="/deleteItemFinished")
+                      //-     input(type="hidden" name="id" value=item._id)
+                      //-     button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit") 
         
 
     a.theme-toggle(href='#')

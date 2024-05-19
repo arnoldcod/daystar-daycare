@@ -105,6 +105,7 @@ head
     main.content.px-3.py-2
       .container-fluid
         a.btn.btn-success(href= "/income") Register Income
+        a.btn.btn-danger(href= "/expenseList") View Expense List
         p
         h1.text-center.my-6.text-bg-success.text-light Income List 
         table.table.table-striped
@@ -120,7 +121,7 @@ head
             if incomes.length 
               each income in incomes
                 tr
-                  td #{moment(income.date).format("DD-MM-YY")}
+                  td= moment(income.date).format("MMMM Do YYYY, hh:mm a")
                   td #{income.category}
                   td #{income.totalIncome}
                   td #{income.comment}

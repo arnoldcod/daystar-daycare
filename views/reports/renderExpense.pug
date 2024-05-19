@@ -104,7 +104,11 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
+        //- form#searchForm(action='expenseList', method='GET')
+        //- input#searchInput(type='text', placeholder='Search...', name='q', value= q)
+        //- a.btn.btn-dark#searchButton(type='submit') Search
         a.btn.btn-danger(href= "/expense") Register Expense
+        a.btn.btn-success(href= "/incomeList") View Income
         p
         h1.text-center.my-6.text-bg-danger.text-light Expense List 
         table.table.table-striped
@@ -120,7 +124,7 @@ head
             if expenses.length 
               each expense in expenses
                 tr
-                  td #{moment(expense.date).format("DD-MM-YY")}
+                  td= moment(expense.date).format("MMMM Do YYYY, h:mm a")
                   td #{expense.category}
                   td #{expense.totalExpense}
                   td #{expense.comment}

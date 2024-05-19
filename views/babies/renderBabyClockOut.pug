@@ -105,6 +105,7 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
+      a.btn.btn-success(href= "/babies") Back To Babies Registered
       h1.text-center.my-6.text-bg-danger.text-light List Of Children Clocked Out
       table.table.table-striped
         thead
@@ -117,7 +118,7 @@ head
             th child Picked By
             th departure time
             th Child Number:
-            th Delete
+            //- th Delete
         tbody
           if babies.length 
             each baby in babies
@@ -130,10 +131,10 @@ head
                 td #{baby.childBroughtBy}
                 td #{baby.departureTime}
                 td #{baby.childNumber}
-                td 
-                    form(method="POST" action="/deleteBaby")
-                      input(type="hidden" name="id" value=baby._id)
-                      button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")   
+                //- td 
+                //-     form(method="POST" action="/deleteBaby")
+                //-       input(type="hidden" name="id" value=baby._id)
+                //-       button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")   
 
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon

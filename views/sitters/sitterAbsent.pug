@@ -107,6 +107,9 @@ head
           h1 Sitter Absent Register
           form#registrationForm(action='/sitterAbsentRoute?id='+sitter._id  method='POST')
             .form-group
+              label(for='date')  Date:
+              input#date(type='text' date='date' value=sitter.date required='')
+            .form-group
               label(for='name')  Name:
               input#name(type='text' name='name' value=sitter.name required='')
             .form-group

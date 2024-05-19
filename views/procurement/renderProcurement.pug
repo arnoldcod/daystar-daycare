@@ -104,20 +104,22 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
-        a.btn.btn-success(href= "/itemAvailableRegistered") Items in Store
-        a.btn.btn-success(href= "/itemAvailableRegistered") Items Out Of Stock  
+        a.btn.btn-success(href= "/procurementRegister") Add New Item
+        a.btn.btn-light(href= "/itemAvailableRegistered") Items Available in Store
+        a.btn.btn-secondary(href= "/itemFinishedRegistered") Items Out Of Stock  
+        p
         h1.text-center.my-6.text-bg-success.text-light Procurement List Of Items Registered
         table.table.table-striped
           thead
-            tr
-              th Date Purchased:
+            tr.text-bg-light
+              th Date :
               th Vendor:
-              th Name of Item Purchased:
-              th Item ID:
-              th Item Quantity:
-              th Item Unit Price(UGX):
+              th Name :
+              th  ID:
+              th  Quantity:
+              th  Unit Price(UGX):
               th Measurement (kgs/ltrs/dolls/pcs/packets):
-              th Total Price of Item (UGX):
+              th Total Price  (UGX):
               th Status:
               th Available:
               th Finished:
@@ -127,7 +129,7 @@ head
             if items.length 
               each item in items
                 tr
-                  td #{moment(item.datePurchased).format("DD-MM-YY")}
+                  td= moment(item.datePurchased).format("MMMM Do YYYY, h:mm a")
                   td #{item.vendor}
                   td #{item.itemName}
                   td #{item.itemId}
@@ -143,7 +145,7 @@ head
                   td 
                     a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/procurementUpdate/"+ item._id)
                   td 
-                    form(method="POST" action="/deleting")
+                    form(method="POST" action="/deleteItem")
                     input(type="hidden" name="id" value=item._id)
                     button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
         

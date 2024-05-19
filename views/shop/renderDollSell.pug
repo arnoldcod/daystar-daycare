@@ -2,10 +2,11 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Admin Dashboard
+  title Sold Dolls
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css')
   script(src='https://kit.fontawesome.com/ae360af17e.js' crossorigin='anonymous')
-  link(rel='stylesheet' href='/css/dolls.css')
+  link(rel='stylesheet' href='/css/procurement.css')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css')
 .wrapper
   aside#sidebar.js-sidebar.bg-dark
     // Content For Sidebar
@@ -103,35 +104,33 @@ head
               a.dropdown-item(href='/welcome') Logout
     main.content.px-3.py-2
       .container-fluid
-      h5  Number of Dolls: #{registeredDolls}
-      h5  Number of Dolls Sold: #{dollsSold}
-      h1.text-center.my-6.text-bg-success.text-light Doll List 
+      a.btn.btn-light(href= "/dolls") Doll Stall
+      a.btn.btn-warning(href= "/income") Record Daily Income
+      h1.text-center.my-6.text-bg-success.text-light Sold Dolls 
       table.table.table-striped
         thead
-          tr
+          tr.text-bg-light
             th Date
             th Name
             th Description
             th Quantity
             th Sell Price(UGX)
             th Comment
-            th Sell
-            th Update
+           
+            //- th Update
           
         tbody
-          if soldDolls.length 
-            each soldDoll in soldDolls
+          if dolls.length 
+            each doll in dolls
               tr
-                td td #{moment(soldDoll.date).format("DD-MM-YY")}
-                td #{soldDoll.name}
-                td #{soldDoll.description}
-                td #{soldDoll.quantity}
-                td #{soldDoll.sellPrice}
-                td #{soldDoll.comment}
-                td 
-                    a.btn.btn-block.i.bi.btn-success(href=`/sell/${doll._id}`) Sell Now
-                td 
-                    a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/dollsUpdate/"+ doll._id)
+                td #{moment(doll.date).format("DD-MM-YY")}
+                td #{doll.name}
+                td #{doll.description}
+                td #{doll.quantity}
+                td #{doll.sellPrice}
+                td #{doll.comment}
+                //- td 
+                //-     a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/dollsUpdate/"+ doll._id)
                 
         
 

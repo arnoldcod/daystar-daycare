@@ -30,10 +30,21 @@ router.get("/expense", (req, res)=> {
 
  //fetching expenses from database 
  router.get("/expenseList", async (req, res)=> {
+
    try {
-      let expense = await ExpenseModel.countDocuments({}) // aggregations
-     let expenses = await ExpenseModel.find()
-     res.render("./reports/renderExpense", {expenses:expenses, expense}) 
+      const filters = {};
+      const q = req.query.q;
+      if (q) {
+        // Filter by sitter name (first or last name) - like
+        filters.$or = [
+          { firstName: { $regex: q, $options: 'i' } },
+          { lastName: { $regex: q, $options: 'i' } }
+        ];
+      }
+
+     let expense = await ExpenseModel.countDocuments({}) // aggregations
+     let expenses = await ExpenseModel.find(filters).sort({ $natural: -1}); 
+     res.render("./reports/renderExpense", {expenses:expenses, expense, q}) 
      console.log("display expenses", expenses);
 
    } catch (error) {
@@ -41,6 +52,8 @@ router.get("/expense", (req, res)=> {
       console.log("unable to find expenses from database!...", error );
    }
    })
+
+
 
 
    //delete route for expense in database
@@ -80,6 +93,47 @@ router.get("/expense", (req, res)=> {
    
  });
 
+
+
+
+    ///search bar
+    router.get('/search', async (req, res) => {
+      try {
+        const query = req.query.query;
+        
+        if (!query) {
+          return res.render('search', { query: '', results: [], error: 'Please provide a search query' });
+        }
+    
+        // Define an array of model names you want to search through
+        const modelsToSearch = [babiesRegisterModel, DollModel, ExpenseModel, IncomeModel, ProcurementModel,  SittersModel]; // Update this array with your model names
+    
+        // Perform asynchronous search queries across all models
+        async.map(modelsToSearch, (model, callback) => {
+          model.find({ $text: { $search: query } }, (err, results) => {
+            if (err) {
+              return callback(err);
+            }
+            callback(null, results);
+          });
+        }, (err, searchResults) => {
+          if (err) {
+            console.error('Error searching for items:', err);
+            return res.status(500).send('Internal server error');
+          }
+   
+           // Flatten the array of search results
+           const flattenedResults = searchResults.flat();
+    
+           // Render the search results using a Pug template
+           res.render('search-results', { query, results: flattenedResults });
+         });
+       } catch (error) {
+         console.error('Error searching for items:', error);
+         res.status(500).send('Internal server error');
+       }
+     });
+   
 
   
  module.exports = router;

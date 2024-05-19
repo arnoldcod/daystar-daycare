@@ -148,7 +148,7 @@ head
                     .p-3.m-1
                       h2.text-center.text-bg-secondary  Procurement
                       p.mb-0
-                      h5  Items Registered: #{registeredItems}
+                      h5  Registered: #{registeredItems}
                       p
                       br
                       a(href='/procurementView')
@@ -164,16 +164,16 @@ head
                     .p-3.m-1
                       h2.text-center.text-bg-secondary  Reports
                       p.mb-0
-                      h5 Income: #{income}
+                      h5 Income: #{income} Items
                       p
                       br
                       p.mb-0
-                      h5 Expenses: #{expense}
+                      h5 Expenses: #{expense} Items
                       p
                       br
                       a(href='/incomeList')
                         button.btn.btn-success(type='button') View Incomes
-                    
+                      p
                       a(href='/expenseList')
                         button.btn.btn-danger(type='button') View Expenses
                   .col-6.align-self-top.text-end
@@ -187,8 +187,11 @@ head
                       h2.text-center.text-bg-secondary  Dolls
                       p.mb-0
                       h5
-                        | Number of Dolls: #{registeredDolls}
+                        | Registered: #{registeredDolls}
                         p
+                        //- br
+                        //- //- h5 Number of Dolls Sold: #{dollsSold}     
+                        //- //-   p
                         br
                         a(href='/dolls')
                           button.btn.btn-success(type='button') View Details

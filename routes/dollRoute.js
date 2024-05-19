@@ -45,7 +45,7 @@ router.get("/dollsRegister", (req, res)=> {
   router.get("/dolls", async (req, res)=> {
    try {
       let registeredDolls = await DollModel.countDocuments({}) // aggregations
-     let dolls = await DollModel.find().sort({ $natural: -1});  //from line8
+     let dolls = await DollModel.find()
      res.render("./shop/renderDolls", {dolls:dolls, registeredDolls }) // to display Dolls from data base
      console.log("display dolls", dolls);
 
@@ -90,7 +90,7 @@ router.get("/dollsRegister", (req, res)=> {
          doll.status = "Sold Out";
        }
        await doll.save();
-       res.redirect("/dolls"); // Redirect to the dolls list after selling
+       res.redirect("/soldDoll"); // Redirect to the dolls list after selling
      } else {
        console.log("Invalid quantity or insufficient stock");
        console.log("Available quantity:", doll.quantity);
@@ -103,6 +103,22 @@ router.get("/dollsRegister", (req, res)=> {
    }
  });
 
+
+  //fetching All dolls sold from database 
+  router.get("/soldDoll", async (req, res)=> {
+    try {
+       let dollsSold = await DollModel.countDocuments({}) // aggregations
+
+      let dolls = await DollModel.find().sort({ $natural: -1});  //from line8
+      res.render("./shop/renderDollSell", {dolls:dolls, dollsSold}) // to display Dolls from data base
+      console.log("display dolls", dolls);
+ 
+    } catch (error) {
+       res.status(400).send("unable to find dolls from database!");
+       console.log("unable to find dolls from database!...", error );
+    }
+    });
+ 
 
 
 
@@ -141,7 +157,6 @@ router.post("/deleteDoll", async(req, res)=> {
       res.status(404).send("unable to update doll in the db!");  
    }
  })
-
 
 
 

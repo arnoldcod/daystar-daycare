@@ -108,10 +108,10 @@ head
         form#registrationForm(action='/incomeUpdate?id='+income._id  method='POST')
             .mb-3
             label.form-label(for='date') Date
-            input#date.form-control(type='date' name='date' value= income.date)
+            input#date.form-control(type='date' name='date' value= income.date required='')
             .mb-3
             label.form-label(for='category') Category
-            select#category.form-select( name= 'category'  value= income.category)
+            select#category.form-select( name= 'category'  value= income.category required='')
                 option(value='') Select Category
                 option(value='babies_fees') Babies Fees
                 option(value='doll_stall') Doll Stall
@@ -119,10 +119,10 @@ head
                 option(value='others') Others
             .mb-3
             label.form-label(for='totalIncome') Total Income Earned Per Day
-            input#totalIncome.form-control(type='number' name='totalIncome'  value= income.number)
+            input#totalIncome.form-control(type='number' name='totalIncome'  value= income.number required='')
             .mb-3
             label.form-label(for='comment') Comment
-            input#comment.form-control(type='text' name='comment' value= income.comment)
+            input#comment.form-control(type='text' name='comment' value= income.comment required='')
             button.btn.btn-success.btn-submit(type='submit') Submit
             
             

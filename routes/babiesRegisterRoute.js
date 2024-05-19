@@ -4,14 +4,13 @@ const moment = require('moment');
 const passport = require("passport");
 const connectEnsureLogin = require("connect-ensure-login");
 
-// connectEnsureLogin.ensureLoggedIn(),
 
 
 const SittersModel = require("../models/sittersRegisterModel")   //import model
 const BabiesRegisterModel = require("../models/babiesRegisterModel") //import model
 
 
-router.get("/babiesRegister", (req, res)=> { //to run on the browser and display form on server file
+router.get("/babiesRegister",connectEnsureLogin.ensureLoggedIn(), (req, res)=> { //to run on the browser and display form on server file
     res.render("./babies/babiesRegister");  //from babiesRegister.pug
  });
 
@@ -64,19 +63,21 @@ router.get("/babiesRegister", (req, res)=> { //to run on the browser and display
 
 
 
- //delete route for baby clocked in in database
- router.post("/deleteBabyClockedIn", async(req, res)=> {
-   try {  
-      await BabiesRegisterModel.deleteOne({_id:req.body.id});
+//  //delete route for baby clocked in in database
+//  router.post("/deleteBabyClockedIn", async(req, res)=> {
+//    try {  
+//       await BabiesRegisterModel.deleteOne({_id:req.body.id});
       
-      res.redirect("back");
+//       res.redirect("back");
      
 
-   } catch (error) {
-      res.status(400).send("unable to delete baby from db!");
-      console.log("error deleting baby...", error );
-   }
- });
+//    } catch (error) {
+//       res.status(400).send("unable to delete baby from db!");
+//       console.log("error deleting baby...", error );
+//    }
+//  });
+
+
 
 
 
