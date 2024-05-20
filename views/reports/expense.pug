@@ -104,7 +104,7 @@ head
     main.content.px-3.py-2
       .container
         // Content
-        h1.mb-4 Expense Register Form
+        h1.mb-4.text-center.my-6.text-bg-danger.text-light Expense Register Form
         form#registrationForm(action='/expense' method='POST')
             .mb-3
             label.form-label(for='date') Date
@@ -123,7 +123,7 @@ head
             .mb-3
             label.form-label(for='comment') Comment
             input#comment.form-control(type='text' name='comment' required='')
-            button.btn.btn-success#register(type='submit' value='Register') Submit
+            button.btn.btn-danger#register(type='submit' value='Register') Submit
             
 
     a.theme-toggle(href='#')

@@ -105,7 +105,7 @@ head
       .container-fluid
         // Content
         .container
-          h1 Register Baby
+          h1.mb-4.text-center.my-6.text-bg-secondary.text-light Register Baby
           form#babyForm(onsubmit='return validation(event)' name='validationForm' action='/babiesRegister' method='POST')
             .form-group
               label(for='name') Full Name:
@@ -139,7 +139,7 @@ head
               input#childNumber(type='text' name='childNumber' placeholder='Child Number' required='')
               small#childNumberError
               p
-            button.btn.btn-success#register(type='submit' value='Register') Submit
+            button.btn.btn-success#register(type='submit' value='Register') Register
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
       i.fa-regular.fa-sun

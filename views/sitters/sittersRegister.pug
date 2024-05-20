@@ -105,7 +105,7 @@ head
       .container-fluid
         // Content
         .container
-            h1 Sitter General Registry
+            h1.mb-4.text-center.my-6.text-bg-secondary.text-light  Sitter General Registry
             form#registrationForm(action='/sittersRegister' method='POST')
               .form-group
                 label(for='name') Name:
@@ -140,7 +140,7 @@ head
               .form-group
                 label(for='sitterNumber') Sitter Number:
                 input#sitterNumber(type='text' name='sitterNumber' placeholder='Enter sitter number' required='')
-                input.text-bg-success(type='submit' value='Register')
+                button.btn.btn-success#register(type='submit' value='Register') Register
             
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
