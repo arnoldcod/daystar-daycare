@@ -113,31 +113,31 @@ head
               input#name(type='text' name='name' value=baby.name readonly )
             .form-group
               label(for='sitter') Sitter:
-              select#sitter.form-control(name='sitter')
+              select#sitter.form-control(name='sitter' readOnly)
                  if sitters.length
                  each sitter in sitters
                      option(value=sitter_id) #{sitter.name}
               small#sitterErr
             .form-group
               label(for='comment')  Comment:
-              input#comment(type='text' name='comment'  value=baby.comment)
+              input#comment(type='text' name='comment'  value=baby.comment readOnly)
             //- .form-group
             //-   label(for='status') Status:
             //-   input#status(type='text' name='status'  value=baby.status)
             .form-group
               label(for='status') Status:
-              select#status( type='text' name='status' value=baby.status)
-                option(value='ClockedIn') ClockedIn
+              select#status( type='text' name='status' value=baby.status readOnly required='')
+                //- option(value='ClockedIn') ClockedIn
                 option(value='ClockedOut') ClockedOut
             .form-group
               label(for='childPickedBy') Child Picked by:
-              input#childPickedBy(type='text' name='childPickedBy'  value=baby.childPickedBy)
+              input#childPickedBy(type='text' name='childPickedBy'  value=baby.childPickedBy required='')
             .form-group
               label(for='departureTime') Departure Time:
-              input#departureTime(type='time' name='departureTime'  value=baby.departureTime)
+              input#departureTime(type='time' name='departureTime'  value=baby.departureTime required='')
             .form-group
               label(for='childNumber') Child Number:
-              input#childNumber(type='text' name='childNumber'  value=baby.childNumber)
+              input#childNumber(type='text' name='childNumber'  value=baby.childNumber readOnly)
             button.btn.btn-success#register(type='submit' value='Register') Submit
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon

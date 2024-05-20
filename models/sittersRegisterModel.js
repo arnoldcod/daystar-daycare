@@ -16,7 +16,8 @@ const sittersRegisterSchema = new mongoose.Schema({
     },
     date:{
         type: Date,
-        trim: true
+        trim: true,
+        
     },
     age:{
         type: Number, 

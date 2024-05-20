@@ -130,9 +130,9 @@ head
                  input#childBroughtBy(type='text' name='childBroughtBy' value= baby.childBroughtBy required='')
                .form-group
                  label(for='arrivalTime') Arrival Time:
-                 input#arrivalTime(type='date' name='arrivalTime' value= baby.arrivalTime required='')
+                 input#arrivalTime(type='time' name='arrivalTime' value= baby.arrivalTime required='')
                .form-group
-                 input#status(type='hidden' name='status'  value= 'ClockedIn' readOnly)
+                 input#status(type='hidden' name='status'  value= 'ClockedIn' )
                .form-group
                  label(for='comment') Comment:
                  input#comment(type='text' name='comment' value= baby.comment required='')

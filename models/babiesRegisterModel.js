@@ -23,8 +23,8 @@ const babiesRegisterSchema = new mongoose.Schema({
         trim: true
     },
     contact:{
-        type: Number, 
-        unique: true
+        type: String, 
+        trim: true
     },
     address:{
         type: String, 

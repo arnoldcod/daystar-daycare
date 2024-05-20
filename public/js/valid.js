@@ -156,7 +156,7 @@ if (address.value ==  "") {
 
 
   //nin validation
-  let ninRegex = /^(CF|CM)\d{8}[A-Z]{4}$/;
+  let ninRegex = /^(CF|CM)\d{8}$/;
   if (!nin.value.match(ninRegex)) {
     nin.style.border = "1px solid red";
     ninError.textContent = "Enter a valid NIN ";

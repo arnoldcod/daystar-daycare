@@ -123,7 +123,7 @@ head
             if sitters.length 
               each sitter in sitters
                 tr
-                  td #{moment(sitter.date).format("DD-MM-YY")}
+                  td #{moment(sitter.date).format("dddd, MMMM Do YYYY, h:mm:ss a")}
                   td #{sitter.name}
                   td #{sitter.contact}
                   td #{sitter.arrivalTime}
