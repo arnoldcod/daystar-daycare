@@ -15,6 +15,7 @@ const levelOfEducation = document.getElementById("levelOfEducation");
 
 
 
+
 const nameError = document.getElementById("nameError");
 const dobError = document.getElementById("dobError");
 const emailError = document.getElementById("emailError");
@@ -54,6 +55,7 @@ const levelOfEducationError = document.getElementById("levelOfEducationError");
     emailError.textContent = "";
   }
 
+
   //password validation
   if (password.value == "") {
     password.style.border = "1px solid red";
@@ -76,6 +78,7 @@ const levelOfEducationError = document.getElementById("levelOfEducationError");
     passwordError.textContent = "";
   }
 
+  
 
  //full name validation
 if (name.value ==  "") {
