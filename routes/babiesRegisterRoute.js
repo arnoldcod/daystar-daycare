@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const moment = require("moment");
-const passport = require("passport");
 const connectEnsureLogin = require("connect-ensure-login");
 
 const SittersModel = require("../models/sittersRegisterModel"); //import model
@@ -21,7 +20,8 @@ router.post("/babiesRegister", async (req, res) => {
         console.log(child);
         await child.save();
 
-        res.redirect("/babies");
+        res.redirect("babies");
+
     } catch (error) {
         res.status(400).send("Sorry something wrong!");
         console.log("error registering baby...", error);
@@ -47,7 +47,7 @@ router.get(
     async (req, res) => {
         try {
             let babies = await BabiesRegisterModel.find({
-                status: "ClockedIn",
+                status: "Present",
             }).sort({ $natural: -1 });
             res.render("./babies/renderBabyClockIn", { babies: babies }); // to display babies from data base
             console.log("display babies clocked in", babies);
@@ -79,7 +79,7 @@ router.get(
         try {
             let BabyClockOut = await BabiesRegisterModel.countDocuments({}); // aggregations
             let babies = await BabiesRegisterModel.find({
-                status: "ClockedOut",
+                status: "Absent",
             }).sort({ $natural: -1 });
             res.render("./babies/renderBabyClockOut", {
                 babies: babies,

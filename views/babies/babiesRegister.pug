@@ -105,7 +105,7 @@ head
       .container-fluid
         // Content
         .container
-          h1.mb-4.text-center.my-6.text-bg-secondary.text-light Register Baby
+          h1.mb-4.text-center.my-6.text-bg-secondary.text-light Baby General Register 
           form#babyForm(onsubmit='return validation(event)' name='validationForm' action='/babiesRegister' method='POST')
             .form-group
               label(for='name') Full Name:
@@ -140,6 +140,7 @@ head
               small#childNumberError
               p
             button.btn.btn-success#register(type='submit' value='Register') Register
+            #alertPlaceholder
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
       i.fa-regular.fa-sun
@@ -165,4 +166,3 @@ script(src='/js/babiesRegister.js')
 
 
 script(src='/js/validBaby.js')
-

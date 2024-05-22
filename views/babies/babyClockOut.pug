@@ -128,13 +128,13 @@ head
               label(for='status') Status:
               select#status( type='text' name='status' value=baby.status readOnly required='')
                 //- option(value='ClockedIn') ClockedIn
-                option(value='ClockedOut') ClockedOut
+                option(value='Absent') Absent
             .form-group
               label(for='childPickedBy') Child Picked by:
               input#childPickedBy(type='text' name='childPickedBy'  value=baby.childPickedBy required='')
             .form-group
               label(for='departureTime') Departure Time:
-              input#departureTime(type='time' name='departureTime'  value=baby.departureTime required='')
+              input#departureTime(type='date' name='departureTime'  value=baby.departureTime required='')
             .form-group
               label(for='childNumber') Child Number:
               input#childNumber(type='text' name='childNumber'  value=baby.childNumber readOnly)

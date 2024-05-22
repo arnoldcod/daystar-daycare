@@ -105,42 +105,55 @@ head
       .container-fluid
         // Content
         .container
-            h1.mb-4.text-center.my-6.text-bg-secondary.text-light  Sitter General Registry
-            form#registrationForm(action='/sittersRegister' method='POST')
+            h1.mb-4.text-center.my-6.text-bg-secondary.text-light  Sitter General Register
+            form#sitterForm(onsubmit='return validation(event)' name='validationForm' action='/sittersRegister' method='POST')
               .form-group
-                label(for='name') Name:
-                input#name(type='text' name='name' placeholder='Enter name' required='')
+                label(for='name') Full Name:
+                input#name(type='text' name='name' placeholder='Enter Full name')
+                small#nameError
               .form-group
                 label(for='dob') Date of Birth:
-                input#dob(type='date' name='dob' placeholder='YYYY-MM-DD' required='')
+                input#dob(type='date' name='dob' placeholder='YYYY-MM-DD')
+                small#dobError
               .form-group
                 label(for='gender') Gender:
-                select#gender(name='gender' required='')
+                select#gender(name='gender')
                   option(value='') Select Gender
                   option(value='male') Male
                   option(value='female') Female
+                small#genderError
               .form-group
                 label(for='contact') Contact:
-                input#contact(type='text' name='contact' placeholder='Enter contact number' required='')
+                input#contact(type='text' name='contact' placeholder='Enter contact number')
+                small#contactError
               .form-group
                 label(for='address') Address:
-                input#address(type='text' name='address' placeholder='Enter address' required='')
+                input#address(type='text' name='address' placeholder='Enter address')
+                small#addressError
               .form-group
                 label(for='nin') NIN:
-                input#nin(type='text' name='nin' placeholder='Enter NIN' required='')
+                input#nin(type='text' name='nin' placeholder='Enter NIN')
+                small#ninError
               .form-group
                 label(for='recommenderName') Recommender's Name:
-                input#recommenderName(type='text' name='recommenderName' placeholder='Enter recommender\'s name' required='')
+                input#recommenderName(type='text' name='recommenderName' placeholder='Enter recommender\'s name')
+                small#recommenderNameError
               .form-group
                 label(for='religion') Religion(Option):
-                input#religion(type='text' name='religion' placeholder='Enter religion' required='')
+                input#religion(type='text' name='religion' placeholder='Enter religion')
+                small#religionError
               .form-group
                 label(for='levelOfEducation') Level of Education:
-                input#levelOfEducation(type='text' name='levelOfEducation' placeholder='Enter level of education' required='')
+                input#levelOfEducation(type='text' name='levelOfEducation' placeholder='Enter level of education')
+                small#levelOfEducationError
               .form-group
                 label(for='sitterNumber') Sitter Number:
-                input#sitterNumber(type='text' name='sitterNumber' placeholder='Enter sitter number' required='')
+                input#sitterNumber(type='text' name='sitterNumber' placeholder='Enter sitter number')
+                small#sitterNumberError
+                
                 button.btn.btn-success#register(type='submit' value='Register') Register
+                #alertPlaceholder
+            
             
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon
@@ -162,9 +175,9 @@ head
               li.list-inline-item
                 a.text-muted(href='#') Terms
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js')
+
 script(src='/js/sitters.js')
 
-
-
+script(src='/js/validSitter.js')
 
 

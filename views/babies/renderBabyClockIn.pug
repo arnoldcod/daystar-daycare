@@ -107,7 +107,7 @@ head
       .container-fluid
       a.btn.btn-success(href= "/babies") Back To Babies Registered
       a.btn.btn-warning(href= "/income") Record Daily Income
-      h1.text-center.my-6.text-bg-light.text-dark Babies Clocked In
+      h1.text-center.my-6.text-bg-light.text-dark Present Babies
       table.table.table-striped
         thead
           tr.text-bg-light
@@ -125,7 +125,7 @@ head
             each baby in babies
               tr
                 td #{baby.name}
-                td #{baby.sitter ? baby.sitter.name : ''}
+                td #{baby.sitter}
                 td #{baby.childBroughtBy}
                 td= moment(baby.arrivalTime).format("MMMM Do YYYY, h:mm a")
                 td #{baby.paidFee}

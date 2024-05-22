@@ -111,7 +111,7 @@ head
         h1.text-center.my-6.text-bg-success.text-light  Sitters Registered
         table.table.table-striped
           thead
-            tr
+            tr.text-bg-light
               th Name
               th Date Of Birth
               th Gender
@@ -152,7 +152,6 @@ head
                     form(method="POST" action="/deleteSitter")
                       input(type="hidden" name="id" value= sitter._id)
                       button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
-        
 
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon

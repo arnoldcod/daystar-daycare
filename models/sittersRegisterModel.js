@@ -28,8 +28,8 @@ const sittersRegisterSchema = new mongoose.Schema({
         trim: true
     },
     contact:{
-        type: Number, 
-        unique: true
+        type: String, 
+        trim: true
     },
     paidFee:{
         type: Number, 

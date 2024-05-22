@@ -17,19 +17,25 @@ function showAlert(message, type) {
     const name = document.getElementById("name");
     const dob = document.getElementById("dob");
     const gender = document.getElementById("gender");
-    const parentNames = document.getElementById("parentNames");
-    const parentContact = document.getElementById("parentContact");
+    const contact = document.getElementById("contact");
     const address = document.getElementById("address");
-    const childNumber = document.getElementById("childNumber");
+    let nin = document.getElementById("nin");
+    const recommenderName = document.getElementById("recommenderName");
+    const religion = document.getElementById("religion");
+    const levelOfEducation = document.getElementById("levelOfEducation");
+    const sitterNumber = document.getElementById("sitterNumber");
   
     // Get error display elements
     const nameError = document.getElementById("nameError");
     const dobError = document.getElementById("dobError");
-    const parentNamesError = document.getElementById("parentNamesError");
     const genderError = document.getElementById("genderError");
-    const parentContactError = document.getElementById("parentContactError");
+    const contactError = document.getElementById("contactError");
     const addressError = document.getElementById("addressError");
-    const childNumberError = document.getElementById("childNumberError");
+    let ninError = document.getElementById("ninError");
+    const recommenderNameError = document.getElementById("recommenderNameError");
+    const religionError = document.getElementById("religionError");
+    const levelOfEducationError = document.getElementById("levelOfEducationError");
+    const sitterNumberError = document.getElementById("sitterNumberError");
   
     // Name validation
     if (name.value === "") {
@@ -64,35 +70,25 @@ function showAlert(message, type) {
       genderError.textContent = "";
     }
   
-    // Parent names validation
-    if (parentNames.value === "") {
-      parentNames.style.border = "1px solid red";
-      parentNamesError.textContent = "Please enter full name!";
-      parentNamesError.style = "color: red;";
-      error++;
-    } else {
-      parentNames.style.border = "1px solid green";
-      parentNamesError.textContent = "";
-    }
   
-    // Parent contact validation
+    //  contact validation
     const phoneDigits = /^\d{10}$/;
-    if (parentContact.value === "") {
-      parentContact.style.border = "1px solid red";
-      parentContactError.textContent = "Please Enter Phone Number";
-      parentContactError.style =
+    if (contact.value === "") {
+      contact.style.border = "1px solid red";
+      contactError.textContent = "Please Enter Valid Phone Number, HINT: enter 10 digits";
+      contactError.style =
         "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
       error++;
-    } else if (!parentContact.value.match(phoneDigits)) {
-      parentContact.style.border = "1px solid red";
-      parentContactError.textContent =
-        "Enter a valid parentContact number, HINT: enter 10 digits";
-      parentContactError.style =
+    } else if (!contact.value.match(phoneDigits)) {
+      contact.style.border = "1px solid red";
+      contactError.textContent =
+        "Enter a valid contact number, HINT: enter 10 digits";
+      contactError.style =
         "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
       error++;
     } else {
-      parentContact.style.border = "1px solid green";
-      parentContactError.textContent = "";
+      contact.style.border = "1px solid green";
+      contactError.textContent = "";
     }
   
     // Address validation
@@ -105,19 +101,75 @@ function showAlert(message, type) {
       address.style.border = "1px solid green";
       addressError.textContent = "";
     }
+
+
+      //nin validation
+  let ninRegex = /^(CF|CM)\d{8}[A-Z]{2}$/;
+  if (!nin.value.match(ninRegex)) {
+    nin.style.border = "1px solid red";
+    ninError.textContent = "Enter a valid NIN : HINT: enter CF/CM*8digits*2letters ";
+    ninError.style =
+      "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
+    // return false;
+    error++;
+  } else {
+    nin.style.border = "1px solid green";
+    ninError.textContent = "";
+  }
+
+
+    
+    // Recommender Name validation
+    if (recommenderName.value === "") {
+        recommenderName.style.border = "1px solid red";
+        recommenderNameError.textContent = "Please enter recommender name!";
+        recommenderNameError.style = "color: red;";
+        error++;
+      } else {
+        recommenderName.style.border = "1px solid green";
+        recommenderNameError.textContent = "";
+      }
+
+
+    // Religion validation
+    if (religion.value === "") {
+        religion.style.border = "1px solid red";
+        religionError.textContent = "Please enter religion!";
+        religionError.style = "color: red;";
+        error++;
+      } else {
+        religion.style.border = "1px solid green";
+        religionError.textContent = "";
+      }
+
+
+
+      // Level Of Education  validation 
+    if (levelOfEducation.value === "") {
+        levelOfEducation.style.border = "1px solid red";
+        levelOfEducationError.textContent = "Please enter level of education!";
+        levelOfEducationError.style = "color: red;";
+        error++;
+      } else {
+        levelOfEducation.style.border = "1px solid green";
+        levelOfEducationError.textContent = "";
+      }
+
+
+
   
-    // Child number validation
-    const childNumberRegex = /^(DSB)\d{3}$/;
-    if (!childNumber.value.match(childNumberRegex)) {
-      childNumber.style.border = "1px solid red";
-      childNumberError.textContent =
-        "Enter a valid childNumber, HINT: enter DSB*** digits";
-      childNumberError.style =
+    // Sitternumber validation
+    const sitterNumberRegex = /^(DSS)\d{3}$/;
+    if (!sitterNumber.value.match(sitterNumberRegex)) {
+      sitterNumber.style.border = "1px solid red";
+      sitterNumberError.textContent =
+        "Enter a valid sitterNumber, HINT: enter DSS*** digits";
+      sitterNumberError.style =
         "color:red; font-size:11px; font-family:Arial, Helvetica, Sans-serif";
       error++;
     } else {
-      childNumber.style.border = "1px solid green";
-      childNumberError.textContent = "";
+      sitterNumber.style.border = "1px solid green";
+      sitterNumberError.textContent = "";
     }
   
     let isValid = true;

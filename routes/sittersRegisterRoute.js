@@ -1,12 +1,10 @@
 const express = require("express"); ////using routers from express
 const router = express.Router(); /////accessing router function in express
 const moment = require("moment");
-const passport = require("passport");
 const connectEnsureLogin = require("connect-ensure-login");
 
 const SittersModel = require("../models/sittersRegisterModel");
 
-// passport.authenticate("local", {failureRedirect: "/login"}),
 
 //creating routes
 router.get(

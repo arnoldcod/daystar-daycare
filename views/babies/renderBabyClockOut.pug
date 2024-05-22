@@ -106,10 +106,10 @@ head
     main.content.px-3.py-2
       .container-fluid
       a.btn.btn-success(href= "/babies") Back To Babies Registered
-      h1.text-center.my-6.text-bg-danger.text-light List Of Children Clocked Out
+      h1.text-center.my-6.text-bg-danger.text-light Absent Babies
       table.table.table-striped
         thead
-          tr
+          tr.text-bg-light
             th Name
             th sitter
             th Paid Fee(UGX):
@@ -129,7 +129,7 @@ head
                 td #{baby.comment}
                 td #{baby.status}
                 td #{baby.childBroughtBy}
-                td #{baby.departureTime}
+                td= moment(baby.departureTime).format("MMMM Do YYYY, h:mm a")
                 td #{baby.childNumber}
                 //- td 
                 //-     form(method="POST" action="/deleteBaby")

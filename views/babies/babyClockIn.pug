@@ -112,11 +112,10 @@ head
               input#name(type='text' name='name' value= baby.name readonly)    
              .form-group
               label(for='sitter' ) Sitter:
-              select#sitter.form-control(name='sitter' required='' )
-                option(value='') Select Sitter
+              select#sitter.form-control(name='sitter' )
                  if sitters.length
                  each sitter in sitters
-                     option(value=sitter._id) #{sitter.name}
+                     option(value=sitter.name) #{sitter.name}
               small#sitterErr
                .form-group
                 label(for='paidFee') Select Period Of Stay 
@@ -130,9 +129,9 @@ head
                  input#childBroughtBy(type='text' name='childBroughtBy' value= baby.childBroughtBy required='')
                .form-group
                  label(for='arrivalTime') Arrival Time:
-                 input#arrivalTime(type='time' name='arrivalTime' value= baby.arrivalTime required='')
+                 input#arrivalTime(type='date' name='arrivalTime' value= baby.arrivalTime required='')
                .form-group
-                 input#status(type='hidden' name='status'  value= 'ClockedIn' )
+                 input#status(type='hidden' name='status'  value= 'Present' )
                .form-group
                  label(for='comment') Comment:
                  input#comment(type='text' name='comment' value= baby.comment required='')

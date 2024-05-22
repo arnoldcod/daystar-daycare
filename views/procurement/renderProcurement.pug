@@ -146,9 +146,10 @@ head
                     a.btn.btn-block.i.bi.bi-pencil-square.btn-success(href= "/procurementUpdate/"+ item._id)
                   td 
                     form(method="POST" action="/deleteItem")
-                    input(type="hidden" name="id" value=item._id)
+                    input(type="hidden" name="id" value= item._id)
                     button.btn.btn-block.i.bi.bi-trash3.btn-danger(type="submit")
         
+
 
     a.theme-toggle(href='#')
       i.fa-regular.fa-moon

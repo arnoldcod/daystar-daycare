@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const moment = require("moment");
-const passport = require("passport");
 const connectEnsureLogin = require("connect-ensure-login");
 
 const ProcurementModel = require("../models/procurementRegisterModel");
 
+//creating routes
 router.get(
     "/procurementRegister",
     connectEnsureLogin.ensureLoggedIn(),
@@ -21,7 +21,6 @@ router.post("/procurementRegister", async (req, res) => {
         const item = new ProcurementModel(req.body);
         console.log(item);
         await item.save();
-
         res.redirect("/procurementView");
     } catch (error) {
         res.status(400).send("Sorry something wrong!");
@@ -35,12 +34,8 @@ router.get(
     connectEnsureLogin.ensureLoggedIn(),
     async (req, res) => {
         try {
-            let registeredItems = await ProcurementModel.countDocuments({}); // aggregations
-            let items = await ProcurementModel.find().sort({ $natural: -1}); ;
-            res.render("./procurement/renderProcurement", {
-                items: items,
-                registeredItems,
-            }); // to display items from data base
+            let items = await ProcurementModel.find().sort({ $natural: -1 });
+            res.render("./procurement/renderProcurement", { items: items }); // to display items from data base
             console.log("display items", items);
         } catch (error) {
             res.status(400).send("unable to find items from database!");
@@ -82,7 +77,6 @@ router.post("/procurementUpdate", async (req, res) => {
 router.post("/deleteItem", async (req, res) => {
     try {
         await ProcurementModel.deleteOne({ _id: req.body.id });
-
         res.redirect("back");
     } catch (error) {
         res.status(400).send("unable to itemfrom db!");
@@ -97,7 +91,9 @@ router.get(
     async (req, res) => {
         try {
             let itemsAvailable = await ProcurementModel.countDocuments({}); // aggregations
-            let items = await ProcurementModel.find({ status: "Available" }).sort({ $natural: -1}); ;
+            let items = await ProcurementModel.find({
+                status: "Available",
+            }).sort({ $natural: -1 });
             res.render("./procurement/renderItemAvailable", {
                 items: items,
                 itemsAvailable,
