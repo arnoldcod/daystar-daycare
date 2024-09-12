@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "webpack",
+    "babel": "babel src -d dist"
   },
   "keywords": [
     "My",
@@ -13,7 +15,7 @@
     "Nodejs",
     "project"
   ],
-  "author": "Arnold Weasly",
+  "author": "Arnold Uwamwezi",
   "license": "ISC",
   "dependencies": {
     "connect-ensure-login": "^0.1.1",
@@ -32,6 +34,12 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "@babel/core": "^7.22.9",
+    "@babel/cli": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }
